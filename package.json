@@ -2,7 +2,7 @@
   "name": "cypress-file-upload",
   "version": "1.0.0",
   "description": "A Cypress command for file upload",
-  "main": "index.js",
+  "main": "bundle.js",
   "scripts": {
     "build": "uglifyjs index.js --compress --mangle --output bundle.js",
     "lint": "eslint index.js",
