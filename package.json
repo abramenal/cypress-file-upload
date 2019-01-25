@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A Cypress command for file upload",
   "main": "bundle.js",
+  "engines": {
+    "node": ">6"
+  },
   "scripts": {
     "build": "uglifyjs index.js --compress --mangle --output bundle.js",
     "lint": "eslint index.js",
