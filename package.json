@@ -2,7 +2,10 @@
   "name": "cypress-file-upload",
   "version": "1.0.0",
   "description": "A Cypress command for file upload",
-  "main": "index.js",
+  "main": "bundle.js",
+  "engines": {
+    "node": ">6"
+  },
   "scripts": {
     "build": "uglifyjs index.js --compress --mangle --output bundle.js",
     "lint": "eslint index.js",
@@ -20,7 +23,7 @@
     "test"
   ],
   "author": "abramenal <pavel.auramenka@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/abramenal/cypress-file-upload/issues"
   },
