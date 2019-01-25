@@ -1,0 +1,7 @@
+.editorconfig
+.eslintrc
+.gitignore
+.huskyrc
+.lintstagedrc
+.prettierrc
+index.js
