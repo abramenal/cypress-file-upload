@@ -1,0 +1,13 @@
+{
+  "extends": "airbnb-base",
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-parens": ["error", "as-needed"],
+    "max-len": ["error", { "code": 120 }]
+  },
+  "globals": {
+    "Cypress": true,
+    "cy": true
+  }
+}
