@@ -1,0 +1,41 @@
+{
+  "name": "cypress-file-upload",
+  "version": "1.0.0",
+  "description": "A Cypress command for file upload",
+  "main": "index.js",
+  "scripts": {
+    "build": "uglifyjs index.js --compress --mangle --output bundle.js",
+    "lint": "eslint index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abramenal/cypress-file-upload.git"
+  },
+  "keywords": [
+    "cypress",
+    "cypress",
+    "command",
+    "e2e",
+    "test"
+  ],
+  "author": "abramenal <pavel.auramenka@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/abramenal/cypress-file-upload/issues"
+  },
+  "homepage": "https://github.com/abramenal/cypress-file-upload#readme",
+  "devDependencies": {
+    "eslint": "^5.12.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.15.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.16.1",
+    "uglify-es": "^3.3.9"
+  },
+  "peerDependencies": {
+    "cypress": "^3.0.0"
+  }
+}
