@@ -17,8 +17,9 @@
   },
   "keywords": [
     "cypress",
-    "cypress",
     "command",
+    "file",
+    "upload",
     "e2e",
     "test"
   ],
