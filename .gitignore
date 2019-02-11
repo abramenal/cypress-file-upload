@@ -61,3 +61,6 @@ typings/
 .next
 
 bundle.js
+
+example/.cache
+example/dist
