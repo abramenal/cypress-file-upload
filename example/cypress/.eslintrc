@@ -1,0 +1,12 @@
+{
+  "root": true,
+  "extends": "airbnb",
+  "plugins": ["cypress", "prettier"],
+  "env": {
+    "cypress/globals": true
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-parens": ["error", "as-needed"]
+  }
+}

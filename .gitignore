@@ -61,3 +61,8 @@ typings/
 .next
 
 bundle.js
+
+example/.cache
+example/dist
+example/cypress/videos
+example/cypress/screenshots
