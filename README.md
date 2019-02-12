@@ -6,6 +6,7 @@ Simple custom Cypress command to ease file upload testing.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributors](#contributors)
 - [License](#license)
 
 ## Installation
@@ -33,6 +34,12 @@ cy.fixture('data.json', 'base64').then(content => {
 });
 ```
 
+Please see full version in [example][example].
+
+## Contributors
+
+(will appear shortly)
+
 ## License
 
 [MIT][mit]
@@ -40,3 +47,4 @@ cy.fixture('data.json', 'base64').then(content => {
 [npm]: https://www.npmjs.com/
 [uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT
+[example]: /example
