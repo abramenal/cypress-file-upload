@@ -1,0 +1,1 @@
+describe('Simple file upload', () => {});
