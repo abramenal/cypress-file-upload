@@ -33,6 +33,8 @@ cy.fixture('data.json', 'base64').then(content => {
 });
 ```
 
+Please see full version in [example][example].
+
 ## License
 
 [MIT][mit]
@@ -40,3 +42,4 @@ cy.fixture('data.json', 'base64').then(content => {
 [npm]: https://www.npmjs.com/
 [uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT
+[example]: /example
