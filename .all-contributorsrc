@@ -1,0 +1,23 @@
+{
+  "projectName": "cypress-file-upload",
+  "projectOwner": "abramenal",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "allout58",
+      "name": "James Hollowell",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/2939703?v=4",
+      "profile": "https://github.com/allout58",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
