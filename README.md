@@ -6,6 +6,7 @@ Simple custom Cypress command to ease file upload testing.
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Contributors](#contributors)
 - [License](#license)
 
 ## Installation
@@ -34,6 +35,10 @@ cy.fixture('data.json', 'base64').then(content => {
 ```
 
 Please see full version in [example][example].
+
+## Contributors
+
+(will appear shortly)
 
 ## License
 
