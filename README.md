@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 Simple custom Cypress command to ease file upload testing.
 
@@ -44,9 +44,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/2939703?v=4" width="100px;" alt="James Hollowell"/><br /><sub><b>James Hollowell</b></sub>](https://github.com/allout58)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=allout58 "Code") |
-| :---: |
-
+| [<img src="https://avatars0.githubusercontent.com/u/2939703?v=4" width="100px;" alt="James Hollowell"/><br /><sub><b>James Hollowell</b></sub>](https://github.com/allout58)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=allout58 "Code") | [<img src="https://avatars2.githubusercontent.com/u/5886107?v=4" width="100px;" alt="Oliver O'Donnell"/><br /><sub><b>Oliver O'Donnell</b></sub>](http://www.ollie-odonnell.com)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=oliverodaa "Code") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
