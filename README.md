@@ -36,7 +36,7 @@ cy.fixture('data.json', 'base64').then(content => {
 });
 ```
 
-Please see full version in [example][example].
+Please see full version in [example](./example).
 
 ## Contributors
 
