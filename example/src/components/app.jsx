@@ -1,6 +1,7 @@
 import React from 'react';
 
 import UploadDropzone from './upload-dropzone';
+import UploadInput from './upload-input';
 
 const onSubmit = file => {
   /* Any side effect to process the file */
@@ -14,6 +15,11 @@ export default () => (
       <h1>Examples</h1>
     </header>
     <main>
+      <section>
+        <h2>Via plain html5 input:</h2>
+        <UploadInput onSelect={onSubmit} />
+      </section>
+
       <section>
         <h2>Via react-dropzone:</h2>
         <UploadDropzone onDrop={onSubmit} />

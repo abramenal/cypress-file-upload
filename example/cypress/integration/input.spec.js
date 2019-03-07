@@ -1,13 +1,13 @@
-describe('Drop file into dropzone', () => {
+describe('Attach file to an input element', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
   it('successfully uploads a file', () => {
     cy.fixture('cy.png', 'base64').then(fileContent => {
-      cy.get('[data-cy="dropzone"]').upload(
+      cy.get('[data-cy="input"]').upload(
         { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
-        { uploadType: 'drag-n-drop' },
+        { uploadType: 'input' },
       );
     });
   });
