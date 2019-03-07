@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors)
 
 Simple custom Cypress command to ease file upload testing.
 
@@ -66,9 +66,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars0.githubusercontent.com/u/2939703?v=4" width="100px;" alt="James Hollowell"/><br /><sub><b>James Hollowell</b></sub>](https://github.com/allout58)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=allout58 "Code") | [<img src="https://avatars2.githubusercontent.com/u/5886107?v=4" width="100px;" alt="Oliver O'Donnell"/><br /><sub><b>Oliver O'Donnell</b></sub>](http://www.ollie-odonnell.com)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=oliverodaa "Code") | [<img src="https://avatars0.githubusercontent.com/u/4303638?v=4" width="100px;" alt="Peter Colapietro"/><br /><sub><b>Peter Colapietro</b></sub>](https://github.com/virtuoushub)<br />[📖](https://github.com/abramenal/cypress-file-upload/commits?author=virtuoushub "Documentation") |
-| :---: | :---: | :---: |
-
+| [<img src="https://avatars0.githubusercontent.com/u/2939703?v=4" width="100px;" alt="James Hollowell"/><br /><sub><b>James Hollowell</b></sub>](https://github.com/allout58)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=allout58 "Code") | [<img src="https://avatars2.githubusercontent.com/u/5886107?v=4" width="100px;" alt="Oliver O'Donnell"/><br /><sub><b>Oliver O'Donnell</b></sub>](http://www.ollie-odonnell.com)<br />[💻](https://github.com/abramenal/cypress-file-upload/commits?author=oliverodaa "Code") | [<img src="https://avatars0.githubusercontent.com/u/4303638?v=4" width="100px;" alt="Peter Colapietro"/><br /><sub><b>Peter Colapietro</b></sub>](https://github.com/virtuoushub)<br />[📖](https://github.com/abramenal/cypress-file-upload/commits?author=virtuoushub "Documentation") | [<img src="https://avatars1.githubusercontent.com/u/37389351?v=4" width="100px;" alt="km333"/><br /><sub><b>km333</b></sub>](https://github.com/km333)<br />[🐛](https://github.com/abramenal/cypress-file-upload/issues?q=author%3Akm333 "Bug reports") |
+| :---: | :---: | :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
