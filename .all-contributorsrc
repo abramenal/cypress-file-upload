@@ -35,6 +35,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "km333",
+      "name": "km333",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/37389351?v=4",
+      "profile": "https://github.com/km333",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7
