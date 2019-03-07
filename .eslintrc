@@ -3,11 +3,16 @@
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
+
     "arrow-parens": ["error", "as-needed"],
-    "max-len": ["error", { "code": 120 }]
+    "function-paren-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "max-len": ["error", { "code": 120 }],
+    "no-use-before-define": ["error", { "functions": false }]
   },
   "globals": {
     "Cypress": true,
-    "cy": true
+    "cy": true,
+    "DataTransfer": true
   }
 }
