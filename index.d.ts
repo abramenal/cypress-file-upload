@@ -9,5 +9,15 @@ declare namespace Cypress {
       file: { fileContent: string; fileName: string; mimeType: string },
       options: { uploadType: string },
     ): Chainable<Subject>;
+
+    /**
+     * Command to upload multiple files to the given element
+     * @param files Array of file objects represents necessary file info
+     * @param options Object represents processing options
+     */
+    uploadFiles(
+      files: { fileContent: string; fileName: string; mimeType: string }[],
+      options: { uploadType: string },
+    ): Chainable<Subject>;
   }
 }
