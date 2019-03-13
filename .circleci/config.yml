@@ -9,11 +9,10 @@ defaults: &defaults
   docker:
     - image: circleci/node:10.15.3
 
-dependencies:
-  pre:
-    - openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
-
 jobs:
+  dependencies:
+    pre:
+      - openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
   test:
     <<: *defaults
     steps:
@@ -47,13 +46,13 @@ jobs:
 
 workflows:
   version: 2
-  test-build-publish:
+  test-build-and-publish:
     jobs:
       - test
       - build:
-        requires:
-          - test
-      - deploy:
+          requires:
+            - test
+      - publish:
           requires:
             - build
           filters:
