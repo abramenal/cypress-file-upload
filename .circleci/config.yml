@@ -10,9 +10,6 @@ defaults: &defaults
     - image: circleci/node:10.15.3
 
 jobs:
-  dependencies:
-    pre:
-      - openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
   test:
     <<: *defaults
     steps:
@@ -37,6 +34,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run:
+        name: Decrypt env variables
+        command: openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
