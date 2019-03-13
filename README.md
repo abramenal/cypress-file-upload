@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![Contributors](https://img.shields.io/github/contributors/abramenal/cypress-file-upload.svg)](https://github.com/abramenal/cypress-file-upload/graphs/contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![Contributors](https://img.shields.io/github/contributors/abramenal/cypress-file-upload.svg?color=yellow)](https://github.com/abramenal/cypress-file-upload/graphs/contributors)
 
 Simple custom Cypress command to ease file upload testing.
 
