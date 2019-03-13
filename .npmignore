@@ -1,9 +1,14 @@
+.all-contributorsrc
+.circleci
 .editorconfig
 .eslintignore
 .eslintrc
+.github
 .gitignore
 .huskyrc
 .lintstagedrc
 .prettierrc
 index.js
+CHANGELOG.md
+CONTRIBUTING.md
 example
