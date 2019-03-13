@@ -19,24 +19,24 @@ jobs:
           name: Run source code linting
           command: npm run lint
       - persist_to_workspace:
-        root: ~/repo
-        paths: .
+          root: ~/repo
+          paths: .
   build:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
       - run:
-        name: Create app bundle
-        command: npm run build
+          name: Create app bundle
+          command: npm run build
   publish:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
       - run:
-        name: Decrypt env variables
-        command: openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
+          name: Decrypt env variables
+          command: openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
