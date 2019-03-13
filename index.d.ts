@@ -1,13 +1,20 @@
 declare namespace Cypress {
-  interface Chainable<Subject = any> {
+  interface FileData {
+    fileContent: string;
+    fileName: string;
+    mimeType: string;
+  }
+
+  interface FileProcessingOptions {
+    subjectType: string;
+  }
+
+  interface Chainable<Subject> {
     /**
-     * Command to upload a file to the given element
-     * @param file Object represents necessary file info
-     * @param options Object represents processing options
+     * Command to upload file(s) using given HTML element as subject
+     * @param fileOrArray Single or multiple object(s) representing file data
+     * @param processingOpts Object representing processing options
      */
-    upload(
-      file: { fileContent: string; fileName: string; mimeType: string },
-      options: { uploadType: string },
-    ): Chainable<Subject>;
+    upload(fileOrArray: FileData | FileData[], processingOpts: FileProcessingOptions): Chainable<Subject>;
   }
 }

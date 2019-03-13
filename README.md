@@ -35,7 +35,7 @@ Here is a simple example:
 cy.fixture('data.json', 'base64').then(fileContent => {
   cy.get('[data-cy="dropzone"]').upload(
     { fileContent, fileName: 'data.png', mimeType: 'application/json' },
-    { uploadType: 'drag-n-drop' },
+    { subjectType: 'drag-n-drop' },
   );
 });
 ```
@@ -47,18 +47,18 @@ Please see full version in [example](./example).
 Exposed command in a nutshell:
 
 ```javascript
-cySubject.upload(file, options);
+cySubject.upload(fileOrArray, processingOpts);
 ```
 
-`file` is an object that represents file information and contains following properties:
+`fileOrArray` is an object (or an array of those) that represents file information and contains following properties:
 
-- (string) `fileContent` – raw file content
-- (string) `fileName` – file name with extension
-- (string) `mimeType` – file mime type (string)
+- {String} `fileContent` – raw file content
+- {String} `fileName` – file name with extension
+- {String} `mimeType` – file mime type
 
-`options` is an object that represents processing options and contains following properties:
+`processingOpts` contains following properties:
 
-- (string) `uploadType` – target element type: `'drag-n-drop'` or `'input'`
+- {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`.
 
 ## Contributors
 

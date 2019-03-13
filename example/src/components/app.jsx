@@ -3,10 +3,10 @@ import React from 'react';
 import UploadDropzone from './upload-dropzone';
 import UploadInput from './upload-input';
 
-const onSubmit = file => {
+const onSubmit = files => {
   /* Any side effect to process the file */
 
-  console.log(file);
+  console.log(files);
 };
 
 export default () => (

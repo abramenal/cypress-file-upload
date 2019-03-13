@@ -7,8 +7,19 @@ describe('Attach file to an input element', () => {
     cy.fixture('cy.png', 'base64').then(fileContent => {
       cy.get('[data-cy="input"]').upload(
         { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
-        { uploadType: 'input' },
+        { subjectType: 'input' },
       );
+    });
+  });
+
+  it('successfully uploads multiple files', () => {
+    cy.fixture('cy.png', 'base64').then(cyPng => {
+      const files = [
+        { fileName: 'cy-1.png', fileContent: cyPng, mimeType: 'image/png' },
+        { fileName: 'cy-2.png', fileContent: cyPng, mimeType: 'image/png' },
+      ];
+
+      cy.get('[data-cy="input"]').upload(files, { subjectType: 'input' });
     });
   });
 });

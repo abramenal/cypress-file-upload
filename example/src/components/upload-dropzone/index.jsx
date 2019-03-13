@@ -2,7 +2,7 @@ import React from 'react';
 import Dropzone from 'react-dropzone';
 
 export default ({ onDrop }) => (
-  <Dropzone onDrop={accepted => onDrop(accepted[0])}>
+  <Dropzone onDrop={accepted => onDrop(accepted)}>
     {({ getRootProps, getInputProps, isDragActive }) => (
       <div {...getRootProps()} data-cy="dropzone">
         <input {...getInputProps()} />
