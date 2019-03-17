@@ -54,7 +54,7 @@ cySubject.upload(fileOrArray, processingOpts);
 
 `fileOrArray` is an object (or an array of those) that represents file information and contains following properties:
 
-- {String} `fileContent` – raw file content, usually a value obtained by [`cy.fixture`][cy.fixture]
+- {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
 
