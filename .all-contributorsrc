@@ -8,6 +8,7 @@
   ],
   "imageSize": 100,
   "commit": false,
+  "badgeTemplate": "[![Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-yellow.svg)](#contributors)",
   "contributors": [
     {
       "login": "allout58",
@@ -19,11 +20,21 @@
       ]
     },
     {
+      "login": "lunxiao",
+      "name": "lunxiao",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/17435809?v=4",
+      "profile": "https://github.com/lunxiao",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
       "login": "oliverodaa",
       "name": "Oliver O'Donnell",
       "avatar_url": "https://avatars2.githubusercontent.com/u/5886107?v=4",
       "profile": "http://www.ollie-odonnell.com",
       "contributions": [
+        "bug",
         "code"
       ]
     },
@@ -51,7 +62,8 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/17896701?v=4",
       "profile": "http://pages.cs.wisc.edu/~mui/",
       "contributions": [
-        "code"
+        "code",
+        "ideas"
       ]
     },
     {
@@ -60,6 +72,7 @@
       "avatar_url": "https://avatars0.githubusercontent.com/u/2358786?v=4",
       "profile": "http://www.benwurth.com/",
       "contributions": [
+        "bug",
         "code"
       ]
     }
