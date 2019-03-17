@@ -4,7 +4,7 @@
   "description": "A Cypress command for file upload",
   "main": "bundle.js",
   "engines": {
-    "node": ">8"
+    "node": ">=8.2.1"
   },
   "scripts": {
     "build": "uglifyjs index.js --compress --mangle --output bundle.js",
