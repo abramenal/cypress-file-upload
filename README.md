@@ -4,7 +4,7 @@
 
 File upload testing made easy.
 
-This package adds a custom [Cypress](cypress) command that allows you to make an abstraction on how exactly you upload files through you HTML controls and focus on testing the functionality.
+This package adds a custom [Cypress][cypress] command that allows you to make an abstraction on how exactly you upload files through you HTML controls and focus on testing the functionality.
 
 ## Table of Contents
 
@@ -54,7 +54,7 @@ cySubject.upload(fileOrArray, processingOpts);
 
 `fileOrArray` is an object (or an array of those) that represents file information and contains following properties:
 
-- {String} `fileContent` – raw file content, usually a value obtained by [`cy.fixture`](cy.fixture)
+- {String} `fileContent` – raw file content, usually a value obtained by [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
 
@@ -79,7 +79,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [MIT][mit]
 
 [cypress]: https://cypress.io/
-[`cy.fixture`]: https://docs.cypress.io/api/commands/fixture.html
+[cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
 [npm]: https://www.npmjs.com/
 [uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT
