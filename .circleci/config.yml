@@ -57,6 +57,6 @@ workflows:
             - build
           filters:
             tags:
-              only: /^v.*/
+              only: /^v*/
             branches:
               ignore: /.*/
