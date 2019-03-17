@@ -1,8 +1,10 @@
 # cypress-file-upload
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![Contributors](https://img.shields.io/badge/all_contributors-7-yellow.svg)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-7-yellow.svg)](#contributors)
 
-Simple custom Cypress command to ease file upload testing.
+File upload testing made easy.
+
+This package adds a custom [Cypress](cypress) command that allows you to make an abstraction on how exactly you upload files through you HTML controls and focus on testing the functionality.
 
 ## Table of Contents
 
@@ -14,7 +16,7 @@ Simple custom Cypress command to ease file upload testing.
 
 ## Installation
 
-This module is distributed via [npm][npm] which is bundled with [uglify-es][uglify-es] and should be installed as one of your project's `devDependencies`:
+The package is distributed via [npm][npm], bundled with [uglify-es][uglify-es] and should be installed as one of your project's `devDependencies`:
 
 ```bash
 npm install --save-dev cypress-file-upload
@@ -29,7 +31,7 @@ Add this line to your project's `cypress/support/commands.js`:
 import 'cypress-file-upload';
 ```
 
-Here is a simple example:
+Here is a basic example:
 
 ```javascript
 cy.fixture('data.json', 'base64').then(fileContent => {
@@ -40,7 +42,7 @@ cy.fixture('data.json', 'base64').then(fileContent => {
 });
 ```
 
-Please see full version in [example](./example).
+See more usage guidelines in [example](./example).
 
 ## API
 
@@ -52,8 +54,8 @@ cySubject.upload(fileOrArray, processingOpts);
 
 `fileOrArray` is an object (or an array of those) that represents file information and contains following properties:
 
-- {String} `fileContent` – raw file content
-- {String} `fileName` – file name with extension
+- {String} `fileContent` – raw file content, usually a value obtained by [`cy.fixture`](cy.fixture)
+- {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
 
 `processingOpts` contains following properties:
@@ -76,6 +78,8 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [MIT][mit]
 
+[cypress]: https://cypress.io/
+[`cy.fixture`]: https://docs.cypress.io/api/commands/fixture.html
 [npm]: https://www.npmjs.com/
 [uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT

@@ -8,7 +8,7 @@
   ],
   "imageSize": 100,
   "commit": false,
-  "badgeTemplate": "[![Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-yellow.svg)](#contributors)",
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-yellow.svg)](#contributors)",
   "contributors": [
     {
       "login": "allout58",
