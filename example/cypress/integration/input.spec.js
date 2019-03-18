@@ -9,6 +9,7 @@ describe('Attach file to an input element', () => {
         { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
         { subjectType: 'input' },
       );
+       cy.get('li').contains('cy.png');
     });
   });
 
@@ -20,6 +21,8 @@ describe('Attach file to an input element', () => {
       ];
 
       cy.get('[data-cy="input"]').upload(files, { subjectType: 'input' });
+      cy.get('li').contains('cy-1.png');
+      cy.get('li').contains('cy-2.png');
     });
   });
 });
