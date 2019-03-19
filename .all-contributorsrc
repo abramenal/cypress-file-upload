@@ -82,7 +82,9 @@
       "avatar_url": "https://avatars2.githubusercontent.com/u/1303845?v=4",
       "profile": "http://tomskjs.ru",
       "contributions": [
-        "test"
+        "test",
+        "question",
+        "example"
       ]
     }
   ],
