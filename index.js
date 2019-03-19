@@ -30,6 +30,7 @@ Cypress.Commands.add('upload', { prevSubject: 'element' }, (subject, fileOrArray
       processedFiles.forEach(file => dataTransfer.items.add(file));
       const input = subject[0];
       input.files = dataTransfer.files;
+      return cy.wrap(subject).trigger('change');
     }
   }),
 );
