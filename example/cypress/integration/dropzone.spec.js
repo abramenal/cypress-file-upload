@@ -9,6 +9,7 @@ describe('Drop file into dropzone', () => {
         { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
         { subjectType: 'drag-n-drop' },
       );
+      cy.get('li').contains('cy.png');
     });
   });
 
@@ -20,6 +21,8 @@ describe('Drop file into dropzone', () => {
       ];
 
       cy.get('[data-cy="dropzone"]').upload(files, { subjectType: 'drag-n-drop' });
+      cy.get('li').contains('cy-1.png');
+      cy.get('li').contains('cy-2.png');
     });
   });
 });
