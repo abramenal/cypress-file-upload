@@ -5,6 +5,8 @@
 - [Quick start](#quick-start)
 - [Testing](#testing)
 
+> If you want to use this example in your application, you need to replace the import `cypress-file-upload` in `./cypress/commands.js`
+
 ## Quick start
 
 Install all the required dependencies
