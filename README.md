@@ -11,6 +11,7 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
+- [Caveats](#caveats)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -62,6 +63,12 @@ cySubject.upload(fileOrArray, processingOpts);
 
 - {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`.
 
+## Caveats
+
+During the lifetime plugin faced the following issues those you should be aware of:
+
+- Chrome 73 changes related to HTML file input behavior: [#34][#34].
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/all-contributors/all-contributors#emoji-key)):
@@ -83,3 +90,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [npm]: https://www.npmjs.com/
 [uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT
+[#34]: https://github.com/abramenal/cypress-file-upload/issues/34
