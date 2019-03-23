@@ -95,6 +95,15 @@
       "contributions": [
         "question"
       ]
+    },
+    {
+      "login": "maple-leaf",
+      "name": "maple-leaf",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/3980995?v=4",
+      "profile": "https://github.com/maple-leaf",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7
