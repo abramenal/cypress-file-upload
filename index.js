@@ -2,7 +2,7 @@ Cypress.Commands.add(
   'upload',
   { prevSubject: 'element' },
   (subject, fileOrArray, { subjectType = 'input', force = false }) =>
-    cy.window().then(async window => {
+    cy.window({ log: false }).then(async window => {
       const filesToProcess = Array.isArray(fileOrArray) ? fileOrArray : [fileOrArray];
       const processedFiles = await Cypress.Promise.all(
         filesToProcess.map(async ({ fileContent, fileName, mimeType }) => {
@@ -16,11 +16,21 @@ Cypress.Commands.add(
         input: handleInput,
       };
 
+      Cypress.log({
+        name: 'upload',
+        displayName: 'UPLOAD',
+        message: filesToProcess.map(i => i.fileName).join(', '),
+        consoleProps: () => ({
+          subjectType,
+          files: filesToProcess,
+        }),
+      });
+
       return handlerMap[subjectType]();
 
       /* Upload handlers prior to selected upload type */
       function handleDragDrop() {
-        return cy.wrap(subject).trigger('drop', {
+        return cy.wrap(subject, { log: false }).trigger('drop', {
           dataTransfer: {
             files: processedFiles,
             types: ['Files'],
@@ -35,7 +45,7 @@ Cypress.Commands.add(
         input.files = dataTransfer.files;
 
         if (isManualTriggerRequired()) {
-          return cy.wrap(subject).trigger('change', {
+          return cy.wrap(subject, { log: false }).trigger('change', {
             force: true,
           });
         }
