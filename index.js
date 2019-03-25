@@ -32,7 +32,9 @@ Cypress.Commands.add('upload', { prevSubject: 'element' }, (subject, fileOrArray
       input.files = dataTransfer.files;
 
       if (isManualTriggerRequired()) {
-        return cy.wrap(subject).trigger('change');
+        return cy.wrap(subject).trigger('change', {
+            force: true,
+        });
       }
 
       return null;
