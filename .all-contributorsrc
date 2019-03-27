@@ -114,6 +114,15 @@
       "contributions": [
         "question"
       ]
+    },
+    {
+      "login": "ChrisSargent",
+      "name": "Chris Sargent",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/12176122?v=4",
+      "profile": "http://www.stickypixel.com",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7
