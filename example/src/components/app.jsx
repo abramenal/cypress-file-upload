@@ -6,6 +6,7 @@ import UploadHiddenInput from './upload-hidden-input';
 
 export default () => {
   const [fileInput = [], setFileInput] = useState();
+  const [hiddenFileInput = [], setHiddenFileInput] = useState();
   const [fileDrop = [], setFileDrop] = useState();
 
   return (
@@ -33,12 +34,12 @@ export default () => {
           <h2>Via hidden plain html5 input:</h2>
           <UploadHiddenInput
             onClick={files => {
-              setFileInput(Array.from(files));
+              setHiddenFileInput(Array.from(files));
               console.log(files);
             }}
           />
           <ul>
-            {fileInput.map(i => (
+            {hiddenFileInput.map(i => (
               <li>{i.name}</li>
             ))}
           </ul>
