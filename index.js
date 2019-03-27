@@ -1,4 +1,4 @@
-Cypress.Commands.add('upload', { prevSubject: 'element' }, (subject, fileOrArray, { subjectType = 'input' }) =>
+Cypress.Commands.add('upload', { prevSubject: 'element' }, (subject, fileOrArray, { subjectType = 'input', force = false }) =>
   cy.window().then(async window => {
     const filesToProcess = Array.isArray(fileOrArray) ? fileOrArray : [fileOrArray];
     const processedFiles = await Cypress.Promise.all(
@@ -33,7 +33,7 @@ Cypress.Commands.add('upload', { prevSubject: 'element' }, (subject, fileOrArray
 
       if (isManualTriggerRequired()) {
         return cy.wrap(subject).trigger('change', {
-            force: true,
+          force: true,
         });
       }
 
@@ -41,6 +41,12 @@ Cypress.Commands.add('upload', { prevSubject: 'element' }, (subject, fileOrArray
     }
 
     function isManualTriggerRequired() {
+      if (force) {
+        /* https://github.com/abramenal/cypress-file-upload/issues/41 */
+        return true;
+      }
+
+
       /* https://github.com/abramenal/cypress-file-upload/issues/34 */
 
       const chromeRegExp = /(chrome\/)(\d+)/i;

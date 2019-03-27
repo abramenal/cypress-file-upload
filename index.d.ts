@@ -7,6 +7,7 @@ declare namespace Cypress {
 
   interface FileProcessingOptions {
     subjectType: string;
+    force?: boolean;
   }
 
   interface Chainable<Subject> {
