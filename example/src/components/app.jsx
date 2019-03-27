@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 
 import UploadDropzone from './upload-dropzone';
 import UploadInput from './upload-input';
+import UploadHiddenInput from './upload-hidden-input';
 
 export default () => {
   const [fileInput = [], setFileInput] = useState();
+  const [hiddenFileInput = [], setHiddenFileInput] = useState();
   const [fileDrop = [], setFileDrop] = useState();
 
   return (
@@ -23,6 +25,21 @@ export default () => {
           />
           <ul>
             {fileInput.map(i => (
+              <li>{i.name}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Via hidden plain html5 input:</h2>
+          <UploadHiddenInput
+            onClick={files => {
+              setHiddenFileInput(Array.from(files));
+              console.log(files);
+            }}
+          />
+          <ul>
+            {hiddenFileInput.map(i => (
               <li>{i.name}</li>
             ))}
           </ul>

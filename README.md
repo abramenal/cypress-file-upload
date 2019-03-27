@@ -61,13 +61,15 @@ cySubject.upload(fileOrArray, processingOpts);
 
 `processingOpts` contains following properties:
 
-- {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`.
+- {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
+- {Boolean} `force` – (optional) same as for [`cy.trigger`][cy.trigger] it enforces events triggering on HTML subject element. Usually this is necessary when you use hidden HTML controls for your file upload. Defaults to `false`
 
 ## Caveats
 
 During the lifetime plugin faced the following issues those you should be aware of:
 
-- Chrome 73 changes related to HTML file input behavior: [#34][#34].
+- Chrome 73 changes related to HTML file input behavior: [#34][#34]
+- Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls [#41][#41]
 
 ## Contributors
 
@@ -87,7 +89,9 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [cypress]: https://cypress.io/
 [cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
+[cy.trigger]: https://docs.cypress.io/api/commands/trigger.html#Arguments
 [npm]: https://www.npmjs.com/
 [uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT
 [#34]: https://github.com/abramenal/cypress-file-upload/issues/34
+[#41]: https://github.com/abramenal/cypress-file-upload/issues/41
