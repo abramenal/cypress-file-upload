@@ -104,6 +104,15 @@
       "contributions": [
         "question"
       ]
+    },
+    {
+      "login": "maple",
+      "name": "fortunan",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/149586?v=4",
+      "profile": "http://in.shappi.org/",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7
