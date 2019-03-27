@@ -68,7 +68,7 @@ cySubject.upload(fileOrArray, processingOpts);
 
 During the lifetime plugin faced the following issues those you should be aware of:
 
-- Chrome 73 changes related to HTML file input behavior: [#34][#34].
+- Chrome 73 changes related to HTML file input behavior: [#34][#34]
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls [#41][#41]
 
 ## Contributors
