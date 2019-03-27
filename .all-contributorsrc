@@ -105,6 +105,15 @@
         "question",
         "code"
       ]
+    },
+    {
+      "login": "daniula",
+      "name": "Daniel Mendalka",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/91628?v=4",
+      "profile": "https://github.com/daniula",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7
