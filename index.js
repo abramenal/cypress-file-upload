@@ -23,6 +23,7 @@ Cypress.Commands.add(
         consoleProps: () => ({
           subjectType,
           files: filesToProcess,
+          force,
         }),
       });
 
