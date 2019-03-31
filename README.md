@@ -58,6 +58,7 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
+- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case you've specified it, make sure to provide it here as well
 
 `processingOpts` contains following properties:
 
