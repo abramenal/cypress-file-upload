@@ -24,6 +24,6 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import '../../../index.js';
+import '../../../index';
 // -- In your application the import above should be replaced with: --
 // import "cypress-file-upload"
