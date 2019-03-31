@@ -9,5 +9,6 @@
 .lintstagedrc
 .prettierrc
 index.js
+src
 CONTRIBUTING.md
 example
