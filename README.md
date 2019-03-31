@@ -35,9 +35,11 @@ import 'cypress-file-upload';
 Here is a basic example:
 
 ```javascript
-cy.fixture('data.json', 'base64').then(fileContent => {
+const fileName = 'data.json';
+
+cy.fixture(fileName).then(fileContent => {
   cy.get('[data-cy="dropzone"]').upload(
-    { fileContent, fileName: 'data.png', mimeType: 'application/json' },
+    { fileContent, fileName, mimeType: 'application/json' },
     { subjectType: 'drag-n-drop' },
   );
 });
