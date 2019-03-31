@@ -8,7 +8,8 @@
     "function-paren-newline": "off",
     "implicit-arrow-linebreak": "off",
     "max-len": ["error", { "code": 120 }],
-    "no-use-before-define": ["error", { "functions": false }]
+    "no-use-before-define": ["error", { "functions": false }],
+    "object-curly-newline": ["error", { "consistent": true }]
   },
   "globals": {
     "Cypress": true,

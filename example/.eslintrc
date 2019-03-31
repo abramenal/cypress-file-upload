@@ -1,8 +1,9 @@
 {
   "extends": "airbnb",
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "cypress"],
   "env": {
-    "browser": true
+    "browser": true,
+    "cypress/globals": true
   },
   "rules": {
     "prettier/prettier": "error",

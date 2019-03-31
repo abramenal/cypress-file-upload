@@ -3,6 +3,7 @@ declare namespace Cypress {
     fileContent: string;
     fileName: string;
     mimeType: string;
+    encoding?: string;
   }
 
   interface FileProcessingOptions {

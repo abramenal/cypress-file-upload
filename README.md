@@ -17,7 +17,7 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 
 ## Installation
 
-The package is distributed via [npm][npm], bundled with [uglify-es][uglify-es] and should be installed as one of your project's `devDependencies`:
+The package is distributed via [npm][npm] should be installed as one of your project's `devDependencies`:
 
 ```bash
 npm install --save-dev cypress-file-upload
@@ -58,6 +58,7 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
+- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case you've specified it, make sure to provide it here as well
 
 `processingOpts` contains following properties:
 
@@ -91,7 +92,6 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
 [cy.trigger]: https://docs.cypress.io/api/commands/trigger.html#Arguments
 [npm]: https://www.npmjs.com/
-[uglify-es]: https://www.npmjs.com/package/uglify-es/
 [mit]: https://opensource.org/licenses/MIT
 [#34]: https://github.com/abramenal/cypress-file-upload/issues/34
 [#41]: https://github.com/abramenal/cypress-file-upload/issues/41
