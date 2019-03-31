@@ -4,6 +4,7 @@ import UploadDropzone from './upload-dropzone';
 import UploadInput from './upload-input';
 import UploadHiddenInput from './upload-hidden-input';
 
+/* eslint-disable no-console */
 export default () => {
   const [fileInput = [], setFileInput] = useState();
   const [hiddenFileInput = [], setHiddenFileInput] = useState();
@@ -67,3 +68,4 @@ export default () => {
     </>
   );
 };
+/* eslint-enable no-console */

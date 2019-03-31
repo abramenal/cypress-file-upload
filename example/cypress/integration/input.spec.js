@@ -9,7 +9,7 @@ describe('Attach file to an input element', () => {
         { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
         { subjectType: 'input' },
       );
-       cy.get('li').contains('cy.png');
+      cy.get('li').contains('cy.png');
     });
   });
 
@@ -38,7 +38,7 @@ describe('Attach file to an hidden input element', () => {
         { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
         { subjectType: 'input' },
       );
-       cy.get('.hidden-uploader + ul li').contains('cy.png');
+      cy.get('.hidden-uploader + ul li').contains('cy.png');
     });
   });
 
