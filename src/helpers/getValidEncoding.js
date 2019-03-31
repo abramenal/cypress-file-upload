@@ -20,7 +20,7 @@ export default fileName => {
     zip: 'base64',
   };
 
-  const extension = fileName.slice(fileName.indexOf('.') + 1);
+  const extension = fileName.slice(fileName.lastIndexOf('.') + 1);
 
   if (extensionToEncodingMap[extension]) {
     return extensionToEncodingMap[extension];
