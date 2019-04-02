@@ -1,4 +1,4 @@
-import getFileBlob from './helpers/getFileBlob';
+import getFileBlobAsync from './helpers/getFileBlobAsync';
 import getValidEncoding from './helpers/getValidEncoding';
 import { InternalError, ERR_TYPES } from './error';
 
@@ -18,7 +18,7 @@ export default (subject, fileOrArray, { subjectType = 'input', force = false }) 
           throw new InternalError(ERR_TYPES.MISSING_ENCODING);
         }
 
-        const blob = getFileBlob({ fileContent, mimeType, encoding: validEncoding });
+        const blob = await getFileBlobAsync({ fileContent, mimeType, encoding: validEncoding });
         return new window.File([blob], fileName, { type: mimeType });
       }),
     );
