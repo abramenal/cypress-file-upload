@@ -151,6 +151,15 @@
       "contributions": [
         "question"
       ]
+    },
+    {
+      "login": "philjones88",
+      "name": "Phil Jones",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/677167?v=4",
+      "profile": "http://psjones.co.uk",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7
