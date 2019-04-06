@@ -171,6 +171,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Mobiletainment",
+      "name": "David Pertiller",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1514111?v=4",
+      "profile": "https://www.pertiller.tech",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7
