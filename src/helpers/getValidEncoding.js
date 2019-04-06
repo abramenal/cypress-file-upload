@@ -2,7 +2,7 @@ import { InternalError, ERR_TYPES } from '../error';
 
 export default fileName => {
   /*
-   * Mostly was copied from https://github.com/cypress-io/cypress/blob/develop/packages/server/lib/fixture.coffee#L94
+   * Copied from https://github.com/cypress-io/cypress/blob/develop/packages/server/lib/fixture.coffee#L94
    */
   const extensionToEncodingMap = {
     json: 'utf8',
@@ -18,6 +18,11 @@ export default fileName => {
     tif: 'base64',
     tiff: 'base64',
     zip: 'base64',
+
+    /*
+     * Other extensions that are not supported by cy.fixture by default:
+     */
+    pdf: 'base64',
   };
 
   const extension = fileName.slice(fileName.lastIndexOf('.') + 1);
@@ -26,5 +31,5 @@ export default fileName => {
     return extensionToEncodingMap[extension];
   }
 
-  throw new InternalError(ERR_TYPES.UNABLE_TO_DECODE);
+  throw new InternalError(ERR_TYPES.MISSING_ENCODING);
 };
