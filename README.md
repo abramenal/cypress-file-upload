@@ -12,7 +12,7 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 - [Usage](#usage)
 - [API](#api)
 - [Caveats](#caveats)
-- [It isn't working! What else can I try?](#it-isn't-working-what-else-can-i-try)
+- [It isn't working! What else can I try?](#it-isnt-working-what-else-can-i-try)
 - [Contributors](#contributors)
 - [License](#license)
 
