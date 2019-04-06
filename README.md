@@ -12,6 +12,7 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 - [Usage](#usage)
 - [API](#api)
 - [Caveats](#caveats)
+- [It isn't working! What else can I try?](#it-isn't-working-what-else-can-i-try)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -45,6 +46,11 @@ cy.fixture(fileName).then(fileContent => {
 });
 ```
 
+If you're trying to upload a file that does not supported by default, here is the workflow:
+
+- 
+- If a workaround with `encoding` does not work properly, 
+
 See more usage guidelines in [example](./example).
 
 ## API
@@ -73,6 +79,15 @@ During the lifetime plugin faced the following issues those you should be aware 
 
 - Chrome 73 changes related to HTML file input behavior: [#34][#34]
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls [#41][#41]
+
+## It isn't working! What else can I try?
+
+What to do in case if the plugin is not working for you? Here are some steps:
+
+1. Check [Caveats](#caveats) – maybe there is a tricky thing about exactly your issue
+1. Submit the issue and let us know about you problem
+1. In case you're using a file with encoding and/or extension that is not yet supported, make sure you've tried to explicitly set the `encoding` property (see [API](#api))
+1. State what you experience using the workaround above as well
 
 ## Contributors
 
