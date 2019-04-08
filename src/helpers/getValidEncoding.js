@@ -22,7 +22,7 @@ export default fileName => {
     /*
      * Other extensions that are not supported by cy.fixture by default:
      */
-    pdf: 'base64',
+    pdf: 'utf8',
   };
 
   const extension = fileName.slice(fileName.lastIndexOf('.') + 1);
