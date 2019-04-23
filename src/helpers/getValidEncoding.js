@@ -23,6 +23,7 @@ export default fileName => {
      * Other extensions that are not supported by cy.fixture by default:
      */
     pdf: 'utf8',
+    vcf: 'utf8',
   };
 
   const extension = fileName.slice(fileName.lastIndexOf('.') + 1);
