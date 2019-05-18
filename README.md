@@ -46,10 +46,7 @@ cy.fixture(fileName).then(fileContent => {
 });
 ```
 
-If you're trying to upload a file that does not supported by default, here is the workflow:
-
-- 
-- If a workaround with `encoding` does not work properly, 
+Trying to upload a file that does not supported by Cypress by default? Make sure you pass `encoding` property (see [API](#api)).
 
 See more usage guidelines in [example](./example).
 
@@ -66,7 +63,7 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
-- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case you've specified it, make sure to provide it here as well
+- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it's not yet supported you can provide it manually
 
 `processingOpts` contains following properties:
 
@@ -78,7 +75,8 @@ cySubject.upload(fileOrArray, processingOpts);
 During the lifetime plugin faced the following issues those you should be aware of:
 
 - Chrome 73 changes related to HTML file input behavior: [#34][#34]
-- Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls [#41][#41]
+- Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
+- Binary fixture has a workarounded encoding: [#70][#70]
 
 ## It isn't working! What else can I try?
 
@@ -112,3 +110,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [mit]: https://opensource.org/licenses/MIT
 [#34]: https://github.com/abramenal/cypress-file-upload/issues/34
 [#41]: https://github.com/abramenal/cypress-file-upload/issues/41
+[#70]: https://github.com/abramenal/cypress-file-upload/issues/70
