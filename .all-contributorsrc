@@ -190,6 +190,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "kammerer",
+      "name": "Tomasz Szymczyszyn",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/14025?v=4",
+      "profile": "https://github.com/kammerer",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
