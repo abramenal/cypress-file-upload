@@ -3,11 +3,11 @@ declare namespace Cypress {
     fileContent: string;
     fileName: string;
     mimeType: string;
-    encoding?: string;
+    encoding?: Cypress.Encodings;
   }
 
   interface FileProcessingOptions {
-    subjectType: string;
+    subjectType: 'input' | 'drag-n-drop';
     force?: boolean;
   }
 
