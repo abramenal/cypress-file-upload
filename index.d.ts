@@ -3,11 +3,12 @@ declare namespace Cypress {
     fileContent: string;
     fileName: string;
     mimeType: string;
-    encoding?: Cypress.Encodings;
+    encoding?: Cypress.Encodings | 'pdf' | 'vcf';
   }
 
   interface FileProcessingOptions {
     subjectType: 'input' | 'drag-n-drop';
+    subjectNature?: 'dom' | 'shadow';
     force?: boolean;
   }
 

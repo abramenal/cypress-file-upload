@@ -2,9 +2,9 @@ import getFileBlobAsync from './helpers/getFileBlobAsync';
 import getValidEncoding from './helpers/getValidEncoding';
 import { InternalError, ERR_TYPES } from './error';
 
-import { getHandler } from './handlers';
+import getHandler from './handlers';
 
-export default (subject, fileOrArray, { subjectType = 'input', force = false }) =>
+export default (subject, fileOrArray, { subjectType = 'input', subjectNature = 'dom', force = false }) =>
   cy.window({ log: false }).then(async window => {
     const filesToProcess = Array.isArray(fileOrArray) ? fileOrArray : [fileOrArray];
     const processedFiles = await Cypress.Promise.all(
@@ -34,6 +34,6 @@ export default (subject, fileOrArray, { subjectType = 'input', force = false }) 
       }),
     });
 
-    const handleFileUpload = getHandler(subjectType);
-    return handleFileUpload({ window, subject }, { files: processedFiles, force });
+    const handleFileUpload = getHandler({ subjectType, subjectNature });
+    return handleFileUpload({ window, subject, force }, { files: processedFiles });
   });
