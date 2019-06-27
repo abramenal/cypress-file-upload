@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": "error",
@@ -9,8 +9,7 @@
     "implicit-arrow-linebreak": "off",
     "max-len": ["error", { "code": 120 }],
     "no-use-before-define": ["error", { "functions": false }],
-    "object-curly-newline": ["error", { "consistent": true }],
-    "quote-props": ["error", "consistent"]
+    "object-curly-newline": ["error", { "consistent": true }]
   },
   "globals": {
     "Cypress": true,
