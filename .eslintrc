@@ -9,11 +9,13 @@
     "implicit-arrow-linebreak": "off",
     "max-len": ["error", { "code": 120 }],
     "no-use-before-define": ["error", { "functions": false }],
-    "object-curly-newline": ["error", { "consistent": true }]
+    "object-curly-newline": ["error", { "consistent": true }],
+    "quote-props": ["error", "consistent"]
   },
   "globals": {
     "Cypress": true,
     "cy": true,
-    "DataTransfer": true
+    "DataTransfer": true,
+    "CustomEvent": true
   }
 }
