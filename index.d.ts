@@ -3,7 +3,7 @@ declare namespace Cypress {
     fileContent: string;
     fileName: string;
     mimeType: string;
-    encoding?: Cypress.Encodings | 'pdf' | 'vcf';
+    encoding?: Cypress.Encodings;
   }
 
   interface FileProcessingOptions {
