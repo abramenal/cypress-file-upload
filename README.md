@@ -78,6 +78,7 @@ During the lifetime plugin faced the following issues those you should be aware 
 - Chrome 73 changes related to HTML file input behavior: [#34][#34]
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
 - Binary fixture has a workarounded encoding: [#70][#70]
+- Shadow DOM compatibility: [#74][#74]
 
 ## It isn't working! What else can I try?
 
@@ -112,3 +113,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [#34]: https://github.com/abramenal/cypress-file-upload/issues/34
 [#41]: https://github.com/abramenal/cypress-file-upload/issues/41
 [#70]: https://github.com/abramenal/cypress-file-upload/issues/70
+[#74]: https://github.com/abramenal/cypress-file-upload/issues/74
