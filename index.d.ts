@@ -8,6 +8,7 @@ declare namespace Cypress {
 
   interface FileProcessingOptions {
     subjectType: 'input' | 'drag-n-drop';
+    subjectNature?: 'dom' | 'shadow';
     force?: boolean;
   }
 
