@@ -226,7 +226,17 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "aleccool213",
+      "name": "Alec Brunelle",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6475934?v=4",
+      "profile": "https://blog.alec.coffee",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "commitConvention": "none"
 }
