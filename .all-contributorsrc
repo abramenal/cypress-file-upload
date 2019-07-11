@@ -208,7 +208,35 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "stefanbrato",
+      "name": "dirk",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/4852275?v=4",
+      "profile": "https://github.com/stefanbrato",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "0xADD1E",
+      "name": "Addie Morrison",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/38090404?v=4",
+      "profile": "https://github.com/0xADD1E",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "aleccool213",
+      "name": "Alec Brunelle",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/6475934?v=4",
+      "profile": "https://blog.alec.coffee",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "commitConvention": "none"
 }
