@@ -49,7 +49,7 @@ cy.fixture(fileName).then(fileContent => {
 
 Trying to upload a file that does not supported by Cypress by default? Make sure you pass `encoding` property (see [API](#api)).
 
-See more usage guidelines in [example](./example).
+See more usage guidelines in [recipes](./recipes).
 
 ## API
 
@@ -74,8 +74,9 @@ cySubject.upload(fileOrArray, processingOpts);
 
 ## Recipes
 
-You can find a set of most common setups for front-end applications that uses Cypress. See [recipes](./recipes).
-Note: this is still WIP. Any contributions are welcome!
+Most common frontend UI setups along with Cypress & file upload testing can be found in [recipes](./recipes).
+
+Note: it's still WIP. Any contributions are welcome!
 
 ## Caveats
 

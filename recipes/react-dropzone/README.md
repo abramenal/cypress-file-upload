@@ -1,4 +1,4 @@
-# shadow-dom-native
+# react-dropzone
 
 ## Quick start
 

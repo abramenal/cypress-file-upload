@@ -10,7 +10,8 @@
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
     "lint": "eslint src",
-    "test": "cypress"
+    "test": "cypress run",
+    "test:open": "cypress open"
   },
   "devDependencies": {
     "cypress": "^3.3.1",
