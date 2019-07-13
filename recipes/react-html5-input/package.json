@@ -5,7 +5,7 @@
   "author": "abramenal <pavel.auramenka@gmail.com>",
   "description": "",
   "license": "MIT",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
