@@ -7,7 +7,7 @@ export default ({ window, subject, force }, { files }) => {
   input.files = dataTransfer.files;
 
   if (isManualEventTrigger({ window, force })) {
-    return cy.wrap(subject, { log: false }).trigger('change', {
+    return cy.wrap(subject).trigger('change', {
       force: true,
     });
   }

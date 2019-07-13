@@ -2,34 +2,17 @@ import handleDragDrop from './handleDragDrop';
 import handleInput from './handleInput';
 import handleShadowDragDrop from './handleShadowDragDrop';
 import handleShadowInput from './handleShadowInput';
-
-import { ERR_TYPES, InternalError } from '../error';
+import { SUBJECT_NATURE, SUBJECT_TYPE } from '../constants';
 
 const handlerMap = {
-  'drag-n-drop': {
-    dom: handleDragDrop,
-    shadow: handleShadowDragDrop,
+  [SUBJECT_TYPE.INPUT]: {
+    [SUBJECT_NATURE.DOM]: handleInput,
+    [SUBJECT_NATURE.SHADOW]: handleShadowInput,
   },
-  'input': {
-    dom: handleInput,
-    shadow: handleShadowInput,
+  [SUBJECT_TYPE.DRAG_N_DROP]: {
+    [SUBJECT_NATURE.DOM]: handleDragDrop,
+    [SUBJECT_NATURE.SHADOW]: handleShadowDragDrop,
   },
 };
 
-const getHandler = ({ subjectType, subjectNature }) => {
-  const handlerType = handlerMap[subjectType];
-
-  if (!handlerType) {
-    throw new InternalError(ERR_TYPES.INVALID_SUBJECT_TYPE);
-  }
-
-  const handler = handlerType[subjectNature];
-
-  if (!handler) {
-    throw new InternalError(ERR_TYPES.INVALID_SUBJECT_NATURE);
-  }
-
-  return handler;
-};
-
-export default getHandler;
+export default ({ subjectType, subjectNature }) => handlerMap[subjectType][subjectNature];
