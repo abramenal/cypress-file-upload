@@ -16,7 +16,7 @@
   "devDependencies": {
     "cypress": "^3.3.1",
     "cypress-file-upload": "^3.3.0",
-    "cypress-shadow-dom": "^0.1.1",
+    "cypress-shadow-dom": "^0.1.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^6.0.0",
