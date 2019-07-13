@@ -1,0 +1,36 @@
+{
+  "name": "react-dropzone",
+  "version": "1.0.0",
+  "private": true,
+  "author": "abramenal <pavel.auramenka@gmail.com>",
+  "description": "",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html --port=3000",
+    "start": "npm run dev",
+    "test": "cypress run",
+    "test:open": "cypress open"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "cypress": "^3.1.5",
+    "cypress-file-upload": "^3.3.0",
+    "eslint": "^5.13.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-cypress": "^2.2.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "parcel-bundler": "^1.11.0"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.1",
+    "react": "^16.8.1",
+    "react-dom": "^16.8.1",
+    "react-dropzone": "^8.1.0"
+  }
+}
