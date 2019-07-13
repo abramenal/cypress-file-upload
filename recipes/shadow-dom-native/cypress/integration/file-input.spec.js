@@ -1,6 +1,6 @@
 describe('Attach file to a shadow dom input element', () => {
   beforeEach(() => {
-    cy.visit('/', { timeout: 1000 });
+    cy.visit('/');
   });
 
   it('renders input correctly', () => {
@@ -18,15 +18,13 @@ describe('Attach file to a shadow dom input element', () => {
           { subjectNature: 'shadow', subjectType: 'input' },
         );
 
-      cy.wait(1000);
-
       cy.document({ log: false })
-        .shadowGet('file-input li')
-        .shadowContains('cy-1.png');
+        .shadowGet('file-input ul')
+        .shadowContains('cy.png');
     });
   });
 
-  it.skip('successfully uploads multiple files', () => {
+  it('successfully uploads multiple files', () => {
     cy.fixture('cy.png', 'base64').then(cyPng => {
       const files = [
         { fileName: 'cy-1.png', fileContent: cyPng, mimeType: 'image/png' },
@@ -38,12 +36,12 @@ describe('Attach file to a shadow dom input element', () => {
         .upload(files, { subjectNature: 'shadow', subjectType: 'input' });
 
       cy.document({ log: false })
-        .shadowGet('file-input li')
+        .shadowGet('file-input ul')
         .shadowFirst()
         .shadowContains('cy-1.png');
 
       cy.document({ log: false })
-        .shadowGet('file-input li')
+        .shadowGet('file-input ul')
         .shadowLast()
         .shadowContains('cy-2.png');
     });
