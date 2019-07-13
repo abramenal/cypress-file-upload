@@ -1,39 +1,32 @@
-import getFileBlobAsync from './helpers/getFileBlobAsync';
-import getValidEncoding from './helpers/getValidEncoding';
-import { InternalError, ERR_TYPES } from './error';
-
 import getHandler from './handlers';
+import { createFilesAsync } from './helpers';
+import { validateEncoding, validateSubject, validateFiles, validateOptions } from './validators';
 
 export default (subject, fileOrArray, { subjectType = 'input', subjectNature = 'dom', force = false }) =>
   cy.window({ log: false }).then(async window => {
-    const filesToProcess = Array.isArray(fileOrArray) ? fileOrArray : [fileOrArray];
-    const processedFiles = await Cypress.Promise.all(
-      filesToProcess.map(async ({ fileContent, fileName, mimeType, encoding }) => {
-        if (!fileName) {
-          throw new InternalError(ERR_TYPES.MISSING_FILENAME);
-        }
+    validateOptions({ subjectType, subjectNature, force });
+    /* Subject validation depends on options validation so required to go in this exact order */
+    validateSubject({ subject, subjectNature, subjectType });
+    validateFiles(fileOrArray);
 
-        const validEncoding = encoding || getValidEncoding(fileName);
-        if (!validEncoding) {
-          throw new InternalError(ERR_TYPES.MISSING_ENCODING);
-        }
-
-        const blob = await getFileBlobAsync({ fileContent, mimeType, encoding: validEncoding });
-        return new window.File([blob], fileName, { type: mimeType });
-      }),
-    );
+    const filesToUpload = await createFilesAsync({
+      files: Array.isArray(fileOrArray) ? fileOrArray : [fileOrArray],
+      validator: ({ encoding }) => validateEncoding(encoding),
+      constructor: (...args) => new window.File(...args),
+    });
 
     Cypress.log({
       name: 'upload',
       displayName: 'UPLOAD',
-      message: filesToProcess.map(i => i.fileName).join(', '),
+      message: filesToUpload.map(i => i.name).join(', '),
       consoleProps: () => ({
         subjectType,
-        files: filesToProcess,
+        subjectNature,
+        files: filesToUpload,
         force,
       }),
     });
 
     const handleFileUpload = getHandler({ subjectType, subjectNature });
-    return handleFileUpload({ window, subject, force }, { files: processedFiles });
+    handleFileUpload({ window, subject, force }, { files: filesToUpload });
   });
