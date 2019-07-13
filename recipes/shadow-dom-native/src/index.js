@@ -1,7 +1,3 @@
-import TodoList from './components/todo-list';
-import TodoListItem from './components/todo-list-item';
-import TodoForm from './components/todo-form';
+import FileInput from './components/file-input';
 
-window.customElements.define('todo-list', TodoList);
-window.customElements.define('todo-list-item', TodoListItem);
-window.customElements.define('todo-form', TodoForm);
+window.customElements.define('file-input', FileInput);

@@ -25,3 +25,4 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import 'cypress-shadow-dom';
+import 'cypress-file-upload';
