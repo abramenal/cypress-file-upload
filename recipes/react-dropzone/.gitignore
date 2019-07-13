@@ -64,7 +64,7 @@ dist/
 
 .cache
 dist
-example/cypress/videos
-example/cypress/screenshots
+cypress/videos
+cypress/screenshots
 
 .DS_Store

@@ -1,0 +1,30 @@
+{
+  "name": "shadow-dom-native",
+  "version": "1.0.0",
+  "private": true,
+  "author": "abramenal <pavel.auramenka@gmail.com>",
+  "description": "",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "parcel src/index.html --port=3000",
+    "start": "npm run dev",
+    "lint": "eslint src",
+    "test": "cypress run",
+    "test:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^3.3.1",
+    "cypress-file-upload": "^3.3.0",
+    "cypress-shadow-dom": "^0.1.1",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-cypress": "^2.2.1",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^2.3.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.17.1"
+  }
+}

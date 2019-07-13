@@ -11,6 +11,7 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 - [Installation](#installation)
 - [Usage](#usage)
 - [API](#api)
+- [Recipes](#recipes)
 - [Caveats](#caveats)
 - [It isn't working! What else can I try?](#it-isnt-working-what-else-can-i-try)
 - [Contributors](#contributors)
@@ -48,7 +49,7 @@ cy.fixture(fileName).then(fileContent => {
 
 Trying to upload a file that does not supported by Cypress by default? Make sure you pass `encoding` property (see [API](#api)).
 
-See more usage guidelines in [example](./example).
+See more usage guidelines in [recipes](./recipes).
 
 ## API
 
@@ -70,6 +71,12 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
 - {String} `subjectNature` – target element nature: `'dom'` represents regular DOM elements, `'shadow'` stands for using elements within Shadow DOM. Defaults to `'dom'`
 - {Boolean} `force` – (optional) same as for [`cy.trigger`][cy.trigger] it enforces events triggering on HTML subject element. Usually this is necessary when you use hidden HTML controls for your file upload. Defaults to `false`
+
+## Recipes
+
+Most common frontend UI setups along with Cypress & file upload testing can be found in [recipes](./recipes).
+
+Note: it's still WIP. Any contributions are welcome!
 
 ## Caveats
 
