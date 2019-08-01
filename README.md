@@ -34,7 +34,17 @@ Add this line to your project's `cypress/support/commands.js`:
 import 'cypress-file-upload';
 ```
 
-Here is a basic example:
+Here is a basic example using HTML5 file input:
+
+```javascript
+const fileName = 'data.json';
+
+cy.fixture(fileName).then(fileContent => {
+  cy.get('[data-cy="file-input"]').upload({ fileContent, fileName, mimeType: 'application/json' });
+});
+```
+
+And a similar one for the custom drag-n-drop component:
 
 ```javascript
 const fileName = 'data.json';
@@ -66,7 +76,7 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `mimeType` – file mime type
 - {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually
 
-`processingOpts` contains following properties:
+`processingOpts` (optional) contains following properties:
 
 - {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
 - {String} `subjectNature` – target element nature: `'dom'` represents regular DOM elements, `'shadow'` stands for using elements within Shadow DOM. Defaults to `'dom'`
