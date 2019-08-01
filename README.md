@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-24-yellow.svg)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-25-yellow.svg)](#contributors)
 
 File upload testing made easy.
 
@@ -144,6 +144,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/stefanbrato"><img src="https://avatars2.githubusercontent.com/u/4852275?v=4" width="100px;" alt="dirk"/><br /><sub><b>dirk</b></sub></a><br /><a href="#ideas-stefanbrato" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://github.com/0xADD1E"><img src="https://avatars1.githubusercontent.com/u/38090404?v=4" width="100px;" alt="Addie Morrison"/><br /><sub><b>Addie Morrison</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3A0xADD1E" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://blog.alec.coffee"><img src="https://avatars2.githubusercontent.com/u/6475934?v=4" width="100px;" alt="Alec Brunelle"/><br /><sub><b>Alec Brunelle</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Aaleccool213" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://glebbahmutov.com/"><img src="https://avatars1.githubusercontent.com/u/2212006?v=4" width="100px;" alt="Gleb Bahmutov"/><br /><sub><b>Gleb Bahmutov</b></sub></a><br /><a href="#ideas-bahmutov" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
