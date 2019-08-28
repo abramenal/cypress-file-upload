@@ -74,7 +74,7 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
 - {String} `mimeType` – file mime type
-- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/cypress-io/cypress/blob/develop/cli/types/index.d.ts#L4365)
+- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/src/constants.js#L29)
 
 `processingOpts` (optional) contains following properties:
 
