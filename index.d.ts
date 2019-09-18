@@ -18,6 +18,6 @@ declare namespace Cypress {
      * @param fileOrArray Single or multiple object(s) representing file data
      * @param processingOpts Object representing processing options
      */
-    upload(fileOrArray: FileData | FileData[], processingOpts: FileProcessingOptions): Chainable<Subject>;
+    upload(fileOrArray: FileData | FileData[], processingOpts?: FileProcessingOptions): Chainable<Subject>;
   }
 }
