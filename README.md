@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-28-yellow.svg)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-29-yellow.svg)](#contributors)
 
 File upload testing made easy.
 
@@ -149,6 +149,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/JesseDeBruijne"><img src="https://avatars1.githubusercontent.com/u/29858373?v=4" width="100px;" alt="Jesse de Bruijne"/><br /><sub><b>Jesse de Bruijne</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=JesseDeBruijne" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/justinlittman"><img src="https://avatars1.githubusercontent.com/u/588335?v=4" width="100px;" alt="Justin Littman"/><br /><sub><b>Justin Littman</b></sub></a><br /><a href="#plugin-justinlittman" title="Plugin/utility libraries">🔌</a> <a href="#question-justinlittman" title="Answering Questions">💬</a></td>
     <td align="center"><a href="https://github.com/harrison9149"><img src="https://avatars0.githubusercontent.com/u/41189790?v=4" width="100px;" alt="harrison9149"/><br /><sub><b>harrison9149</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Aharrison9149" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/jdcl32"><img src="https://avatars1.githubusercontent.com/u/17127746?v=4" width="100px;" alt="jdcl32"/><br /><sub><b>jdcl32</b></sub></a><br /><a href="#question-jdcl32" title="Answering Questions">💬</a></td>
   </tr>
 </table>
 
