@@ -4,6 +4,7 @@
 
 Currently available recipes for:
 
+- [AngularJS ng-file-upload](./ng-file-upload)
 - [React Dropzone](./react-dropzone)
 - [React HTML5 file input](./react-html5-input)
 - [Shadow DOM](./shadow-dom-native)

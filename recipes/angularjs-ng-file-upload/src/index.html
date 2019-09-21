@@ -1,0 +1,24 @@
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>cypress-file-upload example</title>
+  <script src="./index.js"></script>
+</head>
+
+<body ng-app="app">
+  <div ng-controller="Upload">
+    <h4>Upload on file select</h4>
+    <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000"
+      ngf-max-size="1MB" data-cy="file-input">
+      Select File</button>
+    <br><br>
+    File:
+    <div data-cy="file-result">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+    </div>
+    {{errorMsg}}
+
+  </div>
+</body>
+
+</html>

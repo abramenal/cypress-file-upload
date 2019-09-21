@@ -1,0 +1,16 @@
+{
+  "root": true,
+  "extends": "airbnb-base",
+  "plugins": ["cypress"],
+  "env": {
+    "cypress/globals": true
+  },
+  "rules": {
+    "arrow-parens": ["error", "as-needed"],
+    "function-paren-newline": "off",
+    "implicit-arrow-linebreak": "off",
+    "max-len": ["error", { "code": 120 }],
+    "no-use-before-define": ["error", { "functions": false }],
+    "object-curly-newline": ["error", { "consistent": true }]
+  }
+}
