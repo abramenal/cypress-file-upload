@@ -96,7 +96,7 @@ During the lifetime plugin faced the following issues those you should be aware 
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
 - Binary fixture has a workarounded encoding: [#70][#70]
 - Shadow DOM compatibility: [#74][#74]
-– Reading file content after upload: [#104][#104]
+- Reading file content after upload: [#104][#104]
 
 ## It isn't working! What else can I try?
 
