@@ -1,0 +1,29 @@
+{
+  "name": "angularjs-ng-file-upload",
+  "version": "1.0.0",
+  "private": true,
+  "author": "abramenal <pavel.auramenka@gmail.com>",
+  "description": "",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "parcel src/index.html --port=3000",
+    "start": "npm run dev",
+    "lint": "eslint src",
+    "test": "cypress run",
+    "test:open": "cypress open"
+  },
+  "devDependencies": {
+    "cypress": "^3.4.1",
+    "cypress-file-upload": "^3.3.3",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-cypress": "^2.2.0",
+    "eslint-plugin-import": "^2.18.2",
+    "parcel-bundler": "^1.12.3"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "ng-file-upload": "^12.2.13"
+  }
+}
