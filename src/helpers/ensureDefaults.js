@@ -1,4 +1,4 @@
-export default function ensureDefaults(target, defaults) {
+export default function ensureDefaults(target = {}, defaults = {}) {
   return {
     ...defaults,
     ...target,
