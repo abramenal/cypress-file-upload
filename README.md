@@ -4,7 +4,7 @@
 
 File upload testing made easy.
 
-This package adds a custom [Cypress][cypress] command that allows you to make an abstraction on how exactly you upload files through you HTML controls and focus on testing the functionality.
+This package adds a custom [Cypress][cypress] command that allows you to make an abstraction on how exactly you upload files through HTML controls and focus on testing user workflows.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 
 ## Installation
 
-The package is distributed via [npm][npm] should be installed as one of your project's `devDependencies`:
+The package is distributed via [npm][npm] and should be installed as one of your project's `devDependencies`:
 
 ```bash
 npm install --save-dev cypress-file-upload
@@ -34,7 +34,7 @@ Add this line to your project's `cypress/support/commands.js`:
 import 'cypress-file-upload';
 ```
 
-Here is a basic example using HTML5 file input:
+Now you are ready to actually test uploading. Here is an example with HTML5 file input:
 
 ```javascript
 const fileName = 'data.json';
@@ -44,7 +44,7 @@ cy.fixture(fileName).then(fileContent => {
 });
 ```
 
-And a similar one for the custom drag-n-drop component:
+And a similar one for custom drag-n-drop component:
 
 ```javascript
 const fileName = 'data.json';
@@ -57,7 +57,7 @@ cy.fixture(fileName).then(fileContent => {
 });
 ```
 
-Trying to upload a file that does not supported by Cypress by default? Make sure you pass `encoding` property (see [API](#api)).
+**Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
 
 See more usage guidelines in [recipes](./recipes).
 
@@ -73,7 +73,7 @@ cySubject.upload(fileOrArray, processingOpts);
 
 - {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
 - {String} `fileName` – file name (with extension)
-- {String} `mimeType` – file mime type
+- {String} `mimeType` – file [MIME][mime] type
 - {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/src/constants.js#L29)
 
 `processingOpts` (optional) contains following properties:
@@ -84,13 +84,13 @@ cySubject.upload(fileOrArray, processingOpts);
 
 ## Recipes
 
-Most common frontend UI setups along with Cypress & file upload testing can be found in [recipes](./recipes).
+Most common frontend UI setups along with Cypress & file upload testing are located at [recipes](./recipes).
 
-Note: it's still WIP. Any contributions are welcome!
+Any contributions are welcome!
 
 ## Caveats
 
-During the lifetime plugin faced the following issues those you should be aware of:
+During the lifetime plugin faced some issues you might need to be aware of:
 
 - Chrome 73 changes related to HTML file input behavior: [#34][#34]
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
@@ -100,12 +100,12 @@ During the lifetime plugin faced the following issues those you should be aware 
 
 ## It isn't working! What else can I try?
 
-What to do in case if the plugin is not working for you? Here are some steps:
+Here is step-by-step guide:
 
-1. Check [Caveats](#caveats) – maybe there is a tricky thing about exactly your issue
+1. Check [Caveats](#caveats) – maybe there is a tricky thing about exactly your setup
 1. Submit the issue and let us know about you problem
-1. In case you're using a file with encoding and/or extension that is not yet supported, make sure you've tried to explicitly set the `encoding` property (see [API](#api))
-1. State what you experience using the workaround above as well
+1. In case you're using a file with encoding and/or extension that is not yet supported by Cypress, make sure you've tried to explicitly set the `encoding` property (see [API](#api))
+1. Comment your issue describing what happened after you've set the `encoding`
 
 ## Contributors
 
@@ -168,6 +168,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
 [cy.trigger]: https://docs.cypress.io/api/commands/trigger.html#Arguments
 [npm]: https://www.npmjs.com/
+[mime]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
 [mit]: https://opensource.org/licenses/MIT
 [#34]: https://github.com/abramenal/cypress-file-upload/issues/34
 [#41]: https://github.com/abramenal/cypress-file-upload/issues/41
