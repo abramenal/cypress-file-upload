@@ -84,9 +84,9 @@ cySubject.upload(fileOrArray, processingOpts);
 
 ## Recipes
 
-Most common frontend UI setups along with Cypress & file upload testing can be found in [recipes](./recipes).
+Most common frontend UI setups along with Cypress & file upload testing are located at [recipes](./recipes).
 
-Note: it's still WIP. Any contributions are welcome!
+Any contributions are welcome!
 
 ## Caveats
 
