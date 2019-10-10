@@ -1,4 +1,11 @@
-export default ({ subject, force }, { files }) =>
+export default ({ subject, force }, { files }) => {
+  cy.wrap(subject, { log: false }).trigger('dragenter', {
+    force,
+    dataTransfer: {
+      files,
+      types: ['Files'],
+    },
+  });
   cy.wrap(subject, { log: false }).trigger('drop', {
     force,
     dataTransfer: {
@@ -6,3 +13,4 @@ export default ({ subject, force }, { files }) =>
       types: ['Files'],
     },
   });
+};
