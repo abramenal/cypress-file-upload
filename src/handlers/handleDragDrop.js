@@ -1,25 +1,15 @@
 export default ({ subject, force }, { files }) => {
+  const eventPayload = {
+    force,
+    dataTransfer: {
+      files,
+      types: ['Files'],
+    },
+  };
+
   return cy
     .wrap(subject, { log: false })
-    .trigger('dragenter', {
-      force,
-      dataTransfer: {
-        files,
-        types: ['Files'],
-      },
-    })
-    .trigger('drop', {
-      force,
-      dataTransfer: {
-        files,
-        types: ['Files'],
-      },
-    })
-    .trigger('dragleave', {
-      force,
-      dataTransfer: {
-        files,
-        types: ['Files'],
-      },
-    });
+    .trigger('dragenter', eventPayload)
+    .trigger('drop', eventPayload)
+    .trigger('dragleave', eventPayload);
 };
