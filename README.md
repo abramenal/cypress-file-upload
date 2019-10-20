@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-30-yellow.svg)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-31-yellow.svg)](#contributors)
 
 File upload testing made easy.
 
@@ -153,6 +153,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
   <tr>
     <td align="center"><a href="https://github.com/jdcl32"><img src="https://avatars1.githubusercontent.com/u/17127746?v=4" width="100px;" alt="jdcl32"/><br /><sub><b>jdcl32</b></sub></a><br /><a href="#question-jdcl32" title="Answering Questions">💬</a></td>
     <td align="center"><a href="https://github.com/ds300"><img src="https://avatars2.githubusercontent.com/u/1242537?v=4" width="100px;" alt="David Sheldrick"/><br /><sub><b>David Sheldrick</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=ds300" title="Code">💻</a></td>
+    <td align="center"><a href="https://macwright.org/"><img src="https://avatars2.githubusercontent.com/u/32314?v=4" width="100px;" alt="Tom MacWright"/><br /><sub><b>Tom MacWright</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=tmcw" title="Code">💻</a></td>
   </tr>
 </table>
 
