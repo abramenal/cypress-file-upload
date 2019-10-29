@@ -1,4 +1,4 @@
-export default ({ subject, force }, { files }) => {
+export default ({ subject, force, events }, { files }) => {
   const eventPayload = {
     force,
     dataTransfer: {
@@ -7,8 +7,10 @@ export default ({ subject, force }, { files }) => {
     },
   };
 
-  return cy
-    .wrap(subject, { log: false })
-    .trigger('dragenter', eventPayload)
-    .trigger('drop', eventPayload);
+  const temp = cy.wrap(subject, { log: false });
+  events.forEach(event => {
+    temp.trigger(event, eventPayload);
+  });
+
+  return temp;
 };
