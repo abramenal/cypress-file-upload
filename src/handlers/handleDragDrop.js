@@ -9,7 +9,7 @@ export default ({ subject, force }, { files }) => {
 
   return cy
     .wrap(subject, { log: false })
+    .trigger('dragover', eventPayload)
     .trigger('dragenter', eventPayload)
     .trigger('drop', eventPayload)
-    .trigger('dragleave', eventPayload);
 };
