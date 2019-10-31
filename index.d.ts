@@ -10,6 +10,7 @@ declare namespace Cypress {
     subjectType: 'input' | 'drag-n-drop';
     subjectNature?: 'dom' | 'shadow';
     force?: boolean;
+    allowEmpty?: boolean;
   }
 
   interface Chainable<Subject> {
