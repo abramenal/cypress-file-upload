@@ -81,6 +81,7 @@ cySubject.upload(fileOrArray, processingOpts);
 - {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
 - {String} `subjectNature` – target element nature: `'dom'` represents regular DOM elements, `'shadow'` stands for using elements within Shadow DOM. Defaults to `'dom'`
 - {Boolean} `force` – (optional) same as for [`cy.trigger`][cy.trigger] it enforces events triggering on HTML subject element. Usually this is necessary when you use hidden HTML controls for your file upload. Defaults to `false`
+- {Boolean} `allowEmpty` - (optional) when true, do not throw an error if `fileContent` is zero length. Defaults to `false`
 
 ## Recipes
 

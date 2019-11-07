@@ -46,4 +46,19 @@ describe('Attach file to a shadow dom input element', () => {
         .shadowContains('cy-2.png');
     });
   });
+
+  it('successfully uploads an empty file when allowEmpty is true', () => {
+    cy.fixture('empty.txt', 'base64').then(fileContent => {
+      cy.document({ log: false })
+        .shadowGet('file-input input', { selectMultiple: false })
+        .upload(
+          { fileContent, fileName: 'empty.txt', mimeType: 'text/plain' },
+          { subjectNature: 'shadow', subjectType: 'input', allowEmpty: true },
+        );
+
+      cy.document({ log: false })
+        .shadowGet('file-input ul')
+        .shadowContains('empty.txt');
+    });
+  });
 });

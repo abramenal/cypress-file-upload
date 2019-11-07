@@ -23,6 +23,10 @@ export const ERR_TYPES = {
     message: '"force" is not valid',
     tip: 'Please look into docs to find supported "force" values',
   },
+  INVALID_ALLOW_EMPTY: {
+    message: '"allowEmpty" is not valid',
+    tip: 'Please look into docs to find supported "allowEmpty" values',
+  },
   INVALID_FILE: {
     message: 'One or more field is invalid within given file(s)',
     tip: 'Please look into docs to find supported "fileOrArray" values',
