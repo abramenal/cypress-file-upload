@@ -40,5 +40,5 @@ export default (subject, fileOrArray, processingOptions) =>
     });
 
     const handleFileUpload = getHandler({ subjectType, subjectNature });
-    handleFileUpload({ window, subject, force, allowEmpty }, { files: filesToUpload });
+    handleFileUpload({ window, subject, force }, { files: filesToUpload });
   });
