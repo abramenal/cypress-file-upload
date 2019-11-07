@@ -35,6 +35,10 @@ export const ERR_TYPES = {
     message: '"encoding" is not valid',
     tip: 'Please look into docs to find supported "encoding" values',
   },
+  INVALID_EVENTS: {
+    message: '"events" is not valid',
+    tip: 'Please look into docs to find supported "events" values',
+  },
 };
 
 export class InternalError extends Error {
