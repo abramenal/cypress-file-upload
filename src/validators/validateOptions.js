@@ -13,11 +13,11 @@ export default ({ subjectType, subjectNature, force, allowEmpty, events }) => {
   if (typeof force !== 'boolean') {
     throw new InternalError(ERR_TYPES.INVALID_FORCE);
   }
-  
+
   if (typeof allowEmpty !== 'boolean') {
     throw new InternalError(ERR_TYPES.INVALID_ALLOW_EMPTY);
   }
-  
+
   if (!(Array.isArray(events) && events.every(event => typeof event === 'string'))) {
     throw new InternalError(ERR_TYPES.INVALID_EVENTS);
   }
