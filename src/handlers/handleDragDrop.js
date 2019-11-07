@@ -7,10 +7,10 @@ export default ({ subject, force, events }, { files }) => {
     },
   };
 
-  const temp = cy.wrap(subject, { log: false });
+  const wrappedSubject = cy.wrap(subject, { log: false });
   events.forEach(event => {
-    temp.trigger(event, eventPayload);
+    wrappedSubject.trigger(event, eventPayload);
   });
 
-  return temp;
+  return wrappedSubject;
 };

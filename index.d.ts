@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 declare namespace Cypress {
   interface FileData {
     fileContent: string;
@@ -11,6 +13,7 @@ declare namespace Cypress {
     subjectNature?: 'dom' | 'shadow';
     force?: boolean;
     allowEmpty?: boolean;
+    events?: Array<string>;
   }
 
   interface Chainable<Subject> {
