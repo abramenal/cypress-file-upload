@@ -6,19 +6,21 @@ const PROCESSING_OPTIONS_DEFAULTS = {
   subjectType: 'input',
   subjectNature: 'dom',
   force: false,
+  allowEmpty: false,
   events: ['dragcenter', 'drop', 'dragleave'],
 };
 
 export default (subject, fileOrArray, processingOptions) =>
   cy.window({ log: false }).then(async window => {
-    const { subjectType, subjectNature, force, events } = ensureDefaults(
+    const { subjectType, subjectNature, force, allowEmpty, events } = ensureDefaults(
       processingOptions,
       PROCESSING_OPTIONS_DEFAULTS,
     );
-    validateOptions({ subjectType, subjectNature, force, events });
+    validateOptions({ subjectType, subjectNature, force, allowEmpty, events });
+
     /* Subject validation depends on options validation so required to go in this exact order */
     validateSubject({ subject, subjectNature, subjectType });
-    validateFiles(fileOrArray);
+    validateFiles(fileOrArray, allowEmpty);
 
     const filesToUpload = await createFilesAsync({
       files: Array.isArray(fileOrArray) ? fileOrArray : [fileOrArray],
@@ -35,6 +37,7 @@ export default (subject, fileOrArray, processingOptions) =>
         subjectNature,
         files: filesToUpload,
         force,
+        allowEmpty,
         events,
       }),
     });
