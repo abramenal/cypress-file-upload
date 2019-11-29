@@ -7,7 +7,7 @@ const PROCESSING_OPTIONS_DEFAULTS = {
   subjectNature: 'dom',
   force: false,
   allowEmpty: false,
-  events: ['dragcenter', 'drop', 'dragleave'],
+  events: ['dragenter', 'drop', 'dragleave'],
 };
 
 export default (subject, fileOrArray, processingOptions) =>
