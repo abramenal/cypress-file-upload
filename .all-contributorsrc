@@ -326,6 +326,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "thiagobrez",
+      "name": "Thiago Brezinski",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/26878038?v=4",
+      "profile": "https://www.linkedin.com/in/thiago-brezinski-5a4b30125/",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
