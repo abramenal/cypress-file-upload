@@ -1,10 +1,13 @@
 export default ({ subject, force, events }, { files }) => {
+  const dataTransfer = new DataTransfer();
+
+  files.forEach(file => {
+    dataTransfer.items.add(file);
+  });
+
   const eventPayload = {
     force,
-    dataTransfer: {
-      files,
-      types: ['Files'],
-    },
+    dataTransfer,
   };
 
   const wrappedSubject = cy.wrap(subject, { log: false });
