@@ -162,6 +162,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/the-owl"><img src="https://avatars1.githubusercontent.com/u/11090288?v=4" width="100px;" alt=""/><br /><sub><b>Dmitry Nikulin</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=the-owl" title="Code">💻</a></td>
     <td align="center"><a href="https://www.linkedin.com/in/thiago-brezinski-5a4b30125/"><img src="https://avatars3.githubusercontent.com/u/26878038?v=4" width="100px;" alt=""/><br /><sub><b>Thiago Brezinski</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Athiagobrez" title="Bug reports">🐛</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/jackguoAtJogg"><img src="https://avatars1.githubusercontent.com/u/56273621?v=4" width="100px;" alt=""/><br /><sub><b>Jack</b></sub></a><br /><a href="#question-jackguoAtJogg" title="Answering Questions">💬</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
