@@ -335,6 +335,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "jackguoAtJogg",
+      "name": "Jack",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/56273621?v=4",
+      "profile": "https://github.com/jackguoAtJogg",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7,
