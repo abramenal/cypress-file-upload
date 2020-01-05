@@ -1,5 +1,5 @@
-export default ({ subject, force, events }, { files }) => {
-  const dataTransfer = new DataTransfer();
+export default ({ window, subject, force, events }, { files }) => {
+  const dataTransfer = new window.DataTransfer();
 
   files.forEach(file => {
     dataTransfer.items.add(file);
