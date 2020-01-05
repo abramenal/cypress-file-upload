@@ -97,6 +97,7 @@ During the lifetime plugin faced some issues you might need to be aware of:
 - Chrome 73 changes related to HTML file input behavior: [#34][#34]
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
 - Binary fixture has a workarounded encoding: [#70][#70]
+- Video fixture has a workarounded encoding: [#136][#136]
 - Shadow DOM compatibility: [#74][#74]
 - Reading file content after upload: [#104][#104]
 
@@ -169,6 +170,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
@@ -188,3 +190,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [#70]: https://github.com/abramenal/cypress-file-upload/issues/70
 [#74]: https://github.com/abramenal/cypress-file-upload/issues/74
 [#104]: https://github.com/abramenal/cypress-file-upload/issues/104
+[#136]: https://github.com/abramenal/cypress-file-upload/issues/136
