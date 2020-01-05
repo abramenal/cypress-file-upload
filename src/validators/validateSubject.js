@@ -1,7 +1,7 @@
 import { SUBJECT_TYPE, SUBJECT_NATURE } from '../constants';
 import { ERR_TYPES, InternalError } from '../error';
 
-const INPUT_TAG_REGEX = /input/i;
+const INPUT_TAG_REGEX = /input|button/i;
 
 const validationScheme = {
   [SUBJECT_TYPE.INPUT]: {
