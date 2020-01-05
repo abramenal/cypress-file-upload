@@ -13,8 +13,6 @@
   },
   "globals": {
     "Cypress": true,
-    "cy": true,
-    "DataTransfer": true,
-    "CustomEvent": true
+    "cy": true
   }
 }
