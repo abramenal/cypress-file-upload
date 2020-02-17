@@ -24,6 +24,7 @@ export const FILE_EXTENSION = Object.freeze({
   ZIP: 'zip',
   PDF: 'pdf',
   VCF: 'vcf',
+  SVG: 'svg',
 });
 
 export const ENCODING = Object.freeze({
