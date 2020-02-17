@@ -167,6 +167,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/jackguoAtJogg"><img src="https://avatars1.githubusercontent.com/u/56273621?v=4" width="100px;" alt=""/><br /><sub><b>Jack</b></sub></a><br /><a href="#question-jackguoAtJogg" title="Answering Questions">💬</a></td>
     <td align="center"><a href="https://github.com/yonigibbs"><img src="https://avatars3.githubusercontent.com/u/39593145?v=4" width="100px;" alt=""/><br /><sub><b>Yoni Gibbs</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Ayonigibbs" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/benowenssonos"><img src="https://avatars2.githubusercontent.com/u/44402951?v=4" width="100px;" alt=""/><br /><sub><b>benowenssonos</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Abenowenssonos" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="http://blog.kodono.info"><img src="https://avatars2.githubusercontent.com/u/946315?v=4" width="100px;" alt=""/><br /><sub><b>Aymeric</b></sub></a><br /><a href="#question-Aymkdn" title="Answering Questions">💬</a></td>
   </tr>
 </table>
 
