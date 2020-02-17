@@ -24,6 +24,7 @@ export default fileName => {
      */
     [FILE_EXTENSION.PDF]: ENCODING.UTF8,
     [FILE_EXTENSION.VCF]: ENCODING.UTF8,
+    [FILE_EXTENSION.SVG]: ENCODING.UTF8,
   };
 
   const extension = fileName.slice(fileName.lastIndexOf('.') + 1);

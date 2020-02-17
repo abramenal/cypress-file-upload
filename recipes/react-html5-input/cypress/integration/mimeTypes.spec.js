@@ -25,6 +25,11 @@ describe('Uploads a file with certain MIME type', () => {
       fileName: 'test.json',
       mimeType: 'application/json',
     },
+    {
+      testFileExt: 'SVG',
+      fileName: 'test.svg',
+      mimeType: 'image/svg+xml',
+    },
   ];
 
   files.forEach(({ testFileExt, fileName, mimeType, encoding }) => {
