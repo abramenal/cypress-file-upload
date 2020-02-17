@@ -361,6 +361,15 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "Aymkdn",
+      "name": "Aymeric",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/946315?v=4",
+      "profile": "http://blog.kodono.info",
+      "contributions": [
+        "question"
+      ]
     }
   ],
   "contributorsPerLine": 7,
