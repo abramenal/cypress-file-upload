@@ -5,6 +5,7 @@ import UploadDropzone from './upload-dropzone';
 /* eslint-disable no-console */
 export default () => {
   const [fileDrop = [], setFileDrop] = useState();
+  const [hiddenFileDrop = [], setHiddenFileDrop] = useState();
 
   return (
     <>
@@ -22,7 +23,23 @@ export default () => {
           />
           <ul>
             {fileDrop.map(i => (
-              <li>{i.name}</li>
+              <li className="regular">{i.name}</li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h2>Via hidden react-dropzone:</h2>
+          <UploadDropzone
+            hidden
+            onDrop={files => {
+              setHiddenFileDrop(Array.from(files));
+              console.log(files);
+            }}
+          />
+          <ul>
+            {hiddenFileDrop.map(i => (
+              <li className="hidden">{i.name}</li>
             ))}
           </ul>
         </section>
