@@ -60,5 +60,11 @@ typings/
 # next.js build output
 .next
 
+dist/
+
 .cache
 dist
+cypress/videos
+cypress/screenshots
+
+.DS_Store
