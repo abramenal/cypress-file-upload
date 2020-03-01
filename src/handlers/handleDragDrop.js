@@ -1,4 +1,6 @@
-export default ({ window, subject, force, events }, { files }) => {
+const EVENTS_TO_DISPATCH = ['dragstart', 'drag', 'dragenter', 'drop', 'dragleave', 'dragend'];
+
+export default function handleDragDrop({ window, subject, force }, { files }) {
   const dataTransfer = new window.DataTransfer();
 
   files.forEach(file => {
@@ -6,14 +8,16 @@ export default ({ window, subject, force, events }, { files }) => {
   });
 
   const eventPayload = {
-    force,
+    force: true,
     dataTransfer,
   };
 
-  const wrappedSubject = cy.wrap(subject, { log: false });
-  events.forEach(event => {
-    wrappedSubject.trigger(event, eventPayload);
-  });
+  const wrapped = cy.wrap(subject, { log: false });
+  if (force) {
+    EVENTS_TO_DISPATCH.forEach(event => {
+      wrapped.trigger(event, eventPayload);
+    });
+  }
 
-  return wrappedSubject;
-};
+  return wrapped;
+}

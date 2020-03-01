@@ -1,5 +1,7 @@
-import upload from './upload';
+import attachFile from './attachFile';
 
-export default () => {
-  Cypress.Commands.add('upload', { prevSubject: true }, upload);
+const initialize = () => {
+  Cypress.Commands.add('attachFile', { prevSubject: true }, attachFile);
 };
+
+initialize();

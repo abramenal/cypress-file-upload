@@ -1,23 +1,7 @@
 export const ERR_TYPES = {
-  MISSING_FILENAME: {
-    message: '"fileName" is empty',
-    tip: 'You should provide valid "fileName" string for parsing',
-  },
-  MISSING_ENCODING: {
-    message: 'file encoding could not be determined automatically',
-    tip: 'You should either recheck "fileName" for any typos or provide the "encoding" for such file type manually',
-  },
-  INVALID_SUBJECT: {
-    message: 'passed subject element is not valid',
-    tip: 'If "subjectType" is "input", subject should be a valid HTML <input /> element',
-  },
   INVALID_SUBJECT_TYPE: {
     message: '"subjectType" is not valid',
     tip: 'Please look into docs to find supported "subjectType" values',
-  },
-  INVALID_SUBJECT_NATURE: {
-    message: '"subjectNature" is not valid',
-    tip: 'Please look into docs to find supported "subjectNature" values',
   },
   INVALID_FORCE: {
     message: '"force" is not valid',
@@ -27,17 +11,17 @@ export const ERR_TYPES = {
     message: '"allowEmpty" is not valid',
     tip: 'Please look into docs to find supported "allowEmpty" values',
   },
-  INVALID_FILE: {
-    message: 'One or more field is invalid within given file(s)',
-    tip: 'Please look into docs to find supported "fileOrArray" values',
-  },
-  INVALID_ENCODING: {
-    message: '"encoding" is not valid',
+  INVALID_FILE_ENCODING: {
+    message: '"file encoding" is not valid',
     tip: 'Please look into docs to find supported "encoding" values',
   },
-  INVALID_EVENTS: {
-    message: '"events" is not valid',
-    tip: 'Please look into docs to find supported "events" values',
+  INVALID_FILE_PATH: {
+    message: '"filePath" is not valid',
+    tip: 'Please look into docs to find supported "filePath" values',
+  },
+  INVALID_FILE: {
+    message: 'given fixture file is empty',
+    tip: 'Please make sure you provide correct file or explicitly set "allowEmpty" to true',
   },
 };
 

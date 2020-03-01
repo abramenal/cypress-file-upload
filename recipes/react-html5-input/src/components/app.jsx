@@ -24,7 +24,7 @@ export default () => {
           />
           <ul>
             {fileInput.map(i => (
-              <li>{i.name}</li>
+              <li className="regular">{i.name}</li>
             ))}
           </ul>
         </section>
@@ -39,7 +39,7 @@ export default () => {
           />
           <ul>
             {hiddenFileInput.map(i => (
-              <li>{i.name}</li>
+              <li className="hidden">{i.name}</li>
             ))}
           </ul>
         </section>

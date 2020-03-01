@@ -6,38 +6,31 @@ describe('Uploads a file with certain MIME type', () => {
   const files = [
     {
       testFileExt: 'PNG',
-      fileName: 'cy.png',
-      mimeType: 'image/png',
+      filePath: 'cy.png',
     },
     {
       testFileExt: 'CSV (ASCII)',
-      fileName: 'test.ascii.csv',
-      mimeType: 'text/comma-separated-values',
+      filePath: 'test.ascii.csv',
       encoding: 'ascii',
     },
     {
       testFileExt: 'CSV (UTF8)',
-      fileName: 'test.utf8.csv',
-      mimeType: 'text/comma-separated-values',
+      filePath: 'test.utf8.csv',
     },
     {
       testFileExt: 'JSON',
-      fileName: 'test.json',
-      mimeType: 'application/json',
+      filePath: 'test.json',
     },
     {
       testFileExt: 'SVG',
-      fileName: 'test.svg',
-      mimeType: 'image/svg+xml',
+      filePath: 'test.svg',
     },
   ];
 
-  files.forEach(({ testFileExt, fileName, mimeType, encoding }) => {
-    it(`successfullt uploads a ${testFileExt} file`, () => {
-      cy.fixture(fileName, encoding).then(fileContent => {
-        cy.get('[data-cy="input"]').upload({ fileContent, fileName, mimeType, encoding }, { subjectType: 'input' });
-        cy.get('li').contains(fileName);
-      });
+  files.forEach(({ testFileExt, filePath, encoding }) => {
+    it(`successfully uploads a ${testFileExt} file`, () => {
+      cy.get('[data-cy="input"]').attachFile({ filePath, encoding });
+      cy.get('li').contains(filePath);
     });
   });
 });
