@@ -14,29 +14,25 @@ describe('Attach file to a shadow dom input element', () => {
 
     cy.shadowGet('file-input')
       .shadowFind('ul')
+      .shadowFind('li')
       .shadowContains('cy.png');
   });
 
   it('successfully uploads multiple files', () => {
-    const files = ['cy.png', 'cy.png'];
-
     cy.shadowGet('file-input')
       .shadowFind('input')
-      .attachFile(files);
+      .attachFile('cy.png')
+      .attachFile('empty.txt', { allowEmpty: true });
 
     cy.shadowGet('file-input')
       .shadowFind('ul')
-      .shadowFirst()
       .shadowFind('li')
-      .its('length')
-      .should('eq', 2);
+      .shadowContains('cy.png');
 
     cy.shadowGet('file-input')
       .shadowFind('ul')
-      .shadowLast()
       .shadowFind('li')
-      .its('length')
-      .should('eq', 2);
+      .shadowContains('empty.txt');
   });
 
   it('successfully uploads an empty file when allowEmpty is true', () => {
