@@ -8,55 +8,40 @@ describe('Attach file to a shadow dom input element', () => {
   });
 
   it('successfully uploads a file', () => {
-    cy.fixture('cy.png', 'base64').then(fileContent => {
-      cy.shadowGet('file-input')
-        .shadowFind('input')
-        .upload(
-          { fileContent, fileName: 'cy.png', mimeType: 'image/png' },
-          { subjectNature: 'shadow', subjectType: 'input' },
-        );
+    cy.shadowGet('file-input')
+      .shadowFind('input')
+      .attachFile('cy.png');
 
-      cy.shadowGet('file-input')
-        .shadowFind('ul')
-        .shadowContains('cy.png');
-    });
+    cy.shadowGet('file-input')
+      .shadowFind('ul')
+      .shadowFind('li')
+      .shadowContains('cy.png');
   });
 
   it('successfully uploads multiple files', () => {
-    cy.fixture('cy.png', 'base64').then(cyPng => {
-      const files = [
-        { fileName: 'cy-1.png', fileContent: cyPng, mimeType: 'image/png' },
-        { fileName: 'cy-2.png', fileContent: cyPng, mimeType: 'image/png' },
-      ];
+    cy.shadowGet('file-input')
+      .shadowFind('input')
+      .attachFile('cy.png')
+      .attachFile('empty.txt', { allowEmpty: true });
 
-      cy.shadowGet('file-input')
-        .shadowFind('input')
-        .upload(files, { subjectNature: 'shadow', subjectType: 'input' });
+    cy.shadowGet('file-input')
+      .shadowFind('ul')
+      .shadowFind('li')
+      .shadowContains('cy.png');
 
-      cy.shadowGet('file-input')
-        .shadowFind('ul')
-        .shadowFirst()
-        .shadowContains('cy-1.png');
-
-      cy.shadowGet('file-input')
-        .shadowFind('ul')
-        .shadowLast()
-        .shadowContains('cy-2.png');
-    });
+    cy.shadowGet('file-input')
+      .shadowFind('ul')
+      .shadowFind('li')
+      .shadowContains('empty.txt');
   });
 
   it('successfully uploads an empty file when allowEmpty is true', () => {
-    cy.fixture('empty.txt', 'base64').then(fileContent => {
-      cy.shadowGet('file-input')
-        .shadowFind('input')
-        .upload(
-          { fileContent, fileName: 'empty.txt', mimeType: 'text/plain' },
-          { subjectNature: 'shadow', subjectType: 'input', allowEmpty: true },
-        );
+    cy.shadowGet('file-input')
+      .shadowFind('input')
+      .attachFile('empty.txt', { allowEmpty: true });
 
-      cy.shadowGet('file-input')
-        .shadowFind('ul')
-        .shadowContains('empty.txt');
-    });
+    cy.shadowGet('file-input')
+      .shadowFind('ul')
+      .shadowContains('empty.txt');
   });
 });

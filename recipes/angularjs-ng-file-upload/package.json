@@ -9,13 +9,13 @@
   "scripts": {
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
-    "lint": "eslint src",
+    "lint": "eslint src cypress",
     "test": "cypress run",
     "test:open": "cypress open"
   },
   "devDependencies": {
     "cypress": "^4.1.0",
-    "cypress-file-upload": "^3.3.3",
+    "cypress-file-upload": "^4.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-cypress": "^2.2.0",

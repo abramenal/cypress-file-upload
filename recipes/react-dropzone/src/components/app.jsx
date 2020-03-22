@@ -23,7 +23,9 @@ export default () => {
           />
           <ul>
             {fileDrop.map(i => (
-              <li className="regular">{i.name}</li>
+              <li key={i.name} className="regular">
+                {i.name}
+              </li>
             ))}
           </ul>
         </section>
@@ -39,7 +41,9 @@ export default () => {
           />
           <ul>
             {hiddenFileDrop.map(i => (
-              <li className="hidden">{i.name}</li>
+              <li key={i.name} className="hidden">
+                {i.name}
+              </li>
             ))}
           </ul>
         </section>

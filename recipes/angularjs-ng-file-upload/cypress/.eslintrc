@@ -11,6 +11,7 @@
     "implicit-arrow-linebreak": "off",
     "max-len": ["error", { "code": 120 }],
     "no-use-before-define": ["error", { "functions": false }],
-    "object-curly-newline": ["error", { "consistent": true }]
+    "object-curly-newline": ["error", { "consistent": true }],
+    "import/no-extraneous-dependencies": "off"
   }
 }

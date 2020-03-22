@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
-    "lint": "eslint src",
+    "lint": "eslint src cypress --ext=js,jsx",
     "test": "cypress run",
     "test:open": "cypress open"
   },
@@ -18,7 +18,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "cypress": "^4.1.0",
-    "cypress-file-upload": "^3.3.0",
+    "cypress-file-upload": "^4.0.0",
     "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",

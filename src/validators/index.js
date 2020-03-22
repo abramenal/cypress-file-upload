@@ -1,4 +1,3 @@
-export { default as validateEncoding } from './validateEncoding';
-export { default as validateFiles } from './validateFiles';
+export { default as validateFixture } from './validateFixture';
+export { default as validateFile } from './validateFile';
 export { default as validateOptions } from './validateOptions';
-export { default as validateSubject } from './validateSubject';
