@@ -34,27 +34,33 @@ Add this line to your project's `cypress/support/commands.js`:
 import 'cypress-file-upload';
 ```
 
-Now you are ready to actually test uploading. Here is an example with HTML5 file input:
+Now you are ready to actually test uploading. Here are some basic examples:
 
 ```javascript
-const fileName = 'data.json';
+/* Plain HTML input */
 
-cy.fixture(fileName).then(fileContent => {
-  cy.get('[data-cy="file-input"]').upload({ fileContent, fileName, mimeType: 'application/json' });
-});
-```
+const yourFixturePath = 'data.json';
+cy.get('[data-cy="file-input"]').attachFile(yourFixturePath);
 
-And a similar one for custom drag-n-drop component:
+/* Drag-n-drop component */
 
-```javascript
-const fileName = 'data.json';
+cy.get('[data-cy="dropzone"]').attachFile(yourFixturePath, { subjectType: 'drag-n-drop' });
 
-cy.fixture(fileName).then(fileContent => {
-  cy.get('[data-cy="dropzone"]').upload(
-    { fileContent, fileName, mimeType: 'application/json' },
-    { subjectType: 'drag-n-drop' },
-  );
-});
+/* You can also attach multiple files by chaining the command */
+
+const yourBestPicture = 'meow.png';
+cy.get('[data-cy="file-input"]')
+  .attachFile(yourFixturePath)
+  .attachFile(yourBestPicture);
+
+/* If your file encoding is not supported out of the box, make sure to pass it explicitly */
+
+const weirdo = 'test.shp';
+cy.get('[data-cy="file-input"]').attachFile({ filePath: weirdo, encoding: 'utf-8' });
+
+/* If your input element is invisible or stays within shadow DOM, make sure enforcing manual event triggering */
+
+cy.get('[data-cy="file-input"]').attachFile(yourFixturePath, { force: true });
 ```
 
 **Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
@@ -66,23 +72,19 @@ See more usage guidelines in [recipes](./recipes).
 Exposed command in a nutshell:
 
 ```javascript
-cySubject.upload(fileOrArray, processingOpts);
+cySubject.attachFile(fixture, processingOpts);
 ```
 
-`fileOrArray` is an object (or an array of those) that represents file information and contains following properties:
+`fixture` is a string path (or object with same purpose) that represents your local fixture file and contains following properties:
 
-- {String} `fileContent` – raw file content, usually a value obtained from [`cy.fixture`][cy.fixture]
-- {String} `fileName` – file name (with extension)
-- {String} `mimeType` – file [MIME][mime] type
+- {String} `filePath` – file path (with extension)
 - {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/src/constants.js#L29)
 
 `processingOpts` (optional) contains following properties:
 
 - {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
-- {String} `subjectNature` – target element nature: `'dom'` represents regular DOM elements, `'shadow'` stands for using elements within Shadow DOM. Defaults to `'dom'`
 - {Boolean} `force` – (optional) same as for [`cy.trigger`][cy.trigger] it enforces events triggering on HTML subject element. Usually this is necessary when you use hidden HTML controls for your file upload. Defaults to `false`
 - {Boolean} `allowEmpty` - (optional) when true, do not throw an error if `fileContent` is zero length. Defaults to `false`
-- {Array} `events` – (optional) change the triggered events in drag-n-drop, useful when uses custom components or libraries. Defaults to `['dragenter', 'drop', 'dragleave']`
 
 ## Recipes
 
@@ -174,6 +176,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
