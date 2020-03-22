@@ -1,3 +1,3 @@
-export { default as getFilesToUploadAsync } from './getFilesToUploadAsync';
-export { default as getFixturesInfo } from './getFixturesInfo';
-export { default as getForceValueAsync } from './getForceValueAsync';
+export { default as attachFileToElement } from './attachFileToElement';
+export { default as getFixtureInfo } from './getFixtureInfo';
+export { default as getForceValue } from './getForceValue';

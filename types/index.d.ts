@@ -7,7 +7,7 @@ declare namespace Cypress {
   }
 
   interface FileProcessingOptions {
-    subjectType: 'input' | 'drag-n-drop';
+    subjectType?: 'input' | 'drag-n-drop';
     force?: boolean;
     allowEmpty?: boolean;
   }
@@ -15,12 +15,9 @@ declare namespace Cypress {
   interface Chainable<Subject> {
     /**
      * Command to attach file(s) to given HTML element as subject
-     * @param fixture Path(s) for fixture file to attach
-     * @param processingOpts Object representing processing options
+     * @param fixture file to attach
+     * @param processingOpts affects the way of fixture processing
      */
-    attachFile(
-      fixture: String | Array<String> | FixtureData | Array<FixtureData>,
-      processingOpts?: FileProcessingOptions,
-    ): Chainable<Subject>;
+    attachFile(fixture: String | FixtureData, processingOpts?: FileProcessingOptions): Chainable<Subject>;
   }
 }
