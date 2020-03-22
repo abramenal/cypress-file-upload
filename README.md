@@ -171,12 +171,12 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/benowenssonos"><img src="https://avatars2.githubusercontent.com/u/44402951?v=4" width="100px;" alt=""/><br /><sub><b>benowenssonos</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Abenowenssonos" title="Bug reports">🐛</a></td>
     <td align="center"><a href="http://blog.kodono.info"><img src="https://avatars2.githubusercontent.com/u/946315?v=4" width="100px;" alt=""/><br /><sub><b>Aymeric</b></sub></a><br /><a href="#question-Aymkdn" title="Answering Questions">💬</a></td>
     <td align="center"><a href="https://github.com/asumaran"><img src="https://avatars1.githubusercontent.com/u/1025173?v=4" width="100px;" alt=""/><br /><sub><b>Alfredo Sumaran</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/issues?q=author%3Aasumaran" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/x-yuri"><img src="https://avatars0.githubusercontent.com/u/730588?v=4" width="100px;" alt=""/><br /><sub><b>x-yuri</b></sub></a><br /><a href="#ideas-x-yuri" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
-
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
