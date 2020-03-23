@@ -78,6 +78,7 @@ cySubject.attachFile(fixture, processingOpts);
 `fixture` is a string path (or object with same purpose) that represents your local fixture file and contains following properties:
 
 - {String} `filePath` – file path (with extension)
+- {String} `mimeType` – (optional) file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
 - {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/src/constants.js#L29)
 
 `processingOpts` (optional) contains following properties:
@@ -177,6 +178,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
