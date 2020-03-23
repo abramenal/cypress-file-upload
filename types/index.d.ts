@@ -12,7 +12,7 @@ declare namespace Cypress {
     allowEmpty?: boolean;
   }
 
-  interface Chainable<Subject> {
+  interface Chainable<Subject = any> {
     /**
      * Command to attach file(s) to given HTML element as subject
      * @param fixture file to attach
@@ -22,7 +22,7 @@ declare namespace Cypress {
   }
 
   // TODO check if removing Chainable<Subject> extension drops 'ES5' target supportt
-  interface Chainable<JQuery> {
+  interface Chainable<JQuery = any> {
     /**
      * Command to attach file(s) to given HTML element as subject
      * @param fixture file to attach
