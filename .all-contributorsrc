@@ -388,6 +388,15 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "triqi",
+      "name": "Tri Q. Tran",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2232035?v=4",
+      "profile": "http://triqtran.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
