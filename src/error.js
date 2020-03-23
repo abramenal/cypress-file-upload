@@ -19,6 +19,10 @@ export const ERR_TYPES = {
     message: '"filePath" is not valid',
     tip: 'Please look into docs to find supported "filePath" values',
   },
+  INVALID_MIME_TYPE: {
+    message: '"mimeType" is not valid',
+    tip: 'Please look into docs to find supported "mimeType" values',
+  },
   INVALID_FILE: {
     message: 'given fixture file is empty',
     tip: 'Please make sure you provide correct file or explicitly set "allowEmpty" to true',

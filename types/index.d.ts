@@ -4,6 +4,7 @@ declare namespace Cypress {
   interface FixtureData {
     filePath: String;
     encoding?: String;
+    mimeType?: String;
   }
 
   interface FileProcessingOptions {

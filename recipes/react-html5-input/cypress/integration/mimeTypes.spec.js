@@ -24,12 +24,13 @@ describe('Uploads a file with certain MIME type', () => {
     {
       testFileExt: 'SVG',
       filePath: 'test.svg',
+      mimeType: 'text/csv',
     },
   ];
 
-  files.forEach(({ testFileExt, filePath, encoding }) => {
+  files.forEach(({ testFileExt, filePath, encoding, mimeType }) => {
     it(`successfully uploads a ${testFileExt} file`, () => {
-      cy.get('[data-cy="input"]').attachFile({ filePath, encoding });
+      cy.get('[data-cy="input"]').attachFile({ filePath, encoding, mimeType });
       cy.get('li').contains(filePath);
     });
   });

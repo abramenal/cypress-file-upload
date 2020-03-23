@@ -13,14 +13,14 @@ export default function attachFile(subject, fixture, processingOptions) {
   const fixtureToAttach = getFixtureInfo(fixture);
   validateFixture(fixtureToAttach);
 
-  const { filePath, encoding } = fixtureToAttach;
+  const { filePath, encoding, mimeType } = fixtureToAttach;
 
-  const mimeType = getFileMimeType(filePath);
+  const fileMimeType = mimeType || getFileMimeType(filePath);
   const fileEncoding = encoding || getFileEncoding(filePath);
   const forceValue = force || getForceValue(subject);
 
   Cypress.cy.fixture(filePath, fileEncoding).then(fileContent => {
-    return getFileBlobAsync({ filePath, fileContent, mimeType, encoding: fileEncoding }).then(file => {
+    return getFileBlobAsync({ filePath, fileContent, mimeType: fileMimeType, encoding: fileEncoding }).then(file => {
       validateFile(file, allowEmpty);
 
       attachFileToElement(subject, { file, subjectType, force: forceValue });
