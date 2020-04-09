@@ -4,13 +4,13 @@ import { ENCODING } from '../../lib/file/constants';
 const ALLOWED_ENCODINGS = Object.values(ENCODING);
 
 export default function validateFixtures(fixture) {
-  const { filePath, encoding, mimeType } = fixture;
+  const { filePath, encoding, mimeType, fileContent } = fixture;
 
   if (encoding && !ALLOWED_ENCODINGS.includes(encoding)) {
     throw new InternalError(ERR_TYPES.INVALID_FILE_ENCODING);
   }
 
-  if (typeof filePath !== 'string') {
+  if (typeof filePath !== 'string' && !fileContent) {
     throw new InternalError(ERR_TYPES.INVALID_FILE_PATH);
   }
 

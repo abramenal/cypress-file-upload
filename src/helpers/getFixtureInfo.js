@@ -1,9 +1,12 @@
+import path from 'path';
+
 export default function getFixtureInfo(fixtureInput) {
   if (typeof fixtureInput === 'string') {
     return {
       filePath: fixtureInput,
       encoding: '',
       mimeType: '',
+      fileName: path.basename(fixtureInput),
     };
   }
 
@@ -11,5 +14,7 @@ export default function getFixtureInfo(fixtureInput) {
     filePath: fixtureInput.filePath,
     encoding: fixtureInput.encoding || '',
     mimeType: fixtureInput.mimeType || '',
+    fileName: fixtureInput.fileName || path.basename(fixtureInput),
+    fileContent: fixtureInput.fileContent,
   };
 }
