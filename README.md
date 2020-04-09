@@ -6,6 +6,9 @@ File upload testing made easy.
 
 This package adds a custom [Cypress][cypress] command that allows you to make an abstraction on how exactly you upload files through HTML controls and focus on testing user workflows.
 
+
+## *Note:* v4 is unstable and at the moment there is no capacity to look through all the issues. So please consider using v3 https://github.com/abramenal/cypress-file-upload/tree/v3.5.3
+
 ## Table of Contents
 
 - [Installation](#installation)
