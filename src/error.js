@@ -27,6 +27,10 @@ export const ERR_TYPES = {
     message: 'given fixture file is empty',
     tip: 'Please make sure you provide correct file or explicitly set "allowEmpty" to true',
   },
+  MISSING_FILE_NAME_OR_PATH: {
+    message: 'missing "filePath" or "fileName"',
+    tip: 'Please make sure you are passing either "filePath" or "fileName"',
+  },
 };
 
 export class InternalError extends Error {
