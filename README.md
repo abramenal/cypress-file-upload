@@ -64,6 +64,29 @@ cy.get('[data-cy="file-input"]').attachFile({ filePath: weirdo, encoding: 'utf-8
 /* If your input element is invisible or stays within shadow DOM, make sure enforcing manual event triggering */
 
 cy.get('[data-cy="file-input"]').attachFile(yourFixturePath, { force: true });
+
+/* If you want to overwrite the file name */
+
+const data = 'test.json';
+cy.get('[data-cy="file-input"]').attachFile({ filePath: data, fileName: 'users.json' });
+
+/* If your file needs special processing not supported out of the box, you can pass fileContent directly */
+
+const special = 'file.spss';
+cy.fixtures(special, 'binary')
+  .then(Cypress.Blob.binaryStringToBlob)
+  .then((fileContent) => {
+    cy.get('[data-cy="file-input"]').attachFile({ fileContent, filePath: special, encoding: 'utf-8' });
+})
+
+/* when providing fileContent is possible to ignore filePath but fileName and mime type must be provided */
+
+const special = 'file.spss';
+cy.fixtures(special, 'binary')
+  .then(Cypress.Blob.binaryStringToBlob)
+  .then((fileContent) => {
+    cy.get('[data-cy="file-input"]').attachFile({ fileContent, fileName: 'special', mimeType: 'application/octet-stream', encoding: 'utf-8' });
+})
 ```
 
 **Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
@@ -81,6 +104,8 @@ cySubject.attachFile(fixture, processingOpts);
 `fixture` is a string path (or object with same purpose) that represents your local fixture file and contains following properties:
 
 - {String} `filePath` – file path (with extension)
+- {String} `fileName` - (optional) the name of the file to be attached, this allows to override the name provided by `filePath`
+- {Blob} `fileContent` - (optional) the binary content of the file to be attached
 - {String} `mimeType` – (optional) file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
 - {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/src/constants.js#L29)
 
