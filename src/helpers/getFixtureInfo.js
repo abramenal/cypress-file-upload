@@ -14,7 +14,7 @@ export default function getFixtureInfo(fixtureInput) {
     filePath: fixtureInput.filePath,
     encoding: fixtureInput.encoding || '',
     mimeType: fixtureInput.mimeType || '',
-    fileName: fixtureInput.fileName || path.basename(fixtureInput),
+    fileName: fixtureInput.fileName || path.basename(fixtureInput.filePath),
     fileContent: fixtureInput.fileContent,
   };
 }
