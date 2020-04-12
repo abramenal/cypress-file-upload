@@ -1,7 +1,7 @@
 import { SUBJECT_TYPE, EVENTS_BY_SUBJECT_TYPE } from '../constants';
 
-export default function(subject, { file, subjectType, force }) {
-  const dataTransfer = new DataTransfer();
+export default function(subject, { file, subjectType, force, window }) {
+  const dataTransfer = new window.DataTransfer();
   dataTransfer.items.add(file);
 
   if (subjectType === SUBJECT_TYPE.INPUT) {

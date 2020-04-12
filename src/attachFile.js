@@ -25,7 +25,7 @@ export default function attachFile(subject, fixture, processingOptions) {
         file => {
           validateFile(file, allowEmpty);
 
-          attachFileToElement(subject, { file, subjectType, force: forceValue });
+          attachFileToElement(subject, { file, subjectType, force: forceValue, window });
 
           Cypress.log({
             name: 'attachFile',
