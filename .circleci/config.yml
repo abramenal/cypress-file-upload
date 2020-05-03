@@ -2,12 +2,14 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
 
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:10.15.3
+    - image: cypress/browsers:node13.6.0-chrome80-ff72
 
 jobs:
   test:
@@ -16,11 +18,14 @@ jobs:
       - checkout
       - run: npm install
       - run:
-          name: Run source code linting
+          name: Source code linting
           command: npm run lint
+      - run:
+          name: Tests for react-html5-input
+          command: cd recipes/react-html5-input && npm install && npm run test:ci
       - persist_to_workspace:
           root: ~/repo
-          paths: .
+          paths: [.]
   build:
     <<: *defaults
     steps:
@@ -29,20 +34,6 @@ jobs:
       - run:
           name: Create app bundle
           command: npm run build
-  publish:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Decrypt env variables
-          command: openssl aes-256-cbc -d -in secrets -k $OPENSSL_KEY >> ~/.circlerc
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
-      - run:
-          name: Publish package
-          command: npm publish
 
 workflows:
   version: 2
@@ -52,11 +43,3 @@ workflows:
       - build:
           requires:
             - test
-      - publish:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /^v*/
-            branches:
-              ignore: /.*/

@@ -12,6 +12,7 @@
     "start": "npm run dev",
     "lint": "eslint src cypress --ext=js,jsx",
     "test": "cypress run",
+    "test:ci": "npm test -- --config-file cypress.ci.json",
     "test:open": "cypress open"
   },
   "devDependencies": {
