@@ -107,7 +107,7 @@ cySubject.attachFile(fixture, processingOpts);
 - {String} `fileName` - (optional) the name of the file to be attached, this allows to override the name provided by `filePath`
 - {Blob} `fileContent` - (optional) the binary content of the file to be attached
 - {String} `mimeType` – (optional) file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
-- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/src/constants.js#L29)
+- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/lib/file/constants.js#L1)
 
 `processingOpts` (optional) contains following properties:
 
