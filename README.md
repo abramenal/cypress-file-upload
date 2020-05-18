@@ -203,6 +203,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/x-yuri"><img src="https://avatars0.githubusercontent.com/u/730588?v=4" width="100px;" alt=""/><br /><sub><b>x-yuri</b></sub></a><br /><a href="#ideas-x-yuri" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="http://triqtran.com"><img src="https://avatars1.githubusercontent.com/u/2232035?v=4" width="100px;" alt=""/><br /><sub><b>Tri Q. Tran</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=triqi" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://francischartrand.com"><img src="https://avatars0.githubusercontent.com/u/1503758?v=4" width="100px;" alt=""/><br /><sub><b>Francis Chartrand</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=chartrandf" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
