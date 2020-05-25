@@ -9,7 +9,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:14.3.0-browsers
+    - image: circleci/node:12.16.1
 
 jobs:
   install:
@@ -22,6 +22,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: [.]
+
   test:
     <<: *defaults
     steps:
@@ -30,9 +31,7 @@ jobs:
       - run:
           name: Source code linting
           command: npm run lint
-      # - run:
-      #     name: Tests for react-html5-input
-      #     command: cd recipes/react-html5-input && npm install && npm run test:ci
+
   build:
     <<: *defaults
     steps:
@@ -41,6 +40,40 @@ jobs:
       - run:
           name: Create app bundle
           command: npm run build
+
+  e2e-chrome-react-html5-input:
+    <<: *defaults
+    docker:
+      - image: cypress/browsers:node12.16.1-chrome80-ff73
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: e2e suite for recipes/react-html5-input on Chrome
+          command: cd recipes/react-html5-input && npm install && npm run test:ci -- --browser chrome
+
+  e2e-firefox-react-html5-input:
+    <<: *defaults
+    docker:
+      - image: cypress/browsers:node12.16.1-chrome80-ff73
+    steps:
+      - attach_workspace:
+          at: ~/repo/recipes/react-html5-input
+      - run:
+          name: e2e suite for recipes/react-html5-input on Firefox
+          command: cd recipes/react-html5-input && npm install && npm run test:ci -- --browser firefox
+
+  e2e-electron-react-html5-input:
+    <<: *defaults
+    docker:
+      - image: cypress/browsers:node12.16.1-chrome80-ff73
+    steps:
+      - attach_workspace:
+          at: ~/repo/recipes/react-html5-input
+      - run:
+          name: e2e suite for recipes/react-html5-input on Electron
+          command: cd recipes/react-html5-input && npm install && npm run test:ci -- --browser electron
+
   deploy-recipes:
     <<: *defaults
     steps:
@@ -61,7 +94,7 @@ jobs:
 
 workflows:
   version: 2
-  test-build-and-publish:
+  production:
     jobs:
       - install
       - test:
@@ -73,6 +106,24 @@ workflows:
       - deploy-recipes:
           requires:
             - install
+          filters:
+            branches:
+              only: master
+      - e2e-chrome-react-html5-input:
+          requires:
+            - deploy-recipes
+          filters:
+            branches:
+              only: master
+      - e2e-firefox-react-html5-input:
+          requires:
+            - deploy-recipes
+          filters:
+            branches:
+              only: master
+      - e2e-electron-react-html5-input:
+          requires:
+            - deploy-recipes
           filters:
             branches:
               only: master
