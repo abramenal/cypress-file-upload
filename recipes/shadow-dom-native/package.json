@@ -8,6 +8,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build src/index.html",
+    "deploy": "VERCEL_ORG_ID=${VERCEL_ORG_ID} VERCEL_PROJECT_ID=${SHADOW_DOM_VERCEL_PROJECT_ID} vercel -t ${VERCEL_TOKEN} -c deploy --prod",
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
     "lint": "eslint src cypress --ext=js",
@@ -26,6 +27,7 @@
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^2.3.0",
     "parcel-bundler": "^1.12.3",
-    "prettier": "^1.17.1"
+    "prettier": "^1.17.1",
+    "vercel": "^19.0.1"
   }
 }

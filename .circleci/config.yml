@@ -55,6 +55,9 @@ jobs:
       - run:
           name: Deploy recipes/react-html5-input
           command: cd recipes/react-html5-input && npm install && npm run deploy
+      - run:
+          name: Deploy recipes/shadow-dom-native
+          command: cd recipes/shadow-dom-native && npm install && npm run deploy
 
 workflows:
   version: 2
