@@ -23,11 +23,15 @@ export default function(subject, { file, subjectType, force, window }) {
       detail: dataTransfer,
     };
 
-    events.forEach(e => {
-      const event = new CustomEvent(e, eventPayload);
-      Object.assign(event, { dataTransfer });
+    try {
+      events.forEach(e => {
+        const event = new CustomEvent(e, eventPayload);
+        Object.assign(event, { dataTransfer });
 
-      subject[0].dispatchEvent(event);
-    });
+        subject[0].dispatchEvent(event);
+      });
+    } catch (e) {
+      // make sure event triggering won't break if subject element is not visible or in DOM anymore
+    }
   }
 }
