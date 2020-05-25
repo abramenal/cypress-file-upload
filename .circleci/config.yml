@@ -9,23 +9,30 @@ orbs:
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: cypress/browsers:node13.6.0-chrome80-ff72
+    - image: circleci/node:14.3.0-browsers
 
 jobs:
-  test:
+  install:
     <<: *defaults
     steps:
       - checkout
-      - run: npm install
       - run:
-          name: Source code linting
-          command: npm run lint
-      - run:
-          name: Tests for react-html5-input
-          command: cd recipes/react-html5-input && npm install && npm run test:ci
+          name: Install dependencies
+          command: npm install
       - persist_to_workspace:
           root: ~/repo
           paths: [.]
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Source code linting
+          command: npm run lint
+      # - run:
+      #     name: Tests for react-html5-input
+      #     command: cd recipes/react-html5-input && npm install && npm run test:ci
   build:
     <<: *defaults
     steps:
@@ -34,12 +41,29 @@ jobs:
       - run:
           name: Create app bundle
           command: npm run build
+  deploy-recipes:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Deploy recipes/react-html5-input
+          command: cd recipes/react-html5-input && npm install && npm run deploy
 
 workflows:
   version: 2
   test-build-and-publish:
     jobs:
-      - test
+      - install
+      - test:
+          requires:
+            - install
       - build:
           requires:
-            - test
+            - install
+      - deploy-recipes:
+          requires:
+            - install
+          filters:
+            branches:
+              only: master
