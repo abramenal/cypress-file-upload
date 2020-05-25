@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "alias": ["cypress-file-upload-shadow-dom-native.abramenal.com", "cypress-file-upload-shadow-dom-native"],
-  "cleanUrls": true,
-  "github": {
-    "enabled": false
-  },
-  "trailingSlash": false
-}

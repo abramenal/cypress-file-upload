@@ -9,7 +9,7 @@
   "scripts": {
     "build": "microbundle build -i src/index.js -f cjs",
     "lint": "eslint . --ext=js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",

@@ -1,9 +1,0 @@
-{
-  "version": 2,
-  "alias": ["cypress-file-upload-react-html5-input.abramenal.com", "cypress-file-upload-react-html5-input"],
-  "cleanUrls": true,
-  "github": {
-    "enabled": false
-  },
-  "trailingSlash": false
-}

@@ -8,12 +8,16 @@
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build src/index.html",
-    "deploy": "VERCEL_ORG_ID=${VERCEL_ORG_ID} VERCEL_PROJECT_ID=${REACT_HTML_INPUT_VERCEL_PROJECT_ID} vercel -t ${VERCEL_TOKEN} -c deploy --prod",
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
     "lint": "eslint src cypress --ext=js,jsx",
     "test": "cypress run",
-    "test:ci": "npm test -- --config-file cypress.ci.json",
+    "test:chrome": "npm test -- --browser chrome",
+    "test:firefox": "npm test -- --browser firefox",
+    "test:electron": "npm test -- --browser electron",
+    "test:ci:chrome": "start-server-and-test start http://localhost:3000 test:chrome",
+    "test:ci:firefox": "start-server-and-test start http://localhost:3000 test:firefox",
+    "test:ci:electron": "start-server-and-test start http://localhost:3000 test:electron",
     "test:open": "cypress open"
   },
   "devDependencies": {
@@ -30,7 +34,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "parcel-bundler": "^1.11.0",
-    "vercel": "^19.0.1"
+    "start-server-and-test": "^1.11.0"
   },
   "dependencies": {
     "cross-fetch": "^3.0.1",

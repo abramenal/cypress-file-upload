@@ -9,7 +9,7 @@ orbs:
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:12.16.1
+    - image: cypress/browsers:node12.16.1-chrome80-ff73
 
 jobs:
   install:
@@ -23,7 +23,7 @@ jobs:
           root: ~/repo
           paths: [.]
 
-  test:
+  lint:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -31,6 +31,15 @@ jobs:
       - run:
           name: Source code linting
           command: npm run lint
+
+  test:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Unit testing
+          command: npm test
 
   build:
     <<: *defaults
@@ -41,89 +50,117 @@ jobs:
           name: Create app bundle
           command: npm run build
 
-  e2e-chrome-react-html5-input:
+  test-recipes-angularjs-ng-file-upload:
     <<: *defaults
-    docker:
-      - image: cypress/browsers:node12.16.1-chrome80-ff73
     steps:
       - attach_workspace:
           at: ~/repo
+      - run:
+          name: Install dependencies
+          command: npm install
+          working_directory: recipes/angularjs-ng-file-upload
+      - run:
+          name: e2e suite for recipes/angularjs-ng-file-upload on Chrome
+          command: npm run test:ci:chrome
+          working_directory: recipes/angularjs-ng-file-upload
+      - run:
+          name: e2e suite for recipes/angularjs-ng-file-upload on Firefox
+          command: npm run test:ci:firefox
+          working_directory: recipes/angularjs-ng-file-upload
+      - run:
+          name: e2e suite for recipes/angularjs-ng-file-upload on Electron
+          command: npm run test:ci:electron
+          working_directory: recipes/angularjs-ng-file-upload
+
+  test-recipes-react-dropzone:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Install dependencies
+          command: npm install
+          working_directory: recipes/react-dropzone
+      - run:
+          name: e2e suite for recipes/react-dropzone on Chrome
+          command: npm run test:ci:chrome
+          working_directory: recipes/react-dropzone
+      - run:
+          name: e2e suite for recipes/react-dropzone on Firefox
+          command: npm run test:ci:firefox
+          working_directory: recipes/react-dropzone
+      - run:
+          name: e2e suite for recipes/react-dropzone on Electron
+          command: npm run test:ci:electron
+          working_directory: recipes/react-dropzone
+
+  test-recipes-react-html5-input:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Install dependencies
+          command: npm install
+          working_directory: recipes/react-html5-input
       - run:
           name: e2e suite for recipes/react-html5-input on Chrome
-          command: cd recipes/react-html5-input && npm install && npm run test:ci -- --browser chrome
-
-  e2e-firefox-react-html5-input:
-    <<: *defaults
-    docker:
-      - image: cypress/browsers:node12.16.1-chrome80-ff73
-    steps:
-      - attach_workspace:
-          at: ~/repo/recipes/react-html5-input
+          command: npm run test:ci:chrome
+          working_directory: recipes/react-html5-input
       - run:
           name: e2e suite for recipes/react-html5-input on Firefox
-          command: cd recipes/react-html5-input && npm install && npm run test:ci -- --browser firefox
-
-  e2e-electron-react-html5-input:
-    <<: *defaults
-    docker:
-      - image: cypress/browsers:node12.16.1-chrome80-ff73
-    steps:
-      - attach_workspace:
-          at: ~/repo/recipes/react-html5-input
+          command: npm run test:ci:firefox
+          working_directory: recipes/react-html5-input
       - run:
           name: e2e suite for recipes/react-html5-input on Electron
-          command: cd recipes/react-html5-input && npm install && npm run test:ci -- --browser electron
+          command: npm run test:ci:electron
+          working_directory: recipes/react-html5-input
 
-  deploy-recipes:
+  test-recipes-shadow-dom-native:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: Deploy recipes/angularjs-ng-file-upload
-          command: cd recipes/angularjs-ng-file-upload && npm install && npm run deploy
+          name: Install dependencies
+          command: npm install
+          working_directory: recipes/shadow-dom-native
       - run:
-          name: Deploy recipes/react-dropzone
-          command: cd recipes/react-dropzone && npm install && npm run deploy
+          name: e2e suite for recipes/shadow-dom-native on Chrome
+          command: npm run test:ci:chrome
+          working_directory: recipes/shadow-dom-native
       - run:
-          name: Deploy recipes/react-html5-input
-          command: cd recipes/react-html5-input && npm install && npm run deploy
+          name: e2e suite for recipes/shadow-dom-native on Firefox
+          command: npm run test:ci:firefox
+          working_directory: recipes/shadow-dom-native
       - run:
-          name: Deploy recipes/shadow-dom-native
-          command: cd recipes/shadow-dom-native && npm install && npm run deploy
+          name: e2e suite for recipes/shadow-dom-native on Electron
+          command: npm run test:ci:electron
+          working_directory: recipes/shadow-dom-native
 
 workflows:
   version: 2
   production:
     jobs:
       - install
-      - test:
+      - lint:
           requires:
             - install
       - build:
           requires:
             - install
-      - deploy-recipes:
+      - test:
           requires:
             - install
-          filters:
-            branches:
-              only: master
-      - e2e-chrome-react-html5-input:
+      - test-recipes-angularjs-ng-file-upload:
           requires:
-            - deploy-recipes
-          filters:
-            branches:
-              only: master
-      - e2e-firefox-react-html5-input:
+            - test
+      - test-recipes-react-dropzone:
           requires:
-            - deploy-recipes
-          filters:
-            branches:
-              only: master
-      - e2e-electron-react-html5-input:
+            - test
+      - test-recipes-react-html5-input:
           requires:
-            - deploy-recipes
-          filters:
-            branches:
-              only: master
+            - test
+      - test-recipes-shadow-dom-native:
+          requires:
+            - test
