@@ -47,6 +47,9 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
+          name: Deploy recipes/react-dropzone
+          command: cd recipes/react-dropzone && npm install && npm run deploy
+      - run:
           name: Deploy recipes/react-html5-input
           command: cd recipes/react-html5-input && npm install && npm run deploy
 

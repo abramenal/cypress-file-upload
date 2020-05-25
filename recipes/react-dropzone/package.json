@@ -8,6 +8,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build src/index.html",
+    "deploy": "VERCEL_ORG_ID=${VERCEL_ORG_ID} VERCEL_PROJECT_ID=${REACT_DROPZONE_VERCEL_PROJECT_ID} vercel -t ${VERCEL_TOKEN} -c deploy --prod",
     "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
     "lint": "eslint src cypress --ext=js,jsx",
@@ -27,7 +28,8 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "parcel-bundler": "^1.11.0"
+    "parcel-bundler": "^1.11.0",
+    "vercel": "^19.0.1"
   },
   "dependencies": {
     "cross-fetch": "^3.0.1",
