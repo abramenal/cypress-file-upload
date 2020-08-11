@@ -70,7 +70,7 @@ cy.get('[data-cy="file-input"]').attachFile({ filePath: data, fileName: 'users.j
 /* If your file needs special processing not supported out of the box, you can pass fileContent directly */
 
 const special = 'file.spss';
-cy.fixtures(special, 'binary')
+cy.fixture(special, 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
   .then((fileContent) => {
     cy.get('[data-cy="file-input"]').attachFile({ fileContent, filePath: special, encoding: 'utf-8' });
@@ -79,7 +79,7 @@ cy.fixtures(special, 'binary')
 /* when providing fileContent is possible to ignore filePath but fileName and mime type must be provided */
 
 const special = 'file.spss';
-cy.fixtures(special, 'binary')
+cy.fixture(special, 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
   .then((fileContent) => {
     cy.get('[data-cy="file-input"]').attachFile({ fileContent, fileName: 'special', mimeType: 'application/octet-stream', encoding: 'utf-8' });
