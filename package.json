@@ -46,7 +46,6 @@
     "cypress": ">3.0.0"
   },
   "dependencies": {
-    "mime": "^2.4.4",
-    "semver": "^7.3.2"
+    "mime": "^2.4.4"
   }
 }
