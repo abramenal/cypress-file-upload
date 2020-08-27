@@ -407,6 +407,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "emilong",
+      "name": "Emil Ong",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1090771?v=4",
+      "profile": "https://github.com/emilong",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
