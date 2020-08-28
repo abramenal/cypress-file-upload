@@ -205,6 +205,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/emilong"><img src="https://avatars2.githubusercontent.com/u/1090771?v=4" width="100px;" alt=""/><br /><sub><b>Emil Ong</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=emilong" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/Ebazhanov"><img src="https://avatars2.githubusercontent.com/u/13170022?v=4" width="100px;" alt=""/><br /><sub><b>Evgenii</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=Ebazhanov" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/josephzidell"><img src="https://avatars0.githubusercontent.com/u/1812443?v=4" width="100px;" alt=""/><br /><sub><b>Joseph Zidell</b></sub></a><br /><a href="#maintenance-josephzidell" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/danielcaballero"><img src="https://avatars1.githubusercontent.com/u/1639333?v=4" width="100px;" alt=""/><br /><sub><b>Daniel Caballero</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=danielcaballero" title="Code">💻</a></td>
   </tr>
 </table>
 
