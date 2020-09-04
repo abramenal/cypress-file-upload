@@ -9,26 +9,30 @@ import 'ng-file-upload';
 const app = angular.module('app', ['ngFileUpload']);
 
 app.controller('Upload', ($scope, Upload, $timeout) => {
-  $scope.uploadFiles = (file, errFiles) => {
-    $scope.f = file;
-    $scope.errFile = errFiles && errFiles[0];
-    if (file) {
-      file.upload = Upload.upload({
-        url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-        data: { file },
-      });
+  $scope.uploadFiles = (files, errFiles) => {
+    $scope.files = files;
+    $scope.errFiles = errFiles;
 
-      file.upload.then(
-        response => {
-          $timeout(() => {
-            file.result = response.data;
+    $scope.files = files;
+    if (files && files.length) {
+      Upload.upload({
+        url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+        data: {
+          files: files,
+        },
+      }).then(
+        function(response) {
+          $timeout(function() {
+            $scope.result = response.data;
           });
         },
-        response => {
-          if (response.status > 0) $scope.errorMsg = `${response.status}: ${response.data}`;
+        function(response) {
+          if (response.status > 0) {
+            $scope.errorMsg = response.status + ': ' + response.data;
+          }
         },
-        evt => {
-          file.progress = Math.min(100, parseInt((100.0 * evt.loaded) / evt.total, 10));
+        function(evt) {
+          $scope.progress = Math.min(100, parseInt((100.0 * evt.loaded) / evt.total));
         },
       );
     }
