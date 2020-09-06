@@ -443,6 +443,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "adrienjoly",
+      "name": "Adrien Joly",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/531781?v=4",
+      "profile": "https://adrienjoly.com/now",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
