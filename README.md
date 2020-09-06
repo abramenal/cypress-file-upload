@@ -39,7 +39,7 @@ Now you are ready to actually test uploading. Here are some basic examples:
 ```javascript
 /* Plain HTML input */
 
-const yourFixturePath = 'data.json';
+const yourFixturePath = 'data.json'; // the file to be uploaded, from the cypress/fixtures/ directory
 cy.get('[data-cy="file-input"]').attachFile(yourFixturePath);
 
 /* Drag-n-drop component */
