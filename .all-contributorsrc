@@ -452,6 +452,15 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "Hypercubed",
+      "name": "Jayson Harshbarger",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/509946?v=4",
+      "profile": "http://www.hypercubed.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
