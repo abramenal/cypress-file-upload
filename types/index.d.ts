@@ -1,12 +1,17 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
-  interface FixtureData {
-    filePath: String;
+  type FixtureData = {
+    filePath: string;
     fileContent?: Blob;
     fileName?: string;
-    encoding?: String;
-    mimeType?: String;
+    encoding?: string;
+    mimeType?: string;
+  } | {
+    fileContent: Blob;
+    fileName: string;
+    mimeType: string;
+    encoding?: string;
   }
 
   interface FileProcessingOptions {
