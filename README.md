@@ -28,10 +28,16 @@ npm install --save-dev cypress-file-upload
 ## Usage
 
 `cypress-file-upload` extends Cypress' `cy` command.
-Add this line to your project's `cypress/support/commands.js`:
+Add this line to your project's `cypress/support/commands.js` or `cypress/support/commands.ts` file:
 
 ```javascript
 import 'cypress-file-upload';
+```
+
+Note: With Typescript, ensure the following is in your `cypress\tsconfig.json` file:
+```
+"compilerOptions": {
+  "types": ["cypress"]
 ```
 
 Now you are ready to actually test uploading. Here are some basic examples:
