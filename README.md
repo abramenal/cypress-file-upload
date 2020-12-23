@@ -215,6 +215,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://adrienjoly.com/now"><img src="https://avatars3.githubusercontent.com/u/531781?v=4" width="100px;" alt=""/><br /><sub><b>Adrien Joly</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=adrienjoly" title="Documentation">📖</a></td>
     <td align="center"><a href="http://www.hypercubed.com"><img src="https://avatars1.githubusercontent.com/u/509946?v=4" width="100px;" alt=""/><br /><sub><b>Jayson Harshbarger</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=Hypercubed" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="http://www.andri.co"><img src="https://avatars0.githubusercontent.com/u/17087167?v=4" width="100px;" alt=""/><br /><sub><b>Andrico</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=andrico1234" title="Documentation">📖</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-enable -->
