@@ -461,6 +461,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "andrico1234",
+      "name": "Andrico",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17087167?v=4",
+      "profile": "http://www.andri.co",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
