@@ -37,7 +37,7 @@ import 'cypress-file-upload';
 Note: With Typescript, ensure the following is in your `cypress\tsconfig.json` file:
 ```
 "compilerOptions": {
-  "types": ["cypress"]
+  "types": ["cypress", "cypress-file-upload"]
 ```
 
 Now you are ready to actually test uploading. Here are some basic examples:
