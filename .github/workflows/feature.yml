@@ -10,22 +10,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.x
       - run: npm ci
       - run: npm run lint
       - run: npm test
       - run: npm run build
 
-  test-angularjs:
+  test-e2e:
     needs: [build]
     runs-on: ubuntu-latest
 
@@ -33,190 +29,50 @@ jobs:
       image: cypress/included:6.2.0
       options: --user 1001 # Firefox-specific security restriction, see more: https://github.com/cypress-io/github-action/issues/104
 
-    env:
-      cwd: ./recipes/angularjs-ng-file-upload
+    strategy:
+      matrix:
+        cwd:
+          [
+            ./recipes/angularjs-ng-file-upload,
+            ./recipes/react-dropzone,
+            ./recipes/react-html5-input,
+            ./recipes/shadow-dom-native,
+          ]
 
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci
-        working-directory: ${{env.cwd}}
+      - run: npm install
+        working-directory: ${{matrix.cwd}}
       - name: test(chrome)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{env.cwd}}
+          project: ${{matrix.cwd}}
           browser: chrome
       - name: test(chrome_headless)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{env.cwd}}
+          project: ${{matrix.cwd}}
           browser: chrome
           headless: true
       - name: test(firefox)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{env.cwd}}
+          project: ${{matrix.cwd}}
           browser: firefox
       - name: test(firefox_headless)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{env.cwd}}
+          project: ${{matrix.cwd}}
           browser: firefox
           headless: true
       - name: test(electron)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{env.cwd}}
+          project: ${{matrix.cwd}}
           browser: electron
       - name: test(electron_headless)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{env.cwd}}
-          browser: electron
-          headless: true
-
-  test-react-dropzone:
-    needs: [build]
-    runs-on: ubuntu-latest
-
-    container:
-      image: cypress/included:6.2.0
-      options: --user 1001 # Firefox-specific security restriction, see more: https://github.com/cypress-io/github-action/issues/104
-
-    env:
-      cwd: ./recipes/react-dropzone
-
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-        working-directory: ${{env.cwd}}
-      - name: test(chrome)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: chrome
-      - name: test(chrome_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: chrome
-          headless: true
-      - name: test(firefox)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: firefox
-      - name: test(firefox_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: firefox
-          headless: true
-      - name: test(electron)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: electron
-      - name: test(electron_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: electron
-          headless: true
-
-  test-react-html5-input:
-    needs: [build]
-    runs-on: ubuntu-latest
-
-    container:
-      image: cypress/included:6.2.0
-      options: --user 1001 # Firefox-specific security restriction, see more: https://github.com/cypress-io/github-action/issues/104
-
-    env:
-      cwd: ./recipes/react-html5-input
-
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-        working-directory: ${{env.cwd}}
-      - name: test(chrome)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: chrome
-      - name: test(chrome_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: chrome
-          headless: true
-      - name: test(firefox)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: firefox
-      - name: test(firefox_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: firefox
-          headless: true
-      - name: test(electron)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: electron
-      - name: test(electron_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: electron
-          headless: true
-
-  test-shadow-dom-native:
-    needs: [build]
-    runs-on: ubuntu-latest
-
-    container:
-      image: cypress/included:6.2.0
-      options: --user 1001 # Firefox-specific security restriction, see more: https://github.com/cypress-io/github-action/issues/104
-
-    env:
-      cwd: ./recipes/shadow-dom-native
-
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm ci
-        working-directory: ${{env.cwd}}
-      - name: test(chrome)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: chrome
-      - name: test(chrome_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: chrome
-          headless: true
-      - name: test(firefox)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: firefox
-      - name: test(firefox_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: firefox
-          headless: true
-      - name: test(electron)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
-          browser: electron
-      - name: test(electron_headless)
-        uses: cypress-io/github-action@v2
-        with:
-          project: ${{env.cwd}}
+          project: ${{matrix.cwd}}
           browser: electron
           headless: true
