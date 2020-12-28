@@ -15,7 +15,7 @@
     "test:open": "cypress open"
   },
   "devDependencies": {
-    "cypress": "^4.1.0",
+    "cypress": "^6.2.0",
     "cypress-file-upload": "^4.0.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
