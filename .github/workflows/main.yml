@@ -51,8 +51,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: '${{ matrix.cwd }}-chrome'
-          tag: ${{ matrix.cwd }},main
+          group: '${{ matrix.cwd }}/Chrome'
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
           headless: false
@@ -63,8 +62,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: '${{ matrix.cwd }}-chrome-headless'
-          tag: ${{ matrix.cwd }},main
+          group: '${{ matrix.cwd }}/Chrome (headless)'
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
           headless: true
@@ -75,8 +73,7 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: '${{ matrix.cwd }}-firefox'
-      #     tag: ${{ matrix.cwd }},main
+      #     group: '${{ matrix.cwd }}/Firefox'
       #     ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
       #     headless: false
@@ -87,8 +84,7 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: '${{ matrix.cwd }}-firefox-headless'
-      #     tag: ${{ matrix.cwd }},main
+      #     group: '${{ matrix.cwd }}/Firefox (headless)'
       #     ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
       #     headless: true
@@ -99,8 +95,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: '${{ matrix.cwd }}-electron'
-          tag: ${{ matrix.cwd }},main
+          group: '${{ matrix.cwd }}/Electron'
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: electron
           headless: false
@@ -111,8 +106,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: '${{ matrix.cwd }}-electron-headless'
-          tag: ${{ matrix.cwd }},main
+          group: '${{ matrix.cwd }}/Electron (headless)'
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: electron
           headless: true
