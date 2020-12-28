@@ -26,6 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/included:6.2.0
 
+    env:
+      app_host: 'http://localhost:8080'
+
     strategy:
       matrix:
         cwd:
@@ -44,7 +47,7 @@ jobs:
           working-directory: ${{matrix.cwd}}
           browser: chrome
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: ${{env.app_host}}
       - name: test(chrome_headless)
         uses: cypress-io/github-action@v2
         with:
@@ -52,14 +55,14 @@ jobs:
           browser: chrome
           headless: true
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: ${{env.app_host}}
       - name: test(firefox)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: firefox
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: ${{env.app_host}}
       - name: test(firefox_headless)
         uses: cypress-io/github-action@v2
         with:
@@ -67,14 +70,14 @@ jobs:
           browser: firefox
           headless: true
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: ${{env.app_host}}
       - name: test(electron)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: electron
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: ${{env.app_host}}
       - name: test(electron_headless)
         uses: cypress-io/github-action@v2
         with:
@@ -82,4 +85,4 @@ jobs:
           browser: electron
           headless: true
           start: npm start
-          wait-on: 'http://localhost:3000'
+          wait-on: ${{env.app_host}}
