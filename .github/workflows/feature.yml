@@ -24,7 +24,7 @@ jobs:
   test-e2e:
     needs: [build]
     runs-on: ubuntu-latest
-    container: cypress/included:6.2.0
+    container: cypress/browsers:node14.15.0-chrome86-ff82
 
     env:
       app_host: 'http://localhost:3000'
