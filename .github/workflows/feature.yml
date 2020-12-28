@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
 
     steps:
       - uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
 
   test-e2e:
     needs: [build]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-16.04
     container: cypress/included:6.2.0
 
     strategy:
