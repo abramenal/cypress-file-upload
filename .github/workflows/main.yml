@@ -51,6 +51,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
+          group: '${{ matrix.cwd }}-chrome'
           tag: ${{ matrix.cwd }},main
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
@@ -62,6 +63,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
+          group: '${{ matrix.cwd }}-chrome-headless'
           tag: ${{ matrix.cwd }},main
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
@@ -73,7 +75,7 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: ${{ matrix.cwd }}
+      #     group: '${{ matrix.cwd }}-firefox'
       #     tag: ${{ matrix.cwd }},main
       #     ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
@@ -85,7 +87,7 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: ${{ matrix.cwd }}
+      #     group: '${{ matrix.cwd }}-firefox-headless'
       #     tag: ${{ matrix.cwd }},main
       #     ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
@@ -97,7 +99,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ matrix.cwd }}
+          group: '${{ matrix.cwd }}-electron'
           tag: ${{ matrix.cwd }},main
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: electron
@@ -109,7 +111,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ matrix.cwd }}
+          group: '${{ matrix.cwd }}-electron-headless'
           tag: ${{ matrix.cwd }},main
           ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: electron
