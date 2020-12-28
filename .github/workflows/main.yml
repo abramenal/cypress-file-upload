@@ -51,8 +51,8 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ github.event.head_commit.message }} ${{ matrix.cwd }}
-          tag: ${{ matrix.cwd }},main
+          group: ${{ matrix.cwd }}
+          tag: main
           browser: chrome
           headless: false
           wait-on: ${{ env.app_host }}
@@ -62,8 +62,8 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ github.event.head_commit.message }} ${{ matrix.cwd }}
-          tag: ${{ matrix.cwd }},main
+          group: ${{ matrix.cwd }}
+          tag: main
           browser: chrome
           headless: true
           wait-on: ${{ env.app_host }}
@@ -73,8 +73,8 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: ${{ github.event.head_commit.message }} ${{ matrix.cwd }}
-      #     tag: ${{ matrix.cwd }},main
+      #     group: ${{ matrix.cwd }}
+      #     tag: main
       #     browser: firefox
       #     headless: false
       #     wait-on: ${{ env.app_host }}
@@ -84,8 +84,8 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: ${{ github.event.head_commit.message }} ${{ matrix.cwd }}
-      #     tag: ${{ matrix.cwd }},main
+      #     group: ${{ matrix.cwd }}
+      #     tag: main
       #     browser: firefox
       #     headless: true
       #     wait-on: ${{ env.app_host }}
@@ -95,8 +95,8 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ github.event.head_commit.message }} ${{ matrix.cwd }}
-          tag: ${{ matrix.cwd }},main
+          group: ${{ matrix.cwd }}
+          tag: main
           browser: electron
           headless: false
           wait-on: ${{ env.app_host }}
@@ -106,8 +106,8 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ github.event.head_commit.message }} ${{ matrix.cwd }}
-          tag: ${{ matrix.cwd }},main
+          group: ${{ matrix.cwd }}
+          tag: main
           browser: electron
           headless: true
           wait-on: ${{ env.app_host }}
