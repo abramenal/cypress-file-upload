@@ -41,30 +41,41 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.cache/Cypress
+            node_modules
+          key: my-cache-${{ runner.os }}-${{matrix.cwd}}
+      - run: npm install
+      - run: npm start
       - name: test(chrome)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
+          install: false
           browser: chrome
-          start: npm start # Start web app only once
           wait-on: ${{env.app_host}}
       - name: test(chrome_headless)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: chrome
+          install: false
           headless: true
           wait-on: ${{env.app_host}}
       - name: test(firefox)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
+          install: false
           browser: firefox
           wait-on: ${{env.app_host}}
       - name: test(firefox_headless)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
+          install: false
           browser: firefox
           headless: true
           wait-on: ${{env.app_host}}
@@ -72,12 +83,14 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
+          install: false
           browser: electron
           wait-on: ${{env.app_host}}
       - name: test(electron_headless)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
+          install: false
           browser: electron
           headless: true
           wait-on: ${{env.app_host}}
