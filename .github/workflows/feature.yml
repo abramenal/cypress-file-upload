@@ -38,14 +38,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
       - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           runTests: false
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
       - name: Run web application
         run: npm start & # & helps to run daemonized app
         working-directory: ./recipes/${{matrix.cwd}}
