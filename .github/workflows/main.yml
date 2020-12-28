@@ -75,7 +75,7 @@ jobs:
       #     record: true
       #     group: ${{ matrix.cwd }}
       #     tag: ${{ matrix.cwd }},main
-      ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
+      #     ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
       #     headless: false
       #     wait-on: ${{ env.app_host }}
@@ -87,7 +87,7 @@ jobs:
       #     record: true
       #     group: ${{ matrix.cwd }}
       #     tag: ${{ matrix.cwd }},main
-      ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
+      #     ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
       #     headless: true
       #     wait-on: ${{ env.app_host }}
