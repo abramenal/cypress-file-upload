@@ -47,8 +47,12 @@ jobs:
             ~/.cache/Cypress
             node_modules
           key: my-cache-${{ runner.os }}-${{matrix.cwd}}
-      - run: npm install
-      - run: npm start
+      - name: Initialize web application
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: ${{matrix.cwd}}
+          runTests: false
+          start: npm start
       - name: test(chrome)
         uses: cypress-io/github-action@v2
         with:
