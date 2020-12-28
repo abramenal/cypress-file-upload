@@ -27,7 +27,7 @@ jobs:
     container: cypress/included:6.2.0
 
     env:
-      app_host: 'http://localhost:8080'
+      app_host: 'http://localhost:4200'
 
     strategy:
       matrix:
