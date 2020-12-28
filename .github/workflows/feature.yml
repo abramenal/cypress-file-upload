@@ -38,8 +38,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - run: npm install
-        working-directory: ${{matrix.cwd}}
       - name: test(chrome)
         uses: cypress-io/github-action@v2
         with:
