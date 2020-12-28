@@ -43,31 +43,43 @@ jobs:
         with:
           working-directory: ${{matrix.cwd}}
           browser: chrome
+          start: npm start
+          wait-on: 'http://localhost:3000'
       - name: test(chrome_headless)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: chrome
           headless: true
+          start: npm start
+          wait-on: 'http://localhost:3000'
       - name: test(firefox)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: firefox
+          start: npm start
+          wait-on: 'http://localhost:3000'
       - name: test(firefox_headless)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: firefox
           headless: true
+          start: npm start
+          wait-on: 'http://localhost:3000'
       - name: test(electron)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: electron
+          start: npm start
+          wait-on: 'http://localhost:3000'
       - name: test(electron_headless)
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           browser: electron
           headless: true
+          start: npm start
+          wait-on: 'http://localhost:3000'
