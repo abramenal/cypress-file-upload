@@ -52,6 +52,7 @@ jobs:
           install: false
           record: true
           tag: ${{ matrix.cwd }},feature
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
           headless: false
           wait-on: ${{ env.app_host }}
@@ -62,6 +63,7 @@ jobs:
           install: false
           record: true
           tag: ${{ matrix.cwd }},feature
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
           headless: true
           wait-on: ${{ env.app_host }}
@@ -72,6 +74,7 @@ jobs:
       #     install: false
       #     record: true
       #     tag: ${{ matrix.cwd }},feature
+      ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
       #     headless: false
       #     wait-on: ${{ env.app_host }}
@@ -82,6 +85,7 @@ jobs:
       #     install: false
       #     record: true
       #     tag: ${{ matrix.cwd }},feature
+      ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
       #     browser: firefox
       #     headless: true
       #     wait-on: ${{ env.app_host }}
@@ -92,6 +96,7 @@ jobs:
           install: false
           record: true
           tag: ${{ matrix.cwd }},feature
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: electron
           headless: false
           wait-on: ${{ env.app_host }}
@@ -102,6 +107,7 @@ jobs:
           install: false
           record: true
           tag: ${{ matrix.cwd }},feature
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: electron
           headless: true
           wait-on: ${{ env.app_host }}
