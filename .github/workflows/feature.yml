@@ -19,10 +19,6 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
-      - uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist
 
   test-e2e:
     name: E2E tests
@@ -38,12 +34,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: dist
-      - name: Display structure of downloaded files
-        run: ls -R
       - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
         with:

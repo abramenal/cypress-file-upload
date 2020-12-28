@@ -26,7 +26,7 @@
 
 import 'cypress-shadow-dom';
 
-import '../../../../dist/bundle';
+import '../../../../src/index';
 
 // In your app, use:
 // import 'cypress-file-upload';
