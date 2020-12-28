@@ -1,4 +1,4 @@
-name: feat(cypress-file-upload)
+name: feature
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Build and lint
     runs-on: ubuntu-latest
 
     steps:
@@ -18,26 +19,19 @@ jobs:
           node-version: 14.x
       - run: npm ci
       - run: npm run lint
-      - run: npm test
       - run: npm run build
 
   test-e2e:
+    name: E2E tests
     needs: [build]
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.15.0-chrome86-ff82
 
     env:
       app_host: 'http://localhost:3000'
-
     strategy:
       matrix:
-        cwd:
-          [
-            ./recipes/angularjs-ng-file-upload,
-            ./recipes/react-dropzone,
-            ./recipes/react-html5-input,
-            ./recipes/shadow-dom-native,
-          ]
+        cwd: [angularjs-ng-file-upload, react-dropzone, react-html5-input, shadow-dom-native]
 
     steps:
       - uses: actions/checkout@v2
@@ -54,11 +48,11 @@ jobs:
           runTests: false
       - name: Run web application
         run: npm start & # & helps to run daemonized app
-        working-directory: ${{matrix.cwd}}
+        working-directory: ./recipes/${{matrix.cwd}}
       - name: Run Chrome tests
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ${{matrix.cwd}}
+          working-directory: ./recipes/${{matrix.cwd}}
           install: false
           browser: chrome
           headless: false
@@ -66,7 +60,7 @@ jobs:
       - name: Run Chrome headless tests
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ${{matrix.cwd}}
+          working-directory: ./recipes/${{matrix.cwd}}
           install: false
           browser: chrome
           headless: true
@@ -74,7 +68,7 @@ jobs:
       # - name: Run Firefox tests
       #   uses: cypress-io/github-action@v2
       #   with:
-      #     working-directory: ${{matrix.cwd}}
+      #     working-directory: ./recipes/${{matrix.cwd}}
       #     install: false
       #     browser: firefox
       #     headless: false
@@ -82,7 +76,7 @@ jobs:
       # - name: Run Firefox headless tests
       #   uses: cypress-io/github-action@v2
       #   with:
-      #     working-directory: ${{matrix.cwd}}
+      #     working-directory: ./recipes/${{matrix.cwd}}
       #     install: false
       #     browser: firefox
       #     headless: true
@@ -90,7 +84,7 @@ jobs:
       - name: Run Electron tests
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ${{matrix.cwd}}
+          working-directory: ./recipes/${{matrix.cwd}}
           install: false
           browser: electron
           headless: false
@@ -98,7 +92,7 @@ jobs:
       - name: Run Electron headless tests
         uses: cypress-io/github-action@v2
         with:
-          working-directory: ${{matrix.cwd}}
+          working-directory: ./recipes/${{matrix.cwd}}
           install: false
           browser: electron
           headless: true
