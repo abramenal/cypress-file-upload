@@ -52,7 +52,7 @@ jobs:
         with:
           working-directory: ${{matrix.cwd}}
           runTests: false
-          start: npm start
+          start: npm start & # & helps to run daemonized app
       - name: test(chrome)
         uses: cypress-io/github-action@v2
         with:
