@@ -51,8 +51,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ matrix.cwd }}
-          tag: feature
+          tag: ${{ matrix.cwd }},feature
           browser: chrome
           headless: false
           wait-on: ${{ env.app_host }}
@@ -62,8 +61,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ matrix.cwd }}
-          tag: feature
+          tag: ${{ matrix.cwd }},feature
           browser: chrome
           headless: true
           wait-on: ${{ env.app_host }}
@@ -73,8 +71,7 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: ${{ matrix.cwd }}
-      #     tag: feature
+      #     tag: ${{ matrix.cwd }},feature
       #     browser: firefox
       #     headless: false
       #     wait-on: ${{ env.app_host }}
@@ -84,8 +81,7 @@ jobs:
       #     working-directory: ./recipes/${{ matrix.cwd }}
       #     install: false
       #     record: true
-      #     group: ${{ matrix.cwd }}
-      #     tag: feature
+      #     tag: ${{ matrix.cwd }},feature
       #     browser: firefox
       #     headless: true
       #     wait-on: ${{ env.app_host }}
@@ -95,8 +91,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ matrix.cwd }}
-          tag: feature
+          tag: ${{ matrix.cwd }},feature
           browser: electron
           headless: false
           wait-on: ${{ env.app_host }}
@@ -106,8 +101,7 @@ jobs:
           working-directory: ./recipes/${{ matrix.cwd }}
           install: false
           record: true
-          group: ${{ matrix.cwd }}
-          tag: feature
+          tag: ${{ matrix.cwd }},feature
           browser: electron
           headless: true
           wait-on: ${{ env.app_host }}
