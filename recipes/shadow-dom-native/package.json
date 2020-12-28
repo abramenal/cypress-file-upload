@@ -8,7 +8,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "parcel build src/index.html",
-    "dev": "parcel src/index.html --port=4200",
+    "dev": "parcel src/index.html --port=3000",
     "start": "npm run dev",
     "lint": "eslint src cypress --ext=js",
     "test": "cypress run",
