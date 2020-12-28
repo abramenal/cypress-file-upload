@@ -24,10 +24,7 @@ jobs:
   test-e2e:
     needs: [build]
     runs-on: ubuntu-latest
-
-    container:
-      image: cypress/included:6.2.0
-      options: --user 1001 # Firefox-specific security restriction, see more: https://github.com/cypress-io/github-action/issues/104
+    container: cypress/included:6.2.0
 
     strategy:
       matrix:
