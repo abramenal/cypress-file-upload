@@ -71,22 +71,22 @@ jobs:
           browser: chrome
           headless: true
           wait-on: ${{env.app_host}}
-      - name: Run Firefox tests
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ${{matrix.cwd}}
-          install: false
-          browser: firefox
-          headless: false
-          wait-on: ${{env.app_host}}
-      - name: Run Firefox headless tests
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: ${{matrix.cwd}}
-          install: false
-          browser: firefox
-          headless: true
-          wait-on: ${{env.app_host}}
+      # - name: Run Firefox tests
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     working-directory: ${{matrix.cwd}}
+      #     install: false
+      #     browser: firefox
+      #     headless: false
+      #     wait-on: ${{env.app_host}}
+      # - name: Run Firefox headless tests
+      #   uses: cypress-io/github-action@v2
+      #   with:
+      #     working-directory: ${{matrix.cwd}}
+      #     install: false
+      #     browser: firefox
+      #     headless: true
+      #     wait-on: ${{env.app_host}}
       - name: Run Electron tests
         uses: cypress-io/github-action@v2
         with:
