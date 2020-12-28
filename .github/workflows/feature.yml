@@ -47,7 +47,7 @@ jobs:
             ~/.cache/Cypress
             node_modules
           key: my-cache-${{ runner.os }}-${{matrix.cwd}}
-      - name: Initialize web application
+      - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
@@ -55,29 +55,31 @@ jobs:
       - name: Run web application
         run: npm start & # & helps to run daemonized app
         working-directory: ${{matrix.cwd}}
-      - name: test(chrome)
+      - name: Run Chrome tests
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           install: false
           browser: chrome
+          headless: false
           wait-on: ${{env.app_host}}
-      - name: test(chrome_headless)
+      - name: Run Chrome headless tests
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
+          install: false
           browser: chrome
-          install: false
           headless: true
           wait-on: ${{env.app_host}}
-      - name: test(firefox)
+      - name: Run Firefox tests
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           install: false
           browser: firefox
+          headless: false
           wait-on: ${{env.app_host}}
-      - name: test(firefox_headless)
+      - name: Run Firefox headless tests
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
@@ -85,14 +87,15 @@ jobs:
           browser: firefox
           headless: true
           wait-on: ${{env.app_host}}
-      - name: test(electron)
+      - name: Run Electron tests
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
           install: false
           browser: electron
+          headless: false
           wait-on: ${{env.app_host}}
-      - name: test(electron_headless)
+      - name: Run Electron headless tests
         uses: cypress-io/github-action@v2
         with:
           working-directory: ${{matrix.cwd}}
