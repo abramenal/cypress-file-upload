@@ -2,7 +2,7 @@ name: feature
 
 on:
   push:
-    branches-ignore: [$default-branch]
+    branches: [$default-branch]
 
 jobs:
   build:
@@ -52,7 +52,7 @@ jobs:
           install: false
           record: true
           group: ${{ github.event.head_commit.message }}
-          tag: ${{ matrix.cwd }},feature
+          tag: ${{ matrix.cwd }},main
           browser: chrome
           headless: false
           wait-on: ${{ env.app_host }}
@@ -63,7 +63,7 @@ jobs:
           install: false
           record: true
           group: ${{ github.event.head_commit.message }}
-          tag: ${{ matrix.cwd }},feature
+          tag: ${{ matrix.cwd }},main
           browser: chrome
           headless: true
           wait-on: ${{ env.app_host }}
@@ -74,7 +74,7 @@ jobs:
       #     install: false
       #     record: true
       #     group: ${{ github.event.head_commit.message }}
-      #     tag: ${{ matrix.cwd }},feature
+      #     tag: ${{ matrix.cwd }},main
       #     browser: firefox
       #     headless: false
       #     wait-on: ${{ env.app_host }}
@@ -85,7 +85,7 @@ jobs:
       #     install: false
       #     record: true
       #     group: ${{ github.event.head_commit.message }}
-      #     tag: ${{ matrix.cwd }},feature
+      #     tag: ${{ matrix.cwd }},main
       #     browser: firefox
       #     headless: true
       #     wait-on: ${{ env.app_host }}
@@ -96,7 +96,7 @@ jobs:
           install: false
           record: true
           group: ${{ github.event.head_commit.message }}
-          tag: ${{ matrix.cwd }},feature
+          tag: ${{ matrix.cwd }},main
           browser: electron
           headless: false
           wait-on: ${{ env.app_host }}
@@ -107,7 +107,7 @@ jobs:
           install: false
           record: true
           group: ${{ github.event.head_commit.message }}
-          tag: ${{ matrix.cwd }},feature
+          tag: ${{ matrix.cwd }},main
           browser: electron
           headless: true
           wait-on: ${{ env.app_host }}
