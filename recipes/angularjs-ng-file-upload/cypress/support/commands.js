@@ -24,4 +24,7 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-import 'cypress-file-upload';
+import '../../../../dist/bundle.js';
+
+// In your app, use:
+// import 'cypress-file-upload';

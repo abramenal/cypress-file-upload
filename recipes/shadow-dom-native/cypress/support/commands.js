@@ -25,4 +25,8 @@
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
 import 'cypress-shadow-dom';
-import 'cypress-file-upload';
+
+import '../../../../dist/bundle';
+
+// In your app, use:
+// import 'cypress-file-upload';

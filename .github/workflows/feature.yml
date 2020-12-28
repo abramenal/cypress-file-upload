@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and lint
+    name: Build artifacts
     runs-on: ubuntu-latest
 
     steps:
@@ -20,6 +20,10 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run build
+      - uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist
 
   test-e2e:
     name: E2E tests
@@ -35,12 +39,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: dist
       - uses: actions/cache@v2
         with:
           path: |
             ~/.cache/Cypress
             node_modules
-          key: my-cache-${{ runner.os }}-${{matrix.cwd}}
+          key: test-e2e-${{ runner.os }}-${{ matrix.cwd }}
       - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
         with:
