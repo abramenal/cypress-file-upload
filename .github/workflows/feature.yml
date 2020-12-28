@@ -41,33 +41,33 @@ jobs:
       - name: test(chrome)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{matrix.cwd}}
+          working-directory: ${{matrix.cwd}}
           browser: chrome
       - name: test(chrome_headless)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{matrix.cwd}}
+          working-directory: ${{matrix.cwd}}
           browser: chrome
           headless: true
       - name: test(firefox)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{matrix.cwd}}
+          working-directory: ${{matrix.cwd}}
           browser: firefox
       - name: test(firefox_headless)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{matrix.cwd}}
+          working-directory: ${{matrix.cwd}}
           browser: firefox
           headless: true
       - name: test(electron)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{matrix.cwd}}
+          working-directory: ${{matrix.cwd}}
           browser: electron
       - name: test(electron_headless)
         uses: cypress-io/github-action@v2
         with:
-          project: ${{matrix.cwd}}
+          working-directory: ${{matrix.cwd}}
           browser: electron
           headless: true
