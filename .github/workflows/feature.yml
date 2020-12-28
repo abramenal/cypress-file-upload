@@ -3,8 +3,6 @@ name: feature
 on:
   push:
     branches-ignore: [$default-branch]
-  pull_request:
-    branches: [$default-branch]
 
 jobs:
   build:
@@ -28,6 +26,10 @@ jobs:
 
     env:
       app_host: 'http://localhost:3000'
+      # pass the Dashboard record key as an environment variable
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      # pass GitHub token to allow accurately detecting a build vs a re-run build
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
       matrix:
         cwd: [angularjs-ng-file-upload, react-dropzone, react-html5-input, shadow-dom-native]
@@ -48,6 +50,7 @@ jobs:
         with:
           working-directory: ./recipes/${{matrix.cwd}}
           install: false
+          record: true
           browser: chrome
           headless: false
           wait-on: ${{env.app_host}}
@@ -56,6 +59,7 @@ jobs:
         with:
           working-directory: ./recipes/${{matrix.cwd}}
           install: false
+          record: true
           browser: chrome
           headless: true
           wait-on: ${{env.app_host}}
@@ -64,6 +68,7 @@ jobs:
       #   with:
       #     working-directory: ./recipes/${{matrix.cwd}}
       #     install: false
+      #     record: true
       #     browser: firefox
       #     headless: false
       #     wait-on: ${{env.app_host}}
@@ -72,6 +77,7 @@ jobs:
       #   with:
       #     working-directory: ./recipes/${{matrix.cwd}}
       #     install: false
+      #     record: true
       #     browser: firefox
       #     headless: true
       #     wait-on: ${{env.app_host}}
@@ -80,6 +86,7 @@ jobs:
         with:
           working-directory: ./recipes/${{matrix.cwd}}
           install: false
+          record: true
           browser: electron
           headless: false
           wait-on: ${{env.app_host}}
@@ -88,6 +95,7 @@ jobs:
         with:
           working-directory: ./recipes/${{matrix.cwd}}
           install: false
+          record: true
           browser: electron
           headless: true
           wait-on: ${{env.app_host}}
