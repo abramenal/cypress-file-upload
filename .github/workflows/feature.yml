@@ -41,12 +41,6 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: dist
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.cache/Cypress
-            node_modules
-          key: my-cache-${{ runner.os }}-${{matrix.cwd}}
       - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
         with:
