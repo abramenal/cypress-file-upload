@@ -111,3 +111,53 @@ jobs:
           browser: electron
           headless: true
           wait-on: ${{ env.app_host }}
+  test-e2e-firefox: # Firefox is not working in cypress/browsers:node14.15.0-chrome86-ff82, so falling back to some old image
+    name: E2E tests (Firefox)
+    needs: [build]
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node12.16.1-chrome80-ff73
+      options: --user 1001
+
+    env:
+      app_host: 'http://localhost:3000'
+      # pass the Dashboard record key as an environment variable
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      # pass GitHub token to allow accurately detecting a build vs a re-run build
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    strategy:
+      matrix:
+        cwd: [angularjs-ng-file-upload, react-dropzone, react-html5-input, shadow-dom-native]
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - name: Install dependencies and verify Cypress
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: ./recipes/${{ matrix.cwd }}
+          runTests: false
+      - name: Run web application
+        run: npm start & # & helps to run daemonized app
+        working-directory: ./recipes/${{ matrix.cwd }}
+      - name: Run Firefox tests
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: ./recipes/${{ matrix.cwd }}
+          install: false
+          record: true
+          group: '${{ matrix.cwd }}/Firefox'
+          browser: firefox
+          headless: false
+          wait-on: ${{ env.app_host }}
+      - name: Run Firefox headless tests
+        uses: cypress-io/github-action@v2
+        with:
+          working-directory: ./recipes/${{ matrix.cwd }}
+          install: false
+          record: true
+          group: '${{ matrix.cwd }}/Firefox (headless)'
+          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
+          browser: firefox
+          headless: true
+          wait-on: ${{ env.app_host }}
