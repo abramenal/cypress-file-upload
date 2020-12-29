@@ -1,4 +1,4 @@
-name: feature
+name: main
 
 on:
   push:
