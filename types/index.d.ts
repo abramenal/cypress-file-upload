@@ -26,6 +26,6 @@ declare namespace Cypress {
      * @param fixture file to attach
      * @param processingOpts affects the way of fixture processing
      */
-    attachFile(fixture: String | FixtureData, processingOpts?: FileProcessingOptions): Chainable<Subject>;
+    attachFile(fixture: String | FixtureData[], processingOpts?: FileProcessingOptions): Chainable<Subject>;
   }
 }

@@ -2,39 +2,41 @@ import { DEFAULT_PROCESSING_OPTIONS } from './constants';
 
 import { attachFileToElement, getFixtureInfo, getForceValue } from './helpers';
 import { validateFixture, validateFile, validateOptions } from './validators';
-
-import { getFileBlobAsync, getFileMimeType, getFileEncoding, getFileContent } from '../lib/file';
+import { resolveFile } from '../lib/file';
 import { merge } from '../lib/object';
 
-export default function attachFile(subject, fixture, processingOptions) {
+export default function attachFile(subject, fixtureOrFixtureArray, processingOptions) {
   const { subjectType, force, allowEmpty } = merge(processingOptions, DEFAULT_PROCESSING_OPTIONS);
-  validateOptions({ subjectType, force, allowEmpty });
+  validateOptions({
+    subjectType,
+    force,
+    allowEmpty,
+  });
 
-  const fixtureToAttach = getFixtureInfo(fixture);
-  validateFixture(fixtureToAttach);
-
-  const { filePath, encoding, mimeType, fileName } = fixtureToAttach;
-
-  const fileMimeType = mimeType || getFileMimeType(filePath);
-  const fileEncoding = encoding || getFileEncoding(filePath);
-  const forceValue = force || getForceValue(subject);
+  const fixturesArray = Array.isArray(fixtureOrFixtureArray) ? fixtureOrFixtureArray : [fixtureOrFixtureArray];
+  const fixtures = fixturesArray.map(getFixtureInfo).filter(validateFixture);
 
   Cypress.cy.window({ log: false }).then(window => {
-    return getFileContent({ filePath, fileContent: fixtureToAttach.fileContent, fileEncoding }).then(fileContent => {
-      return getFileBlobAsync({ fileContent, fileName, mimeType: fileMimeType, encoding: fileEncoding, window }).then(
-        file => {
-          validateFile(file, allowEmpty);
+    const forceValue = force || getForceValue(subject);
 
-          attachFileToElement(subject, { file, subjectType, force: forceValue, window });
-
-          Cypress.log({
-            name: 'attachFile',
-            displayName: 'FILE',
-            message: file.name,
-          });
-        },
+    Cypress.Promise.all(fixtures.map(f => resolveFile(f, window))) // resolve files
+      .then(files => files.map(f => validateFile(f, allowEmpty) && f)) // error if any of the file contents are invalid
+      .then(files => {
+        attachFileToElement(subject, {
+          files,
+          subjectType,
+          force: forceValue,
+          window,
+        });
+        return files;
+      })
+      .then(files =>
+        Cypress.log({
+          name: 'attachFile',
+          displayName: 'FILE',
+          message: files.reduce((acc, f) => `${acc.length > 0 ? `${acc}, ` : acc}${f.name}`, ''),
+        }),
       );
-    });
   });
 
   return Cypress.cy.wrap(subject, { log: false });
