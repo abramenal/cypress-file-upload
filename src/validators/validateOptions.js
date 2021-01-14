@@ -13,4 +13,6 @@ export default ({ subjectType, force, allowEmpty }) => {
   if (typeof allowEmpty !== 'boolean') {
     throw new InternalError(ERR_TYPES.INVALID_ALLOW_EMPTY);
   }
+
+  return true;
 };
