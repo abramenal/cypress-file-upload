@@ -26,6 +26,22 @@ describe('Drop', () => {
       .last()
       .attachFile('cy.png');
 
-    cy.get('[data-cy="file-result"]').contains('cy.png');
+    cy.get('[data-cy="file-result-valid"]').contains('cy.png');
+  });
+
+  it('successfully uploads multiple files concurrently', () => {
+    cy.server();
+    cy.route('POST', UPLOAD_URL, UPLOAD_RESPONSE);
+
+    cy.get('[data-cy="file-input"]')
+      /**
+       * ng-file-upload puts a hidden HTML5 input into the DOM
+       * so in order to simulate user's action we take that hidden input as upload target
+       */
+      .last()
+      .attachFile(['cy.png', 'test.svg']);
+
+    cy.get('[data-cy="file-result-valid"]').contains('cy.png');
+    cy.get('[data-cy="file-result-valid"]').contains('test.svg');
   });
 });
