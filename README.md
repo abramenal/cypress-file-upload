@@ -35,6 +35,7 @@ import 'cypress-file-upload';
 ```
 
 Note: With Typescript, ensure the following is in your `cypress\tsconfig.json` file:
+
 ```
 "compilerOptions": {
   "types": ["cypress", "cypress-file-upload"]
@@ -59,6 +60,11 @@ cy.get('[data-cy="file-input"]')
   .attachFile(yourFixturePath)
   .attachFile(yourBestPicture);
 
+/* You can also attach multiple files concurrently to avoid triggering multiple events */
+
+const yourBestPicture = 'meow.png';
+cy.get('[data-cy="file-input"]').attachFile([yourFixturePath, yourBestPicture]);
+
 /* If your file encoding is not supported out of the box, make sure to pass it explicitly */
 
 const weirdo = 'test.shp';
@@ -78,18 +84,23 @@ cy.get('[data-cy="file-input"]').attachFile({ filePath: data, fileName: 'users.j
 const special = 'file.spss';
 cy.fixture(special, 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
-  .then((fileContent) => {
+  .then(fileContent => {
     cy.get('[data-cy="file-input"]').attachFile({ fileContent, filePath: special, encoding: 'utf-8' });
-})
+  });
 
 /* when providing fileContent is possible to ignore filePath but fileName and mime type must be provided */
 
 const special = 'file.spss';
 cy.fixture(special, 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
-  .then((fileContent) => {
-    cy.get('[data-cy="file-input"]').attachFile({ fileContent, fileName: 'special', mimeType: 'application/octet-stream', encoding: 'utf-8' });
-})
+  .then(fileContent => {
+    cy.get('[data-cy="file-input"]').attachFile({
+      fileContent,
+      fileName: 'special',
+      mimeType: 'application/octet-stream',
+      encoding: 'utf-8',
+    });
+  });
 ```
 
 **Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
@@ -222,6 +233,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
 
 <!-- markdownlint-enable -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
