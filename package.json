@@ -34,6 +34,7 @@
     "eslint": "^6.5.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-es": "^3.0.0",
     "eslint-plugin-import": "^2.15.0",
     "eslint-plugin-prettier": "^3.0.0",
