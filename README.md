@@ -1,6 +1,6 @@
 # cypress-file-upload
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![CircleCI Status](https://circleci.com/gh/abramenal/cypress-file-upload.svg?style=shield)](https://circleci.com/gh/abramenal/cypress-file-upload) [![All Contributors](https://img.shields.io/badge/all_contributors-33-yellow.svg)](#contributors)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/abramenal/cypress-file-upload/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/cypress-file-upload.svg?style=flat&color=important)](https://www.npmjs.com/package/cypress-file-upload) [![GitHub Status](https://img.shields.io/github/workflow/status/abramenal/cypress-file-upload/feature?style=flat)](https://github.com/abramenal/cypress-file-upload/actions) [![All Contributors](https://img.shields.io/badge/all_contributors-33-yellow.svg)](#contributors) [![monthly downloads](https://img.shields.io/npm/dm/cypress-file-upload.svg?style=flat&color=yellow&label=monthly%20downloads)](https://www.npmjs.com/package/cypress-file-upload) [![downloads all time](https://img.shields.io/npm/dt/cypress-file-upload.svg?style=flat&color=red&label=lifetime%20downloads)](https://www.npmjs.com/package/cypress-file-upload)
 
 File upload testing made easy.
 
@@ -10,6 +10,14 @@ This package adds a custom [Cypress][cypress] command that allows you to make an
 
 - [Installation](#installation)
 - [Usage](#usage)
+  - [HTML5 file input](#html5-file-input)
+  - [Drag-n-drop component](#drag-n-drop-component)
+  - [Attaching multiple files](#attaching-multiple-files)
+  - [Working with file encodings](#working-with-file-encodings)
+  - [Working with raw file contents](#working-with-raw-file-contents)
+  - [Override the file name](#override-the-file-name)
+  - [Working with empty fixture file](#working-with-empty-fixture-file)
+  - [I wanna see some real-world examples](#i-wanna-see-some-real-world-examples)
 - [API](#api)
 - [Recipes](#recipes)
 - [Caveats](#caveats)
@@ -25,87 +33,124 @@ The package is distributed via [npm][npm] and should be installed as one of your
 npm install --save-dev cypress-file-upload
 ```
 
-## Usage
+If you are using TypeScript, ensure your `tsconfig.json` contains commands' types:
 
-`cypress-file-upload` extends Cypress' `cy` command.
-Add this line to your project's `cypress/support/commands.js` or `cypress/support/commands.ts` file:
+```json
+"compilerOptions": {
+  "types": ["cypress", "cypress-file-upload"]
+}
+```
+
+To be able to use any custom command you need to add it to `cypress/support/commands.js` like this:
 
 ```javascript
 import 'cypress-file-upload';
 ```
 
-Note: With Typescript, ensure the following is in your `cypress\tsconfig.json` file:
+All set now! :boom:
 
-```
-"compilerOptions": {
-  "types": ["cypress", "cypress-file-upload"]
-```
+## Usage
 
-Now you are ready to actually test uploading. Here are some basic examples:
+Now, let's see how we can actually test something. Exposed command has signature like:
 
 ```javascript
-/* Plain HTML input */
+cySubject.attachFile(fixture, optionalProcessingConfig);
+```
 
-const yourFixturePath = 'data.json'; // the file to be uploaded, from the cypress/fixtures/ directory
-cy.get('[data-cy="file-input"]').attachFile(yourFixturePath);
+It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture).  The command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name.
 
-/* Drag-n-drop component */
+### HTML5 file input
 
-cy.get('[data-cy="dropzone"]').attachFile(yourFixturePath, { subjectType: 'drag-n-drop' });
-
-/* You can also attach multiple files by chaining the command */
-
-const yourBestPicture = 'meow.png';
+```javascript
 cy.get('[data-cy="file-input"]')
-  .attachFile(yourFixturePath)
-  .attachFile(yourBestPicture);
+  .attachFile('myfixture.json');
+```
 
-/* You can also attach multiple files concurrently to avoid triggering multiple events */
+### Drag-n-drop component
 
-const yourBestPicture = 'meow.png';
-cy.get('[data-cy="file-input"]').attachFile([yourFixturePath, yourBestPicture]);
+```javascript
+cy.get('[data-cy="dropzone"]')
+  .attachFile('myfixture.json', { subjectType: 'drag-n-drop' });
+```
 
-/* If your file encoding is not supported out of the box, make sure to pass it explicitly */
+### Attaching multiple files
 
-const weirdo = 'test.shp';
-cy.get('[data-cy="file-input"]').attachFile({ filePath: weirdo, encoding: 'utf-8' });
+```javascript
+cy.get('[data-cy="file-input"]')
+  .attachFile(['myfixture1.json', 'myfixture2.json']);
+```
 
-/* If your input element is invisible or stays within shadow DOM, make sure enforcing manual event triggering */
+You can also attach multiple files by chaining the command, but it will trigger all the DOM events per every call. In most cases, this is an unnecessary side effect, so try to avoid using that:
 
-cy.get('[data-cy="file-input"]').attachFile(yourFixturePath, { force: true });
+```javascript
+cy.get('[data-cy="file-input"]')
+  .attachFile('myfixture1.json')
+  .attachFile('myfixture2.json');
+```
 
-/* If you want to overwrite the file name */
+### Working with file encodings
 
-const data = 'test.json';
-cy.get('[data-cy="file-input"]').attachFile({ filePath: data, fileName: 'users.json' });
+In some cases you might need more than just plain JSON [`cy.fixture`][cy.fixture]. If your file extension is supported out of the box, it should all be just fine.
 
-/* If your file needs special processing not supported out of the box, you can pass fileContent directly */
+In case your file comes from some 3rd-party tool, or you already observed some errors in console, you likely need to tell Cypress how to treat your fixture file.
 
+```javascript
+cy.get('[data-cy="file-input"]')
+  .attachFile({ filePath: 'test.shp', encoding: 'utf-8' });
+```
+
+**Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
+
+### Working with raw file contents
+
+Normally you do not need this. But what the heck is normal anyways :neckbeard:
+
+If you need some custom file preprocessing, you can pass the raw file content:
+
+```javascript
 const special = 'file.spss';
+
 cy.fixture(special, 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
   .then(fileContent => {
     cy.get('[data-cy="file-input"]').attachFile({ fileContent, filePath: special, encoding: 'utf-8' });
   });
+```
 
-/* when providing fileContent is possible to ignore filePath but fileName and mime type must be provided */
+You still need to provide `filePath` in order to get file's metadata and encoding. For sure this is optional, and you can do it manually:
 
-const special = 'file.spss';
-cy.fixture(special, 'binary')
+```javascript
+cy.fixture('file.spss', 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
   .then(fileContent => {
     cy.get('[data-cy="file-input"]').attachFile({
       fileContent,
-      fileName: 'special',
+      fileName: 'whatever',
       mimeType: 'application/octet-stream',
       encoding: 'utf-8',
     });
   });
 ```
 
-**Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
+### Override the file name
 
-See more usage guidelines in [recipes](./recipes).
+```javascript
+cy.get('[data-cy="file-input"]')
+  .attachFile({ filePath: 'myfixture.json', fileName: 'customFileName.json' });
+```
+
+### Working with empty fixture file
+
+Normally you have to provide non-empty fixture file to test something. If your case isn't normal in that sense, here is the code snippet for you:
+
+```javascript
+cy.get('[data-cy="file-input"]')
+  .attachFile({ filePath: 'empty.txt', allowEmpty: true });
+```
+
+### I wanna see some real-world examples
+
+There is a set of [recipes](./recipes) that demonstrates some framework setups along with different test cases. Make sure to check it out when in doubt.
 
 ## API
 
@@ -115,23 +160,25 @@ Exposed command in a nutshell:
 cySubject.attachFile(fixture, processingOpts);
 ```
 
-`fixture` is a string path (or object with same purpose) that represents your local fixture file and contains following properties:
+**Familiar with TypeScript?** It might be easier for you to just look at [type definitions](./types/index.d.ts).
 
-- {String} `filePath` – file path (with extension)
-- {String} `fileName` - (optional) the name of the file to be attached, this allows to override the name provided by `filePath`
-- {Blob} `fileContent` - (optional) the binary content of the file to be attached
-- {String} `mimeType` – (optional) file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
-- {String} `encoding` – (optional) normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/lib/file/constants.js#L1)
+`fixture` can be a string path (or array of those), or object (or array of those) that represents your local fixture file and contains following properties:
 
-`processingOpts` (optional) contains following properties:
+- {string} `filePath` - file path (with extension)
+- {string} `fileName` - the name of the file to be attached, this allows to override the name provided by `filePath`
+- {Blob} `fileContent` - the binary content of the file to be attached
+- {string} `mimeType` - file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
+- {string} `encoding` - normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/lib/file/constants.js#L1)
 
-- {String} `subjectType` – target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
-- {Boolean} `force` – (optional) same as for [`cy.trigger`][cy.trigger] it enforces events triggering on HTML subject element. Usually this is necessary when you use hidden HTML controls for your file upload. Defaults to `false`
-- {Boolean} `allowEmpty` - (optional) when true, do not throw an error if `fileContent` is zero length. Defaults to `false`
+`processingOpts` contains following properties:
+
+- {string} `subjectType` - target (aka subject) element kind: `'drag-n-drop'` component or plain HTML `'input'` element. Defaults to `'input'`
+- {boolean} `force` - same as for [`cy.trigger`][cy.trigger], it enforces the event triggers on HTML subject element. Usually this is necessary when you use hidden HTML controls for your file upload. Defaults to `false`
+- {boolean} `allowEmpty` - when true, do not throw an error if `fileContent` is zero length. Defaults to `false`
 
 ## Recipes
 
-Most common frontend UI setups along with Cypress & file upload testing are located at [recipes](./recipes).
+There is a set of [recipes](./recipes) that demonstrates some framework setups along with different test cases. Make sure to check it out when in doubt.
 
 Any contributions are welcome!
 
@@ -150,10 +197,18 @@ During the lifetime plugin faced some issues you might need to be aware of:
 
 Here is step-by-step guide:
 
-1. Check [Caveats](#caveats) – maybe there is a tricky thing about exactly your setup
+1. Check [Caveats](#caveats) - maybe there is a tricky thing about exactly your setup
 1. Submit the issue and let us know about you problem
 1. In case you're using a file with encoding and/or extension that is not yet supported by Cypress, make sure you've tried to explicitly set the `encoding` property (see [API](#api))
 1. Comment your issue describing what happened after you've set the `encoding`
+
+## I want to contribute
+
+You have an idea of improvement, or some bugfix, or even a small typo fix? That's :cool:!
+
+We really appreciate that and try to share ideas and best practices. Make sure to check out [CONTRIBUTING.MD](./CONTRIBUTING.MD) before start!
+
+Have something on your mind? Drop an issue or a message in [Discussions](https://github.com/abramenal/cypress-file-upload/discussions).
 
 ## Contributors
 
