@@ -1,8 +1,6 @@
-name: feature
+name: build
 
-on:
-  push:
-    branches-ignore: [$default-branch]
+on: [push, workflow_dispatch]
 
 jobs:
   build:
