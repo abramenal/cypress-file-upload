@@ -20,7 +20,7 @@ export default function attachFile(subject, fixtureOrFixtureArray, processingOpt
     const forceValue = force || getForceValue(subject);
 
     Cypress.Promise.all(fixtures.map(f => resolveFile(f, window))) // resolve files
-      .then(files => files.map(f => validateFile(f, allowEmpty) && f)) // error if any of the file contents are invalid
+      .then(files => files.filter(f => validateFile(f, allowEmpty))) // error if any of the file contents are invalid
       .then(files => {
         attachFileToElement(subject, {
           files,
