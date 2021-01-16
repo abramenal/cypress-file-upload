@@ -26,6 +26,50 @@ describe('Drop', () => {
       .last()
       .attachFile('cy.png');
 
-    cy.get('[data-cy="file-result"]').contains('cy.png');
+    cy.get('[data-cy="file-result-valid"]')
+      .children()
+      .should('have.length', 1);
+    cy.get('[data-cy="file-result-valid"]').contains('cy.png');
+  });
+
+  it('successfully uploads multiple files (using chaining)', () => {
+    cy.server();
+    cy.route('POST', UPLOAD_URL, UPLOAD_RESPONSE);
+
+    cy.get('[data-cy="file-input"]')
+      /**
+       * ng-file-upload puts a hidden HTML5 input into the DOM
+       * so in order to simulate user's action we take that hidden input as upload target
+       */
+      .last()
+      .attachFile('cy.png')
+      .attachFile('test.svg');
+
+    cy.get('[data-cy="file-result-valid"]')
+      .children()
+      .should('have.length', 2);
+
+    cy.get('[data-cy="file-result-valid"]').contains('cy.png');
+    cy.get('[data-cy="file-result-valid"]').contains('test.svg');
+  });
+
+  it('successfully uploads multiple files (using array of fixtures)', () => {
+    cy.server();
+    cy.route('POST', UPLOAD_URL, UPLOAD_RESPONSE);
+
+    cy.get('[data-cy="file-input"]')
+      /**
+       * ng-file-upload puts a hidden HTML5 input into the DOM
+       * so in order to simulate user's action we take that hidden input as upload target
+       */
+      .last()
+      .attachFile(['cy.png', 'test.svg']);
+
+    cy.get('[data-cy="file-result-valid"]')
+      .children()
+      .should('have.length', 2);
+
+    cy.get('[data-cy="file-result-valid"]').contains('cy.png');
+    cy.get('[data-cy="file-result-valid"]').contains('test.svg');
   });
 });

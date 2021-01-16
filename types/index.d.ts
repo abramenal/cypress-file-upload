@@ -1,18 +1,21 @@
 /// <reference types="cypress" />
 
 declare namespace Cypress {
-  type FixtureData = {
-    filePath: string;
-    fileContent?: Blob;
-    fileName?: string;
-    encoding?: string;
-    mimeType?: string;
-  } | {
-    fileContent: Blob;
-    fileName: string;
-    mimeType: string;
-    encoding?: string;
-  }
+  type FixtureData =
+    | string
+    | {
+        filePath: string;
+        fileContent?: Blob;
+        fileName?: string;
+        encoding?: string;
+        mimeType?: string;
+      }
+    | {
+        fileContent: Blob;
+        fileName: string;
+        mimeType: string;
+        encoding?: string;
+      };
 
   interface FileProcessingOptions {
     subjectType?: 'input' | 'drag-n-drop';
@@ -26,6 +29,6 @@ declare namespace Cypress {
      * @param fixture file to attach
      * @param processingOpts affects the way of fixture processing
      */
-    attachFile(fixture: String | FixtureData, processingOpts?: FileProcessingOptions): Chainable<Subject>;
+    attachFile(fixture: FixtureData | FixtureData[], processingOpts?: FileProcessingOptions): Chainable<Subject>;
   }
 }

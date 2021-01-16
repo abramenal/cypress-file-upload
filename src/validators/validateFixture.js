@@ -21,4 +21,6 @@ export default function validateFixtures(fixture) {
   if (!filePath && !fileName) {
     throw new InternalError(ERR_TYPES.MISSING_FILE_NAME_OR_PATH);
   }
+
+  return true;
 }

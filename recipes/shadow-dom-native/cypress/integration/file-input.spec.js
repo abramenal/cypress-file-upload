@@ -35,6 +35,22 @@ describe('Attach file to a shadow dom input element', () => {
       .shadowContains('empty.txt');
   });
 
+  it('successfully uploads multiple concurrent files', () => {
+    cy.shadowGet('file-input')
+      .shadowFind('input')
+      .attachFile(['cy.png', 'empty.txt'], { allowEmpty: true });
+
+    cy.shadowGet('file-input')
+      .shadowFind('ul')
+      .shadowFind('li')
+      .shadowContains('cy.png');
+
+    cy.shadowGet('file-input')
+      .shadowFind('ul')
+      .shadowFind('li')
+      .shadowContains('empty.txt');
+  });
+
   it('successfully uploads an empty file when allowEmpty is true', () => {
     cy.shadowGet('file-input')
       .shadowFind('input')

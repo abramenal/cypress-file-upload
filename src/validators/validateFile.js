@@ -8,4 +8,6 @@ export default (file, allowEmpty) => {
       throw new InternalError(ERR_TYPES.INVALID_FILE);
     }
   }
+
+  return true;
 };

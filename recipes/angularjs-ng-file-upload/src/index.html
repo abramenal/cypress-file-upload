@@ -9,12 +9,20 @@
 <body ng-app="app">
   <div ng-controller="Upload">
     <h4>Upload on file select</h4>
-    <button type="file" ngf-select="uploadFiles($file, $invalidFiles)" accept="image/*" ngf-max-height="1000"
-      ngf-max-size="1MB" data-cy="file-input">
+    <button type="file" ngf-select="uploadFiles($files, $invalidFiles)" accept="image/*" ngf-max-height="1000"
+      ngf-max-size="1MB" ngf-multiple="true" data-cy="file-input">
       Select File</button>
     <br><br>
-    File:
-    <div data-cy="file-result">{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+    File(s):
+    <div data-cy="file-result-valid">
+      <li ng-repeat="f in files" style="font:smaller">
+        {{f.name}}
+      </li>
+    </div>
+    <div data-cy="file-result-invalid">
+      <li ng-repeat="f in invalidFiles" style="font:smaller">
+        {{f.name}} {{f.$error}} {{f.$errorParam}}
+      </li>
     </div>
     {{errorMsg}}
 
