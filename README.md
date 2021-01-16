@@ -204,9 +204,9 @@ Here is step-by-step guide:
 
 ## I want to contribute
 
-You have an idea of improvement, or some bugfix, or even a small typo fix? That's :cool:!
+You have an idea of improvement, or some bugfix, or even a small typo fix? That's :cool:
 
-We really appreciate that and try to share ideas and best practices. Make sure to check out [CONTRIBUTING.MD](./CONTRIBUTING.MD) before start!
+We really appreciate that and try to share ideas and best practices. Make sure to check out [CONTRIBUTING.md](./CONTRIBUTING.md) before start!
 
 Have something on your mind? Drop an issue or a message in [Discussions](https://github.com/abramenal/cypress-file-upload/discussions).
 
