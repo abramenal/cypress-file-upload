@@ -34,6 +34,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: gerred/actions/current-time@master
       - run: npm ci
       - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
@@ -50,7 +51,7 @@ jobs:
           install: false
           record: true
           group: '${{ matrix.cwd }}/Chrome'
-          ci-build-id: '${{ github.sha }}-${{ github.workflow }}-${{ github.event_name }}'
+          ci-build-id: '${{ github.sha }}-{{ steps.current-time.outputs.time }}-${{ github.workflow }}-${{ github.event_name }}'
           browser: chrome
           headless: false
           wait-on: ${{ env.app_host }}
