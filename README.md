@@ -47,6 +47,13 @@ To be able to use any custom command you need to add it to `cypress/support/comm
 import 'cypress-file-upload';
 ```
 
+Then, make sure this `commands.js` is imported in `cypress/support/index.js` (it might be commented):
+
+```javascript
+// Import commands.js using ES2015 syntax:
+import './commands';
+```
+
 All set now! :boom:
 
 ## Usage
@@ -140,6 +147,38 @@ cy.get('[data-cy="file-input"]')
   .attachFile({ filePath: 'empty.txt', allowEmpty: true });
 ```
 
+### Waiting for the upload to complete
+
+Cypress' [`cy.wait`][cy.wait] command allows you to pause code execution until some asyncronous action is finished. In case you are testing file upload, you might want to wait until the upload is complete:
+
+```javascript
+// start watching the POST requests
+cy.server({ method:'POST' });
+// and in particular the one with 'upload_endpoint' in the URL
+cy.route({
+  method: 'POST',
+  url: /upload_endpoint/
+}).as('upload');
+
+
+const fileName = 'upload_1.xlsx';
+
+cy.fixture(fileName, 'binary')
+    .then(Cypress.Blob.binaryStringToBlob)
+    .then(fileContent => {
+      cy.get('#input_upload_file').upload({ fileContent, fileName, mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', encoding:'utf8' })
+})
+
+// wait for the 'upload_endpoint' request, and leave a 2 minutes delay before throwing an error
+cy.wait('@upload', { requestTimeout: 120000 });
+
+// stop watching requests
+cy.server({ enable: false })
+
+// keep testing the app
+// e.g. cy.get('.link_file[aria-label="upload_1"]').contains('(xlsx)');
+```
+
 ### I wanna see some real-world examples
 
 There is a set of [recipes](./recipes) that demonstrates some framework setups along with different test cases. Make sure to check it out when in doubt.
@@ -182,6 +221,7 @@ During the lifetime plugin faced some issues you might need to be aware of:
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
 - Binary fixture has a workarounded encoding: [#70][#70]
 - Video fixture has a workarounded encoding: [#136][#136]
+- XML encoded files: [#209][#209]
 - Shadow DOM compatibility: [#74][#74]
 - Reading file content after upload: [#104][#104]
 
@@ -293,6 +333,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [cypress]: https://cypress.io/
 [cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
 [cy.trigger]: https://docs.cypress.io/api/commands/trigger.html#Arguments
+[cy.wait]: https://docs.cypress.io/api/commands/wait.html
 [npm]: https://www.npmjs.com/
 [mime]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
 [mit]: https://opensource.org/licenses/MIT
@@ -302,3 +343,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [#74]: https://github.com/abramenal/cypress-file-upload/issues/74
 [#104]: https://github.com/abramenal/cypress-file-upload/issues/104
 [#136]: https://github.com/abramenal/cypress-file-upload/issues/136
+[#209]: https://github.com/abramenal/cypress-file-upload/issues/209
