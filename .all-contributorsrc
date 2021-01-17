@@ -479,6 +479,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "zephraph",
+      "name": "Justin Bennett",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/3087225?v=4",
+      "profile": "https://github.com/zephraph",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
