@@ -1,14 +1,9 @@
----
-title: "feat: my awesome contribution"
-assignees: abramenal
----
-
 #### Checklist:
 
-[] No linting issues
-[] Commits are compliant with commitizen
-[] CI tests have passed
-[] Documentation updated
+- [ ] No linting issues
+- [ ] Commits are compliant with commitizen
+- [ ] CI tests have passed
+- [ ] Documentation updated
 
 #### Summary of changes
 
@@ -17,4 +12,4 @@ application and/or what bugs it fixes._
 
 #### Linked issues
 
-_Closes #1_
+_You might use keyword combinations like"Closes #1" to link issues or other related PRs_
