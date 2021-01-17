@@ -221,6 +221,7 @@ During the lifetime plugin faced some issues you might need to be aware of:
 - Force event triggering (same as for [`cy.trigger`][cy.trigger]) should happen when you use hidden HTML controls: [#41][#41]
 - Binary fixture has a workarounded encoding: [#70][#70]
 - Video fixture has a workarounded encoding: [#136][#136]
+- XML encoded files: [#209][#209]
 - Shadow DOM compatibility: [#74][#74]
 - Reading file content after upload: [#104][#104]
 
@@ -342,3 +343,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [#74]: https://github.com/abramenal/cypress-file-upload/issues/74
 [#104]: https://github.com/abramenal/cypress-file-upload/issues/104
 [#136]: https://github.com/abramenal/cypress-file-upload/issues/136
+[#209]: https://github.com/abramenal/cypress-file-upload/issues/209
