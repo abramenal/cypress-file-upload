@@ -316,6 +316,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
   <tr>
     <td align="center"><a href="http://www.andri.co"><img src="https://avatars0.githubusercontent.com/u/17087167?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrico</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=andrico1234" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/paulblyth"><img src="https://avatars0.githubusercontent.com/u/692357?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Paul Blyth</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=paulblyth" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/zephraph"><img src="https://avatars1.githubusercontent.com/u/3087225?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Justin Bennett</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=zephraph" title="Documentation">📖</a></td>
   </tr>
 </table>
 
