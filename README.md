@@ -47,6 +47,13 @@ To be able to use any custom command you need to add it to `cypress/support/comm
 import 'cypress-file-upload';
 ```
 
+Then, make sure this `commands.js` is imported in `cypress/support/index.js` (it might be commented):
+
+```javascript
+// Import commands.js using ES2015 syntax:
+import './commands';
+```
+
 All set now! :boom:
 
 ## Usage
