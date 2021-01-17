@@ -16,17 +16,6 @@ describe('Attach file to an input element', () => {
         cy.get(`li.${type}`).contains('cy.png');
       });
 
-      it('receives multiple files (using chaining)', () => {
-        cy.get(`[data-cy="${testId}"]`)
-          .attachFile('cy.png')
-          .attachFile('test.svg');
-
-        cy.get(`li.${type}`).should('have.length', 2);
-
-        cy.get(`li.${type}`).contains('cy.png');
-        cy.get(`li.${type}`).contains('test.svg');
-      });
-
       it('receives multiple files (using array of fixtures)', () => {
         cy.get(`[data-cy="${testId}"]`).attachFile(['cy.png', 'test.svg']);
 

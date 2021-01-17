@@ -79,15 +79,7 @@ cy.get('[data-cy="dropzone"]')
 cy.get('[data-cy="file-input"]')
   .attachFile(['myfixture1.json', 'myfixture2.json']);
 ```
-
-You can also attach multiple files by chaining the command, but it will trigger all the DOM events per every call. In most cases, this is an unnecessary side effect, so try to avoid using that:
-
-```javascript
-cy.get('[data-cy="file-input"]')
-  .attachFile('myfixture1.json')
-  .attachFile('myfixture2.json');
-```
-
+_Note: in previous version you could also attach it chaining the command. It brought flaky behavior with redundant multiple event triggers, and was generally unstable. It might be still working, but make sure to use array instead._
 ### Working with file encodings
 
 In some cases you might need more than just plain JSON [`cy.fixture`][cy.fixture]. If your file extension is supported out of the box, it should all be just fine.
