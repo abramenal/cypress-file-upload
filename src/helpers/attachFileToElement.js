@@ -17,7 +17,7 @@ function dispatchEvents(element, events, dataTransfer) {
   });
 }
 
-export default function(subject, { files, subjectType, force, window }) {
+export default function attachFileToElement(subject, { files, subjectType, force, window }) {
   const dataTransfer = new window.DataTransfer();
   files.forEach(f => dataTransfer.items.add(f));
 
