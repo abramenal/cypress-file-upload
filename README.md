@@ -166,7 +166,7 @@ const fileName = 'upload_1.xlsx';
 cy.fixture(fileName, 'binary')
     .then(Cypress.Blob.binaryStringToBlob)
     .then(fileContent => {
-      cy.get('#input_upload_file').upload({ fileContent, fileName, mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', encoding:'utf8' })
+      cy.get('#input_upload_file').attachFile({ fileContent, fileName, mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', encoding:'utf8' })
 })
 
 // wait for the 'upload_endpoint' request, and leave a 2 minutes delay before throwing an error
