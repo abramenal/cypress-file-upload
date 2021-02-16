@@ -319,6 +319,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/zephraph"><img src="https://avatars1.githubusercontent.com/u/3087225?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Justin Bennett</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=zephraph" title="Documentation">📖</a></td>
     <td align="center"><a href="http://www.bennettjones.com"><img src="https://avatars0.githubusercontent.com/u/62298251?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shafiq Jetha</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=jethas-bennettjones" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/anonkey"><img src="https://avatars1.githubusercontent.com/u/6380129?v=4?s=100" width="100px;" alt=""/><br /><sub><b>tt rt</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=anonkey" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.edhollinghurst.com"><img src="https://avatars.githubusercontent.com/u/2844785?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ed Hollinghurst</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=edhollinghurst" title="Documentation">📖</a></td>
   </tr>
 </table>
 
