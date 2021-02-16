@@ -506,6 +506,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "edhollinghurst",
+      "name": "Ed Hollinghurst",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2844785?v=4",
+      "profile": "https://www.edhollinghurst.com",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
