@@ -16,5 +16,6 @@ export default function getFixtureInfo(fixtureInput) {
     mimeType: fixtureInput.mimeType || '',
     fileName: fixtureInput.fileName || path.basename(fixtureInput.filePath),
     fileContent: fixtureInput.fileContent,
+    lastModified: fixtureInput.lastModified,
   };
 }

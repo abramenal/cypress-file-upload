@@ -112,7 +112,12 @@ const special = 'file.spss';
 cy.fixture(special, 'binary')
   .then(Cypress.Blob.binaryStringToBlob)
   .then(fileContent => {
-    cy.get('[data-cy="file-input"]').attachFile({ fileContent, filePath: special, encoding: 'utf-8' });
+    cy.get('[data-cy="file-input"]').attachFile({
+      fileContent,
+      filePath: special,
+      encoding: 'utf-8',
+      lastModified: new Date().getTime()
+    });
   });
 ```
 
@@ -127,6 +132,7 @@ cy.fixture('file.spss', 'binary')
       fileName: 'whatever',
       mimeType: 'application/octet-stream',
       encoding: 'utf-8',
+      lastModified: new Date().getTime(),
     });
   });
 ```
@@ -166,8 +172,14 @@ const fileName = 'upload_1.xlsx';
 cy.fixture(fileName, 'binary')
     .then(Cypress.Blob.binaryStringToBlob)
     .then(fileContent => {
-      cy.get('#input_upload_file').attachFile({ fileContent, fileName, mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', encoding:'utf8' })
-})
+      cy.get('#input_upload_file').attachFile({
+        fileContent,
+        fileName,
+        mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        encoding:'utf8',
+        lastModified: new Date().getTime()
+      })
+    })
 
 // wait for the 'upload_endpoint' request, and leave a 2 minutes delay before throwing an error
 cy.wait('@upload', { requestTimeout: 120000 });
@@ -200,6 +212,7 @@ cySubject.attachFile(fixture, processingOpts);
 - {Blob} `fileContent` - the binary content of the file to be attached
 - {string} `mimeType` - file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
 - {string} `encoding` - normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/lib/file/constants.js#L1)
+- {number} `lastModified` - The unix timestamp of the lastModified value for the file.  Defaults to current time. Can be generated from `new Date().getTime()` or `Date.now()`
 
 `processingOpts` contains following properties:
 

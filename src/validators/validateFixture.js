@@ -4,7 +4,7 @@ import { ENCODING } from '../../lib/file/constants';
 const ALLOWED_ENCODINGS = Object.values(ENCODING);
 
 export default function validateFixtures(fixture) {
-  const { filePath, fileName, encoding, mimeType, fileContent } = fixture;
+  const { filePath, fileName, encoding, mimeType, fileContent, lastModified } = fixture;
 
   if (encoding && !ALLOWED_ENCODINGS.includes(encoding)) {
     throw new InternalError(ERR_TYPES.INVALID_FILE_ENCODING);
@@ -20,6 +20,10 @@ export default function validateFixtures(fixture) {
 
   if (!filePath && !fileName) {
     throw new InternalError(ERR_TYPES.MISSING_FILE_NAME_OR_PATH);
+  }
+
+  if (lastModified && typeof lastModified !== 'number') {
+    throw new InternalError(ERR_TYPES.INVALID_LAST_MODIFIED);
   }
 
   return true;
