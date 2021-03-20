@@ -515,6 +515,16 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "anark",
+      "name": "anark",
+      "avatar_url": "https://avatars.githubusercontent.com/u/101184?v=4",
+      "profile": "https://github.com/anark",
+      "contributions": [
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
