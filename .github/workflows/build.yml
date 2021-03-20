@@ -1,6 +1,10 @@
 name: build
 
-on: [push, workflow_dispatch]
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
 jobs:
   build:
