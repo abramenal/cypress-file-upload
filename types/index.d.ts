@@ -22,6 +22,7 @@ declare namespace Cypress {
         fileName?: string;
         encoding?: FixtureEncoding;
         mimeType?: string;
+        lastModified?: number;
       };
 
   interface FileProcessingOptions {
