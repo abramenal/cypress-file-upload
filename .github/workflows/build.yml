@@ -3,8 +3,7 @@ name: build
 on:
   push:
     branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+  pull_request: {}
 
 jobs:
   build:
