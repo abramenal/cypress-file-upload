@@ -3,8 +3,7 @@ name: build
 on:
   push:
     branches: [ $default-branch ]
-  pull_request:
-    branches: [ $default-branch ]
+  pull_request: {}
 
 jobs:
   build:
@@ -40,6 +39,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: gerred/actions/current-time@master
       - run: npm ci
+      - run: npm run build
       - name: Install dependencies and verify Cypress
         uses: cypress-io/github-action@v2
         with:
