@@ -335,6 +335,9 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://www.edhollinghurst.com"><img src="https://avatars.githubusercontent.com/u/2844785?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ed Hollinghurst</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=edhollinghurst" title="Documentation">📖</a></td>
     <td align="center"><a href="https://github.com/anark"><img src="https://avatars.githubusercontent.com/u/101184?v=4?s=100" width="100px;" alt=""/><br /><sub><b>anark</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=anark" title="Tests">⚠️</a> <a href="https://github.com/abramenal/cypress-file-upload/commits?author=anark" title="Code">💻</a></td>
   </tr>
+  <tr>
+    <td align="center"><a href="https://www.michaeljaltamirano.com/"><img src="https://avatars.githubusercontent.com/u/13544620?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Altamirano</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=michaeljaltamirano" title="Code">💻</a></td>
+  </tr>
 </table>
 
 <!-- markdownlint-restore -->
