@@ -14,14 +14,5 @@ export const EVENTS_BY_SUBJECT_TYPE = {
   /**
    * @see https://developer.mozilla.org/en-US/docs/Web/API/DragEvent
    */
-  [SUBJECT_TYPE.DRAG_N_DROP]: [
-    'dragstart',
-    'drag',
-    'dragenter',
-    'dragover',
-    'drop',
-    'dragleave',
-    'dragexit',
-    'dragend',
-  ],
+  [SUBJECT_TYPE.DRAG_N_DROP]: ['dragstart', 'drag', 'dragenter', 'drop', 'dragleave', 'dragend'],
 };
