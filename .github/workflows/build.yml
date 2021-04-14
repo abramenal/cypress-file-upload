@@ -32,6 +32,7 @@ jobs:
       # pass GitHub token to allow accurately detecting a build vs a re-run build
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     strategy:
+      fail-fast: false
       matrix:
         cwd: [angularjs-ng-file-upload, react-dropzone, react-html5-input, shadow-dom-native]
 
