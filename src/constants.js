@@ -11,5 +11,8 @@ export const SUBJECT_TYPE = Object.freeze({
 
 export const EVENTS_BY_SUBJECT_TYPE = {
   [SUBJECT_TYPE.INPUT]: ['change'],
-  [SUBJECT_TYPE.DRAG_N_DROP]: ['dragstart', 'drag', 'dragenter', 'drop', 'change', 'dragleave', 'dragend'],
+  /**
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/DragEvent
+   */
+  [SUBJECT_TYPE.DRAG_N_DROP]: ['dragstart', 'drag', 'dragenter', 'drop', 'dragleave', 'dragend'],
 };
