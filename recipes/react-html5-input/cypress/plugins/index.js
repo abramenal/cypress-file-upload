@@ -1,3 +1,5 @@
+const fs = require('fs');
+const path = require('path');
 // ***********************************************************
 // This example plugins/index.js can be used to load plugins
 //
@@ -11,7 +13,20 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 
-module.exports = (/* on, config */) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
+module.exports = (on, config) => {
+  on('task', {
+    readDir(folderName) {
+      const folderPath = path.resolve(process.cwd(), 'cypress/fixtures', folderName);
+
+      return new Promise((resolve, reject) => {
+        fs.readdir(folderPath, (err, files) => {
+          if (err) {
+            return reject(err);
+          }
+
+          resolve(files);
+        });
+      });
+    },
+  });
 };
