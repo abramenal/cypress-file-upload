@@ -1,4 +1,4 @@
-import path from 'path';
+import { getFileName } from '../../lib/file';
 
 export default function getFixtureInfo(fixtureInput) {
   if (typeof fixtureInput === 'string') {
@@ -6,7 +6,7 @@ export default function getFixtureInfo(fixtureInput) {
       filePath: fixtureInput,
       encoding: '',
       mimeType: '',
-      fileName: path.basename(fixtureInput),
+      fileName: getFileName(fixtureInput),
     };
   }
 
@@ -14,7 +14,7 @@ export default function getFixtureInfo(fixtureInput) {
     filePath: fixtureInput.filePath,
     encoding: fixtureInput.encoding || '',
     mimeType: fixtureInput.mimeType || '',
-    fileName: fixtureInput.fileName || path.basename(fixtureInput.filePath),
+    fileName: fixtureInput.fileName || getFileName(fixtureInput.filePath),
     fileContent: fixtureInput.fileContent,
     lastModified: fixtureInput.lastModified,
   };
