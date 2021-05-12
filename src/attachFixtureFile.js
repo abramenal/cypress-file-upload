@@ -1,12 +1,12 @@
-import {DEFAULT_PROCESSING_OPTIONS} from './constants';
+import { DEFAULT_PROCESSING_OPTIONS } from './constants';
 
-import {attachFileToElement, getFixtureInfo, getForceValue} from './helpers';
-import {validateFixture, validateFile, validateOptions} from './validators';
-import {resolveFixtureFile} from '../lib/file';
-import {merge} from '../lib/object';
+import { attachFileToElement, getFixtureInfo, getForceValue } from './helpers';
+import { validateFixture, validateFile, validateOptions } from './validators';
+import { resolveFixtureFile } from '../lib/file';
+import { merge } from '../lib/object';
 
-export default function attachFile(subject, fixtureOrFixtureArray, processingOptions) {
-  const {subjectType, force, allowEmpty} = merge(processingOptions, DEFAULT_PROCESSING_OPTIONS);
+export default function attachFixtureFile(subject, fixtureOrFixtureArray, processingOptions) {
+  const { subjectType, force, allowEmpty } = merge(processingOptions, DEFAULT_PROCESSING_OPTIONS);
   validateOptions({
     subjectType,
     force,
@@ -16,7 +16,7 @@ export default function attachFile(subject, fixtureOrFixtureArray, processingOpt
   const fixturesArray = Array.isArray(fixtureOrFixtureArray) ? fixtureOrFixtureArray : [fixtureOrFixtureArray];
   const fixtures = fixturesArray.map(getFixtureInfo).filter(validateFixture);
 
-  Cypress.cy.window({log: false}).then(window => {
+  Cypress.cy.window({ log: false }).then(window => {
     const forceValue = force || getForceValue(subject);
 
     Cypress.Promise.all(fixtures.map(f => resolveFixtureFile(f, window))) // resolve files
@@ -39,5 +39,5 @@ export default function attachFile(subject, fixtureOrFixtureArray, processingOpt
       );
   });
 
-  return Cypress.cy.wrap(subject, {log: false});
+  return Cypress.cy.wrap(subject, { log: false });
 }

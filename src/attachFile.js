@@ -5,7 +5,7 @@ import { validateFixture, validateFile, validateOptions } from './validators';
 import { resolveFile } from '../lib/file';
 import { merge } from '../lib/object';
 
-export default function attachFile(subject, fixtureOrFixtureArray, processingOptions) {
+export default function attachFile(subject, fileOrFileArray, processingOptions) {
   const { subjectType, force, allowEmpty } = merge(processingOptions, DEFAULT_PROCESSING_OPTIONS);
   validateOptions({
     subjectType,
@@ -13,13 +13,13 @@ export default function attachFile(subject, fixtureOrFixtureArray, processingOpt
     allowEmpty,
   });
 
-  const fixturesArray = Array.isArray(fixtureOrFixtureArray) ? fixtureOrFixtureArray : [fixtureOrFixtureArray];
-  const fixtures = fixturesArray.map(getFixtureInfo).filter(validateFixture);
+  const filesArray = Array.isArray(fileOrFileArray) ? fileOrFileArray : [fileOrFileArray];
+  const filesToUpload = filesArray.map(getFixtureInfo).filter(validateFixture);
 
   Cypress.cy.window({ log: false }).then(window => {
     const forceValue = force || getForceValue(subject);
 
-    Cypress.Promise.all(fixtures.map(f => resolveFile(f, window))) // resolve files
+    Cypress.Promise.all(filesToUpload.map(f => resolveFile(f, window))) // resolve files
       .then(files => files.filter(f => validateFile(f, allowEmpty))) // error if any of the file contents are invalid
       .then(files => {
         attachFileToElement(subject, {
