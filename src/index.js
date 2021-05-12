@@ -1,5 +1,5 @@
 import attachFile from './attachFile';
-import attachFixtureFile from "./attachFixtureFile";
+import attachFixtureFile from './attachFixtureFile';
 
 const initialize = () => {
   Cypress.Commands.add('attachFile', { prevSubject: true }, attachFile);
