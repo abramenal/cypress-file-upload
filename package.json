@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "microbundle build -i src/index.js -f cjs --target node --strict --no-compress --no-generate-types",
+    "prepare": "npm run build",
     "lint": "eslint . --ext=js",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
