@@ -1,6 +1,6 @@
 import { DEFAULT_PROCESSING_OPTIONS } from './constants';
 
-import { attachFileToElement, getFixtureInfo, getForceValue } from './helpers';
+import { attachFileToElement, getFileInfo, getForceValue } from './helpers';
 import { validateFixture, validateFile, validateOptions } from './validators';
 import { resolveFile } from '../lib/file';
 import { merge } from '../lib/object';
@@ -14,7 +14,7 @@ export default function attachFile(subject, fileOrFileArray, processingOptions) 
   });
 
   const filesArray = Array.isArray(fileOrFileArray) ? fileOrFileArray : [fileOrFileArray];
-  const filesToUpload = filesArray.map(getFixtureInfo).filter(validateFixture);
+  const filesToUpload = filesArray.map(getFileInfo).filter(validateFixture);
 
   Cypress.cy.window({ log: false }).then(window => {
     const forceValue = force || getForceValue(subject);
