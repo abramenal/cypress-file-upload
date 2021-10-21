@@ -61,10 +61,11 @@ All set now! :boom:
 Now, let's see how we can actually test something. Exposed command has signature like:
 
 ```javascript
-cySubject.attachFile(fixture, optionalProcessingConfig);
+cySubject.attachFile(file, optionalProcessingConfig);
+cySubject.attachFixture(fixture, optionalProcessingConfig);
 ```
 
-It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture).  The command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name.
+It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture). `attachFixture` command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name. `attachFile` on the other hand recognise [`cy.readFile`][cy.readFile], so full file path is needed. `optionalProcessingConfig` is the same for both commands.
 
 ### HTML5 file input
 
@@ -353,6 +354,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [cypress]: https://cypress.io/
 [cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
+[cy.readFile]: https://docs.cypress.io/api/commands/readFile.html
 [cy.trigger]: https://docs.cypress.io/api/commands/trigger.html#Arguments
 [cy.wait]: https://docs.cypress.io/api/commands/wait.html
 [npm]: https://www.npmjs.com/

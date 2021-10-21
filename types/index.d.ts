@@ -32,9 +32,15 @@ declare namespace Cypress {
   interface Chainable<Subject = any> {
     /**
      * Command to attach file(s) to given HTML element as subject
+     * @param file to attach
+     * @param processingOpts affects the way of fixture processing
+     */
+    attachFile(file: FixtureData | FixtureData[], processingOpts?: FileProcessingOptions): Chainable<Subject>;
+    /**
+     * Command to attach fixture file(s) to given HTML element as subject
      * @param fixture file to attach
      * @param processingOpts affects the way of fixture processing
      */
-    attachFile(fixture: FixtureData | FixtureData[], processingOpts?: FileProcessingOptions): Chainable<Subject>;
+    attachFixture(fixture: FixtureData | FixtureData[], processingOpts?: FileProcessingOptions): Chainable<Subject>;
   }
 }
