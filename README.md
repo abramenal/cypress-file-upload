@@ -338,6 +338,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
   </tr>
   <tr>
     <td align="center"><a href="https://www.michaeljaltamirano.com/"><img src="https://avatars.githubusercontent.com/u/13544620?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Michael Altamirano</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=michaeljaltamirano" title="Code">💻</a> <a href="#question-michaeljaltamirano" title="Answering Questions">💬</a></td>
+    <td align="center"><a href="https://github.com/ErikGrigoriev"><img src="https://avatars.githubusercontent.com/u/38311981?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Erik Grigoriev</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=ErikGrigoriev" title="Code">💻</a></td>
   </tr>
 </table>
 
