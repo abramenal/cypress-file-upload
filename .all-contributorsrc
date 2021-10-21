@@ -544,6 +544,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "jtneal",
+      "name": "Jason Neal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5340961?v=4",
+      "profile": "https://jneal.com",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
