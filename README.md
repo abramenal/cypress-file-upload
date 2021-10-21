@@ -65,7 +65,7 @@ cySubject.attachFile(file, optionalProcessingConfig);
 cySubject.attachFixture(fixture, optionalProcessingConfig);
 ```
 
-It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture). `attachFixture` command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name. `attachFile` on the other hand recognise [`cy.readFile`][cy.readFile], so full file path is needed. `optionalProcessingConfig` is the same for both commands.
+It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture). `attachFixture` command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name. `attachFile` on the other hand recognise [`cy.readFile`][cy.readFile], so a path within the project root folder needed. `optionalProcessingConfig` is the same for both commands.
 
 ### HTML5 file input
 
