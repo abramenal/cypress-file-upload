@@ -25,6 +25,18 @@ export default function attachFileToElement(subject, { files, subjectType, force
   const dataTransfer = new window.DataTransfer();
   files.forEach(f => dataTransfer.items.add(f));
 
+  cy.stub(
+    dataTransfer,
+    'items',
+    Array.from(dataTransfer.items).map(item => {
+      cy.stub(item, 'webkitGetAsEntry', () => ({
+        isFile: true,
+        file: callback => callback(item.getAsFile()),
+      }));
+      return item;
+    }),
+  );
+
   if (subjectType === SUBJECT_TYPE.INPUT) {
     const inputElement = subject[0];
     inputElement.files = dataTransfer.files;
