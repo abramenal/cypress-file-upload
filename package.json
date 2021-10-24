@@ -6,7 +6,7 @@
   "main": "dist/bundle.js",
   "types": "types/index.d.ts",
   "engines": {
-    "node": ">=8.2.1"
+    "node": ">=12.14.1"
   },
   "scripts": {
     "build": "microbundle build -i src/index.ts -f cjs --target node --tsconfig tsconfig.json --strict --no-compress --generateTypes false",
@@ -32,10 +32,11 @@
   },
   "homepage": "https://github.com/abramenal/cypress-file-upload#readme",
   "devDependencies": {
-    "@tsconfig/cypress": "^1.0.0",
     "@types/mime": "^2.0.3",
+    "@types/node": "^12.20.34",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
     "@typescript-eslint/parser": "^5.1.0",
+    "cypress": "^6.9.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^7.2.0",
