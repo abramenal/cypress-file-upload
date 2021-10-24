@@ -1,4 +1,5 @@
 # CONTRIBUTING.MD
+
 ## Working on your first Pull Request?
 
 You can learn how from this _free_ series [How to Contribute to an Open Source Project on GitHub](https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github)
@@ -6,7 +7,11 @@ You can learn how from this _free_ series [How to Contribute to an Open Source P
 ## Steps to make it :cool:
 
 ### Fork the repo
-Nothing special here, just do it!
+
+Nothing special here, just do it! Once forked, you need to set up the stuff:
+
+0. Install the packages via `npm install`
+1. Install git hooks via `npx husky install`
 
 ### Enable Github Actions
 
@@ -29,7 +34,6 @@ Once it is all done, and if you have enabled Github Actions, it will automatical
 ### Submit the PR
 
 Make sure to follow PR template. Describe your changes, link issues - anything that could help us to review your awesome contribution faster and understand reasoning in a year after that.
-
 
 ### Receive shout-outs
 

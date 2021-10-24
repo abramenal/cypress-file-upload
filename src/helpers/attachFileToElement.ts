@@ -39,16 +39,14 @@ export default function attachFileToElement(
   files.forEach(f => dataTransfer.items.add(f));
 
   cy.stub(dataTransfer, 'items').callsFake(() =>
-    Array.from(dataTransfer.items).map(
-      (item: DataTransferItem): DataTransferItem => {
-        cy.stub(item, 'webkitGetAsEntry').callsFake(() => ({
-          isFile: true,
-          file: (callback: Function) => callback(item.getAsFile()),
-        }));
+    Array.from(dataTransfer.items).map((item: DataTransferItem): DataTransferItem => {
+      cy.stub(item, 'webkitGetAsEntry').callsFake(() => ({
+        isFile: true,
+        file: (callback: Function) => callback(item.getAsFile()),
+      }));
 
-        return item;
-      },
-    ),
+      return item;
+    }),
   );
 
   if (subjectType === HtmlSubjectType.input) {

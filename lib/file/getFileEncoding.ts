@@ -34,9 +34,8 @@ const EXTENSION_TO_ENCODING: Record<FileExtension, FileEncodings> = {
 
 const DEFAULT_ENCODING = FileEncodings.utf8;
 
-const isKnownExtension = (extension: string): extension is FileExtension => {
-  return Object.values(FileExtension).includes(extension as FileExtension);
-};
+const isKnownExtension = (extension: string): extension is FileExtension =>
+  Object.values(FileExtension).includes(extension as FileExtension);
 
 export default function getFileEncoding(filePath?: string) {
   const extension = getFileExtension(filePath);

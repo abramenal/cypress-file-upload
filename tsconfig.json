@@ -4,6 +4,7 @@
     "declaration": false,
     "lib": ["es5", "dom"],
     "module": "ESNext",
+    "moduleResolution": "Node",
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
