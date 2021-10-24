@@ -6,7 +6,7 @@
   "main": "dist/bundle.js",
   "types": "types/index.d.ts",
   "engines": {
-    "node": ">=12.14.1"
+    "node": ">=12.18.3"
   },
   "scripts": {
     "build": "microbundle build -i src/index.ts -f cjs --target node --tsconfig tsconfig.json --strict --no-compress --generateTypes false",
@@ -51,6 +51,6 @@
     "typescript": "^4.4.4"
   },
   "peerDependencies": {
-    "cypress": ">6.0.0"
+    "cypress": ">=6.0.0"
   }
 }
