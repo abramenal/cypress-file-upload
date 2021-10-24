@@ -4,7 +4,6 @@ updates:
   - allow:
       - dependency-type: direct
     commit-message:
-      include: scope
       prefix: chore
     directory: /
     open-pull-requests-limit: 99
