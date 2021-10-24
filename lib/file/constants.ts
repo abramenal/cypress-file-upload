@@ -34,4 +34,5 @@ export enum FileExtension {
   doc = 'doc',
   docx = 'docx',
   mp3 = 'mp3',
+  mp4 = 'mp4',
 }
