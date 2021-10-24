@@ -7,3 +7,5 @@ const initialize = () => {
 };
 
 initialize();
+
+export {};

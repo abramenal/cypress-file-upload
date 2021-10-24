@@ -1,10 +1,19 @@
 import { getFileName } from '../../lib/file';
+import { FileEncodings } from '../../lib/file/constants';
 
-export default function getFixtureInfo(fixtureInput) {
+export interface FixtureInfo {
+  filePath: string;
+  encoding?: FileEncodings;
+  mimeType: string;
+  fileName: string;
+  fileContent?: string;
+  lastModified?: number;
+}
+
+export default function getFixtureInfo(fixtureInput: string | FixtureInfo): FixtureInfo {
   if (typeof fixtureInput === 'string') {
     return {
       filePath: fixtureInput,
-      encoding: '',
       mimeType: '',
       fileName: getFileName(fixtureInput),
     };
@@ -12,7 +21,6 @@ export default function getFixtureInfo(fixtureInput) {
 
   return {
     filePath: fixtureInput.filePath,
-    encoding: fixtureInput.encoding || '',
     mimeType: fixtureInput.mimeType || '',
     fileName: fixtureInput.fileName || getFileName(fixtureInput.filePath),
     fileContent: fixtureInput.fileContent,

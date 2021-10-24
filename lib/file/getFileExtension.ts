@@ -1,4 +1,4 @@
-export default function getFileExt(filePath) {
+export default function getFileExtension(filePath?: string): string {
   if (!filePath) {
     return '';
   }

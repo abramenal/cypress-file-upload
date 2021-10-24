@@ -1,9 +1,10 @@
+import { FileEncodings } from '../../lib/file/constants';
 import { ERR_TYPES, InternalError } from '../error';
-import { ENCODING } from '../../lib/file/constants';
+import { FixtureInfo } from '../helpers/getFixtureInfo';
 
-const ALLOWED_ENCODINGS = Object.values(ENCODING);
+const ALLOWED_ENCODINGS = Object.values(FileEncodings);
 
-export default function validateFixtures(fixture) {
+export default function validateFixtures(fixture: FixtureInfo): boolean {
   const { filePath, fileName, encoding, mimeType, fileContent, lastModified } = fixture;
 
   if (encoding && !ALLOWED_ENCODINGS.includes(encoding)) {

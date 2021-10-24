@@ -1,4 +1,9 @@
-export const ERR_TYPES = {
+interface ErrorDescriptor {
+  message: string;
+  tip: string;
+}
+
+export const ERR_TYPES: Record<string, ErrorDescriptor> = {
   INVALID_SUBJECT_TYPE: {
     message: '"subjectType" is not valid',
     tip: 'Please look into docs to find supported "subjectType" values',
@@ -38,7 +43,7 @@ export const ERR_TYPES = {
 };
 
 export class InternalError extends Error {
-  constructor(errorType, ...params) {
+  constructor(errorType: ErrorDescriptor, ...params: string[]) {
     super(...params);
 
     if (Error.captureStackTrace) {

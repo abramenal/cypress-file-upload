@@ -1,6 +1,6 @@
 import { ERR_TYPES, InternalError } from '../error';
 
-export default (file, allowEmpty) => {
+export default (file: File, allowEmpty: boolean): boolean => {
   if (!allowEmpty) {
     const { size } = file;
 

@@ -1,8 +1,16 @@
-import { SUBJECT_TYPE } from '../constants';
+import { HtmlSubjectType } from '../constants';
 import { ERR_TYPES, InternalError } from '../error';
 
-export default ({ subjectType, force, allowEmpty }) => {
-  if (Object.values(SUBJECT_TYPE).indexOf(subjectType) === -1) {
+export default ({
+  subjectType,
+  force,
+  allowEmpty,
+}: {
+  subjectType: unknown;
+  force: unknown;
+  allowEmpty: unknown;
+}): boolean => {
+  if (Object.values(HtmlSubjectType).indexOf(String(subjectType) as HtmlSubjectType) === -1) {
     throw new InternalError(ERR_TYPES.INVALID_SUBJECT_TYPE);
   }
 

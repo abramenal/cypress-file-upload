@@ -1,7 +1,7 @@
 const UNIX_SEP = '/';
 const WIN_SEP = '\\';
 
-export default function getFileName(filePath) {
+export default function getFileName(filePath?: string): string {
   if (!filePath) {
     return '';
   }
