@@ -1,11 +1,7 @@
 /**
- * @description dispatches custom event with dataTransfer object provided
- *
- * @param {HTMLElement} target
- * @param {string} event
- * @param {DataTransfer} dataTransfer
+ * Dispatches custom event with dataTransfer object provided.
  */
-export default function dispatchEvent(target, event, dataTransfer) {
+export default function dispatchEvent(target: HTMLElement, event: string, dataTransfer: DataTransfer): void {
   const eventPayload = {
     bubbles: true,
     cancelable: true,

@@ -1,10 +1,7 @@
 /**
- * @description determines if element is visible in DOM
- *
- * @param {Cypress.Subject} element
- * @returns {Boolean}
+ * Determines if element is visible in DOM.
  */
-export default function isElementVisible(element) {
+export default function isElementVisible(element: HTMLElement | JQuery<HTMLElement>): boolean {
   if (!element) {
     throw new Error('Element cannot be empty');
   }

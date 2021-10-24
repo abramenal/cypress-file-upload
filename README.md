@@ -65,29 +65,28 @@ cySubject.attachFile(file, optionalProcessingConfig);
 cySubject.attachFixture(fixture, optionalProcessingConfig);
 ```
 
-It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture). `attachFixture` command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name. `attachFile` on the other hand recognise [`cy.readFile`][cy.readFile], so a path within the project root folder needed. `optionalProcessingConfig` is the same for both commands.
+It is a common practice to put all the files required for Cypress tests inside `cypress/fixtures` folder and call them as fixtures (or a fixture). `attachFixture` command recognizes [`cy.fixture`][cy.fixture] format, so usually this is just a file name. `attachFile` on the other hand recognise [`cy.readFile`][cy.readfile], so a path within the project root folder needed. `optionalProcessingConfig` is the same for both commands.
 
 ### HTML5 file input
 
 ```javascript
-cy.get('[data-cy="file-input"]')
-  .attachFile('myfixture.json');
+cy.get('[data-cy="file-input"]').attachFile('myfixture.json');
 ```
 
 ### Drag-n-drop component
 
 ```javascript
-cy.get('[data-cy="dropzone"]')
-  .attachFile('myfixture.json', { subjectType: 'drag-n-drop' });
+cy.get('[data-cy="dropzone"]').attachFile('myfixture.json', { subjectType: 'drag-n-drop' });
 ```
 
 ### Attaching multiple files
 
 ```javascript
-cy.get('[data-cy="file-input"]')
-  .attachFile(['myfixture1.json', 'myfixture2.json']);
+cy.get('[data-cy="file-input"]').attachFile(['myfixture1.json', 'myfixture2.json']);
 ```
+
 _Note: in previous version you could also attach it chaining the command. It brought flaky behavior with redundant multiple event triggers, and was generally unstable. It might be still working, but make sure to use array instead._
+
 ### Working with file encodings
 
 In some cases you might need more than just plain JSON [`cy.fixture`][cy.fixture]. If your file extension is supported out of the box, it should all be just fine.
@@ -95,8 +94,7 @@ In some cases you might need more than just plain JSON [`cy.fixture`][cy.fixture
 In case your file comes from some 3rd-party tool, or you already observed some errors in console, you likely need to tell Cypress how to treat your fixture file.
 
 ```javascript
-cy.get('[data-cy="file-input"]')
-  .attachFile({ filePath: 'test.shp', encoding: 'utf-8' });
+cy.get('[data-cy="file-input"]').attachFile({ filePath: 'test.shp', encoding: 'utf-8' });
 ```
 
 **Trying to upload a file that does not supported by Cypress by default?** Make sure you pass `encoding` property (see [API](#api)).
@@ -117,7 +115,7 @@ cy.fixture(special, 'binary')
       fileContent,
       filePath: special,
       encoding: 'utf-8',
-      lastModified: new Date().getTime()
+      lastModified: new Date().getTime(),
     });
   });
 ```
@@ -141,8 +139,7 @@ cy.fixture('file.spss', 'binary')
 ### Override the file name
 
 ```javascript
-cy.get('[data-cy="file-input"]')
-  .attachFile({ filePath: 'myfixture.json', fileName: 'customFileName.json' });
+cy.get('[data-cy="file-input"]').attachFile({ filePath: 'myfixture.json', fileName: 'customFileName.json' });
 ```
 
 ### Working with empty fixture file
@@ -150,8 +147,7 @@ cy.get('[data-cy="file-input"]')
 Normally you have to provide non-empty fixture file to test something. If your case isn't normal in that sense, here is the code snippet for you:
 
 ```javascript
-cy.get('[data-cy="file-input"]')
-  .attachFile({ filePath: 'empty.txt', allowEmpty: true });
+cy.get('[data-cy="file-input"]').attachFile({ filePath: 'empty.txt', allowEmpty: true });
 ```
 
 ### Waiting for the upload to complete
@@ -160,33 +156,32 @@ Cypress' [`cy.wait`][cy.wait] command allows you to pause code execution until s
 
 ```javascript
 // start watching the POST requests
-cy.server({ method:'POST' });
+cy.server({ method: 'POST' });
 // and in particular the one with 'upload_endpoint' in the URL
 cy.route({
   method: 'POST',
-  url: /upload_endpoint/
+  url: /upload_endpoint/,
 }).as('upload');
-
 
 const fileName = 'upload_1.xlsx';
 
 cy.fixture(fileName, 'binary')
-    .then(Cypress.Blob.binaryStringToBlob)
-    .then(fileContent => {
-      cy.get('#input_upload_file').attachFile({
-        fileContent,
-        fileName,
-        mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
-        encoding:'utf8',
-        lastModified: new Date().getTime()
-      })
-    })
+  .then(Cypress.Blob.binaryStringToBlob)
+  .then(fileContent => {
+    cy.get('#input_upload_file').attachFile({
+      fileContent,
+      fileName,
+      mimeType: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+      encoding: 'utf8',
+      lastModified: new Date().getTime(),
+    });
+  });
 
 // wait for the 'upload_endpoint' request, and leave a 2 minutes delay before throwing an error
 cy.wait('@upload', { requestTimeout: 120000 });
 
 // stop watching requests
-cy.server({ enable: false })
+cy.server({ enable: false });
 
 // keep testing the app
 // e.g. cy.get('.link_file[aria-label="upload_1"]').contains('(xlsx)');
@@ -213,7 +208,7 @@ cySubject.attachFile(fixture, processingOpts);
 - {Blob} `fileContent` - the binary content of the file to be attached
 - {string} `mimeType` - file [MIME][mime] type. By default, it gets resolved automatically based on file extension. Learn more about [mime](https://github.com/broofa/node-mime)
 - {string} `encoding` - normally [`cy.fixture`][cy.fixture] resolves encoding automatically, but in case it cannot be determined you can provide it manually. For a list of allowed encodings, see [here](https://github.com/abramenal/cypress-file-upload/blob/master/lib/file/constants.js#L1)
-- {number} `lastModified` - The unix timestamp of the lastModified value for the file.  Defaults to current time. Can be generated from `new Date().getTime()` or `Date.now()`
+- {number} `lastModified` - The unix timestamp of the lastModified value for the file. Defaults to current time. Can be generated from `new Date().getTime()` or `Date.now()`
 
 `processingOpts` contains following properties:
 
@@ -356,7 +351,7 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 [cypress]: https://cypress.io/
 [cy.fixture]: https://docs.cypress.io/api/commands/fixture.html
-[cy.readFile]: https://docs.cypress.io/api/commands/readFile.html
+[cy.readfile]: https://docs.cypress.io/api/commands/readFile.html
 [cy.trigger]: https://docs.cypress.io/api/commands/trigger.html#Arguments
 [cy.wait]: https://docs.cypress.io/api/commands/wait.html
 [npm]: https://www.npmjs.com/

@@ -1,23 +1,40 @@
 {
-  "extends": ["airbnb-base", "plugin:prettier/recommended"],
-  "plugins": ["prettier", "es"],
+  "env": {
+    "cypress/globals": true,
+    "node": true
+  },
+  "extends": ["airbnb-base", "plugin:import/recommended", "plugin:import/typescript", "prettier"],
+  "globals": {
+    "BlobPart": true,
+    "JQuery": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["import", "cypress", "@typescript-eslint", "prettier"],
   "rules": {
     "prettier/prettier": "error",
-
+    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-shadow": ["error"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never"
+      }
+    ],
     "arrow-parens": ["error", "as-needed"],
     "function-paren-newline": "off",
     "implicit-arrow-linebreak": "off",
     "max-len": ["error", { "code": 120 }],
+    "no-shadow": "off",
+    "no-unused-vars": "off",
     "no-use-before-define": ["error", { "functions": false }],
-    "object-curly-newline": ["error", { "consistent": true }],
-    "es/no-async-functions": "error",
-    "es/no-promise": "error"
+    "object-curly-newline": ["error", { "consistent": true }]
   },
-  "globals": {
-    "Cypress": true,
-    "cy": true,
-    "File": true,
-    "DataTransfer": true,
-    "CustomEvent": true
+  "settings": {
+    "import/extensions": [".ts"]
   }
 }

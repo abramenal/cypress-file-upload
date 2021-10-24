@@ -1,6 +1,6 @@
 const BROWSER_CHROME = 'chrome';
 
-export default function isManualEventHandling() {
+export default function isManualEventHandling(): boolean {
   const { name, majorVersion } = Cypress.browser;
 
   if (name === BROWSER_CHROME && majorVersion < 73) {
