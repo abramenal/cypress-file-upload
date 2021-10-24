@@ -30,6 +30,7 @@ const EXTENSION_TO_ENCODING: Record<FileExtension, FileEncodings> = {
   [FileExtension.doc]: FileEncodings.binary,
   [FileExtension.docx]: FileEncodings.binary,
   [FileExtension.mp3]: FileEncodings.binary,
+  [FileExtension.mp4]: FileEncodings.binary,
 };
 
 const DEFAULT_ENCODING = FileEncodings.utf8;
