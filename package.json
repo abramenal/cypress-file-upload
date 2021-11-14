@@ -1,6 +1,6 @@
 {
   "name": "cypress-file-upload",
-  "version": "5.0.8",
+  "version": "6.0.0-beta.0",
   "description": "A Cypress command for file upload",
   "source": "src/index.ts",
   "main": "dist/bundle.js",
