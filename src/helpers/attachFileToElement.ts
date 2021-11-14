@@ -49,6 +49,8 @@ export default function attachFileToElement(
     }),
   );
 
+  cy.stub(dataTransfer, 'types').value(['Files']);
+
   if (subjectType === HtmlSubjectType.input) {
     const inputElement = subject[0] as HTMLInputElement;
     inputElement.files = dataTransfer.files;
