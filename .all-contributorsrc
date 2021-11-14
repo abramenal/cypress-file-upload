@@ -553,6 +553,15 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "yoavbls",
+      "name": "Yoav Balasiano",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5693018?v=4",
+      "profile": "https://github.com/yoavbls",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
