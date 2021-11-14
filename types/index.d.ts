@@ -18,7 +18,7 @@ declare namespace Cypress {
     | string
     | {
         filePath?: string;
-        fileContent?: Blob;
+        fileContent?: Blob | object;
         fileName?: string;
         encoding?: FixtureEncoding;
         mimeType?: string;
