@@ -22,7 +22,7 @@ const EXTENSION_TO_ENCODING: Record<FileExtension, FileEncodings> = {
   /*
    * Other extensions that are not supported by cy.fixture by default:
    */
-  [FileExtension.pdf]: FileEncodings.utf8,
+  [FileExtension.pdf]: FileEncodings.base64,
   [FileExtension.vcf]: FileEncodings.utf8,
   [FileExtension.svg]: FileEncodings.utf8,
   [FileExtension.xls]: FileEncodings.binary,
