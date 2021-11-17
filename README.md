@@ -336,6 +336,7 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/all-contri
     <td align="center"><a href="https://github.com/ErikGrigoriev"><img src="https://avatars.githubusercontent.com/u/38311981?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Erik Grigoriev</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=ErikGrigoriev" title="Code">💻</a></td>
     <td align="center"><a href="https://jneal.com"><img src="https://avatars.githubusercontent.com/u/5340961?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jason Neal</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=jtneal" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/yoavbls"><img src="https://avatars.githubusercontent.com/u/5693018?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Yoav Balasiano</b></sub></a><br /><a href="https://github.com/abramenal/cypress-file-upload/commits?author=yoavbls" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/tomaszczura"><img src="https://avatars.githubusercontent.com/u/2226792?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Tomasz Czura</b></sub></a><br /><a href="#question-tomaszczura" title="Answering Questions">💬</a></td>
   </tr>
 </table>
 
