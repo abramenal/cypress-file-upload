@@ -150,7 +150,7 @@ Normally you have to provide non-empty fixture file to test something. If your c
 
 ```javascript
 cy.get('[data-cy="file-input"]')
-  .attachFile({ filePath: 'empty.txt', allowEmpty: true });
+  .attachFile({ filePath: 'empty.txt' }, { allowEmpty: true });
 ```
 
 ### Waiting for the upload to complete
